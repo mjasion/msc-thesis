@@ -1,0 +1,143 @@
+\documentclass[a4paper,12pt,twoside,openany]{report}
+%
+% Wzorzec pracy dyplomowej
+% J. Starzynski (jstar@iem.pw.edu.pl) na podstawie pracy dyplomowej
+% mgr. Błażeja Wincenciaka
+% Wersja 3.0 - 10 stycznia 2009
+%
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage[pdftex]{graphicx}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[polish]{babel}
+\usepackage{subfigure}
+\usepackage{amsfonts}
+\usepackage{verbatim}
+\usepackage{indentfirst}
+\usepackage[pdftex]{hyperref}
+
+
+% rozmaite polecenia pomocnicze
+% gdzie rysunki?
+\newcommand{\ImgPath}{img}
+
+% oznaczenie rzeczy do zrobienia/poprawienia
+\newcommand{\TODO}{\textbf{TODO}}
+
+
+% wyroznienie slow kluczowych
+\newcommand{\tech}{\texttt}
+
+% na oprawe (1.0cm - 0.7cm)*2 = 0.6cm
+% na oprawe (1.1cm - 0.7cm)*2 = 0.8cm
+%  oddsidemargin lewy margines na nieparzystych stronach
+% evensidemargin lewy margines na parzystych stronach
+\def\oprawa{1.05cm}
+\addtolength{\oddsidemargin}{\oprawa}
+\addtolength{\evensidemargin}{-\oprawa}
+
+% table span multirows
+\usepackage{multirow}
+\usepackage{enumitem}	% enumitem.pdf
+\setlist{listparindent=\parindent, parsep=\parskip} % potrzebuje enumitem
+
+%%%%%%%%%%%%%%% Dodatkowe Pakiety %%%%%%%%%%%%%%%%%
+\usepackage{prmag}   % definiuje komendy opieku,nrindeksu, rodzaj pracy, ...
+
+%%%%%%%%%%%%%%% Strona Tytułowa %%%%%%%%%%%%%%%%%
+\title{Porównanie wydajności serwisów RESTful wybranych platformach programowania}
+
+\author{Marcin Jasion}
+\nrindeksu{230338}
+% wstawienie zdjecia
+\zdjecie{\includegraphics[width=4cm]{\ImgPath/zdjecie.jpg}}
+
+\opiekun{prof. nzw. dr hab. inż. Krzysztof Siwek}
+% opcjonalnie: \konsultant{prof. Dzielny Konsultant}
+\terminwykonania{1 stycznia 1970} % TODO
+\datawydaniatematu{1 stycznia 1970} % TODO
+\rokakademicki{1970/1970} % TODO
+
+% zakres pracy
+\zakres {\input{zakres}}
+
+% Podziekowanie - opcjonalne
+\podziekowania{\input{podziekowania.tex}}
+
+\opinie{%
+  \input{opiniaopiekuna.tex}
+  \newpage
+  \input{recenzja.tex}
+}
+
+
+\begin{document}
+\maketitle
+
+\chapter{Wstęp}
+
+\chapter{Przegląd literatury}
+\section{Serwisy RESTful}
+\subsection{Czym jest serwis RESTful}
+\subsection{Mikroserwisy}
+
+\section{Java}
+\subsection{Historia i ewolucja języka Java}
+\subsection{Java 8}
+\subsection{Biblioteka Spring}
+\subsubsection{Spring Boot}
+\subsubsection{Spring Data MongoDB}
+\subsection{Kontenery aplikacji}
+\subsubsection{Tomcat8}
+\subsubsection{Jetty9}
+\subsubsection{Undertow}
+
+\section{NodeJS}
+\subsection{Historia i ewolucja platformy NodeJS}
+\subsection{Biblioteka ExpressJS}
+\subsection{Biblioteka Mongoose}
+
+\section{Go}
+\subsection{Historia i ewolucja języka Go}
+\subsection{Biblioteka mgo}
+
+\chapter{Narzędzia wykorzystane do wykonania pracy}
+\section{Docker}
+\section{MongoDB}
+\section{ab - Apache HTTP server benchmarking tool}
+\section{Amazon Cloud}
+
+\chapter{Aplikacja testowa}
+\section{Opis}
+\subsection{Model danych}
+\section{Testy integracyjne}
+\subsection{Wyniki testów}
+
+\chapter{Opis testów}
+\section{Baza pusta}
+\section{Baza niepusta}
+
+\chapter{Wyniki testów}
+\section{Baza pusta}
+\section{Baza niepusta}
+\section{Analiza}
+
+\chapter{Wnioski}
+
+\appendix
+\chapter{Implementacja serwisu języku Java}
+TODO
+\chapter{Implementacja serwisu na platformę NodeJS}
+\chapter{Implementacja serwisu języku Go}
+\chapter{Testy integracyjne}
+
+\begin{thebibliography}{99}
+\addcontentsline{toc}{chapter}{Bibliografia}
+
+\end{thebibliography}
+
+\zakonczenie  % wklejenie recenzji i opinii
+
+\end{document}
+%+++ END +++
