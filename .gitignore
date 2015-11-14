@@ -149,3 +149,6 @@ sympy-plots-for-*.tex/
 *.out
 *.synctex.gz
 praca_dyplomowa.pdf
+
+.idea/
+*.iml
