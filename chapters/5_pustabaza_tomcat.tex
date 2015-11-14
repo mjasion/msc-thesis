@@ -1,0 +1,102 @@
+\pgfplotsset{compat = 1.4}
+\pgfplotstableread[
+    col sep = comma
+]{csv_queries/threads_by_app/tomcat_clean_api_validation_requests_per_seq.csv}\mydata
+\begin{figure}
+\begin{tikzpicture}
+  \begin{axis}[
+        xmin = 0,
+        xmax=900,
+        xlabel = {Czas [s]},
+        ymin = 0,
+        scaled y ticks = false,
+        ylabel = Liczba żądań % TODO jakas miara ?
+    ]
+    \addplot[color=blue,mark=none] table[x index=0, y index=1]{\mydata};
+    \addplot[color=green,mark=none] table[x index=0, y index=2]{\mydata};
+    \addlegendimage{/pgfplots/refstyle=Hplot};
+    \addlegendentry{$100$};
+    \addlegendentry{$250$};
+  \end{axis}
+  
+\end{tikzpicture}
+\caption{Aplikacja Tomcat8 - walidacja API} % TODO jakoś inaczej ?
+\end{figure}
+
+
+\pgfplotsset{compat = 1.4}
+\pgfplotstableread[
+    col sep = comma
+]{csv_queries/threads_by_app/tomcat_clean_key_validation_requests_per_seq.csv}\mydata
+\begin{figure}
+\begin{tikzpicture}
+  \begin{axis}[
+        xmin = 0,
+        xmax=900,
+        xlabel = {Czas [s]},
+        ymin = 0,
+        scaled y ticks = false,
+        ylabel = Liczba żądań % TODO jakas miara ?
+    ]
+    \addplot[color=blue,mark=none] table[x index=0, y index=1]{\mydata};
+    \addplot[color=green,mark=none] table[x index=0, y index=2]{\mydata};
+    \addlegendimage{/pgfplots/refstyle=Hplot};
+    \addlegendentry{$100$};
+    \addlegendentry{$250$};
+  \end{axis}
+  
+\end{tikzpicture}
+\caption{Aplikacja Tomcat8 - walidacja istnienia klucza} % TODO jakoś inaczej ?
+\end{figure}
+
+
+\pgfplotsset{compat = 1.4}
+\pgfplotstableread[
+    col sep = comma
+]{csv_queries/threads_by_app/tomcat_clean_crud_requests_per_seq.csv}\mydata
+\begin{figure}
+\begin{tikzpicture}
+  \begin{axis}[
+        xmin = 0,
+        xmax=900,
+        xlabel = {Czas [s]},
+        ymin = 0,
+        scaled y ticks = false,
+        ylabel = Liczba żądań % TODO jakas miara ?
+    ]
+    \addplot[color=blue,mark=none] table[x index=0, y index=1]{\mydata};
+    \addplot[color=green,mark=none] table[x index=0, y index=2]{\mydata};
+    \addlegendimage{/pgfplots/refstyle=Hplot};
+    \addlegendentry{$100$};
+    \addlegendentry{$250$};
+  \end{axis}
+  
+\end{tikzpicture}
+\caption{Aplikacja Tomcat8 - test CRUD} % TODO jakoś inaczej ?
+\end{figure}
+
+
+\pgfplotsset{compat = 1.4}
+\pgfplotstableread[
+    col sep = comma
+]{csv_queries/threads_by_app/tomcat_clean_all_requests_per_seq.csv}\mydata
+\begin{figure}
+\begin{tikzpicture}
+  \begin{axis}[
+        xmin = 0,
+        xmax=900,
+        xlabel = {Czas [s]},
+        ymin = 0,
+        scaled y ticks = false,
+        ylabel = Liczba żądań % TODO jakas miara ?
+    ]
+    \addplot[color=blue,mark=none] table[x index=0, y index=1]{\mydata};
+    \addplot[color=green,mark=none] table[x index=0, y index=2]{\mydata};
+    \addlegendimage{/pgfplots/refstyle=Hplot};
+    \addlegendentry{$100$};
+    \addlegendentry{$250$};
+  \end{axis}
+  
+\end{tikzpicture}
+\caption{Aplikacja Tomcat8 - Wszystkie testy} % TODO jakoś inaczej ?
+\end{figure}
