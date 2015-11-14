@@ -6,83 +6,8 @@
 
 \section{Wyniki testów}
 \subsection{Baza danych bez danych początkowych}
+
+\input{chapters/5_go_pustabaza.tex}
+
 \subsection{Baza danych z danymi początkowymi}
 \section{Analiza wyników}
-
-\newpage
-\pgfplotsset{compat = 1.4}
-\pgfplotstableread[
-    col sep = comma
-]{csv_queries/tomcat_clean_api_validation_requests_per_seq.csv}\mydata
-\begin{tikzpicture}
-  \begin{axis}[
-        xmin = 0,
-        xmax=900,
-        xlabel = Czas,
-        ymin = 0,
-        ylabel = Req/s
-    ]
-    \addplot table[x index=0, y index=1,mark=none,smooth]{\mydata};
-    % \addplot table[x index=0, y index=2,mark=none,smooth]{\mydata};
-    \addlegendimage{/pgfplots/refstyle=Hplot};
-    \addlegendentry{$100$};
-    \addlegendentry{$250$};
-  \end{axis}
-  
-\end{tikzpicture}
-
-% \documentclass{article}
-%     % UNITS
-% \usepackage{siunitx}
-% \sisetup{per=slash, load=abbr}
-
-%     % GRAPHICS
-% \usepackage{tikz}
-% \usepackage{pgfplots}
-% \pgfplotsset{width=7cm,compat=1.3}
-
-% \begin{document}
-
-% \begin{tikzpicture}
-% \pgfplotstableread[col sep = comma]{csv_queries/requests_per_seq_tomcat_clean_100_api_validation.csv}\mydata
-% \pgfplotsset{
-%     scale only axis,
-%     scaled x,
-%     xmin=0, 
-%     xmax=900 
-% }
-
-% \begin{axis}[
-%   axis y line*=left,
-%   ymin=0,
-%   xlabel=Time,
-%   ylabel=Req/s,
-% ]
-
-% \addplot table[red,x index=0, y index=1, smooth, mark=none, red]{\mydata};
-% \label{dupa}
-% \end{axis}
-
-% \begin{axis}[
-%   axis y line*=right,
-%   axis x line=none,
-%   ymin=0,
-%   ylabel=Avg response
-% ]
-% % \addlegendimage{/pgfplots/refstyle=Hplot}
-% % \addlegendentry{$Req/s$}
-% \addplot table[smooth,x index=0, y index=2,mark=none,color=red]{\mydata};
-
-% % \addplot[smooth,mark=none,red] 
-% %   coordinates{
-% %     (0,0)
-% %     (1,48) 
-% %     (1,66)
-% %     (2,66)
-% %     (3,45.0) 
-% % }; 
-% % \addlegendentry{$Avg\ Response$}
-% \end{axis}
-
-% \end{tikzpicture}
-% \end{document}
