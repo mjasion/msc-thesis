@@ -44,6 +44,7 @@
 
 %%%%%%%%%%%%%%% Dodatkowe Pakiety %%%%%%%%%%%%%%%%%
 \usepackage{prmag}   % definiuje komendy opieku,nrindeksu, rodzaj pracy, ...
+\usepackage{pgfplots}
 
 %%%%%%%%%%%%%%% Strona Tytułowa %%%%%%%%%%%%%%%%%
 \title{Porównanie wydajności serwisów RESTful w wybranych platformach programowania}
@@ -98,46 +99,9 @@
 \section{Apache JMeter}
 \section{Digitalocean}
 
-\chapter{Projekt Aplikacji}
-\section{Opis}
-\section{Testy integracyjne}
+\input{chapters/4_projekt_aplikacji.tex}
 
-\begin{figure}
-\centering
-\hspace*{-3,5cm}
-\includegraphics[width=20cm]{\ImgPath/integration_test_tomcat8.png}
-\caption{Wynik testów integracyjnych aplikacji w języku Java na kontenerze Tomcat 8}
-\label{rlexample}
-\end{figure}
-
-\newpage
-\begin{figure}
-\centering
-\hspace*{-3cm}
-\includegraphics[width=20cm]{\ImgPath/integration_test_jetty9.png}
-\caption{Wynik testów integracyjnych aplikacji w języku Java na kontenerze Jetty 9}
-\label{rlexample}
-\end{figure}
-
-\newpage
-\begin{figure}
-\centering
-\hspace*{-3,5cm}
-\includegraphics[width=20cm]{\ImgPath/integration_test_go.png}
-\caption{Wynik testów integracyjnych aplikacji w GO}
-\label{rlexample}
-\end{figure}
-
-\chapter{Testy wydajnościowe}
-\section{Środowisko testowe}
-\section{Opis testów}
-\subsection{Baza danych bez danych początkowych}
-\subsection{Baza danych z danymi początkowymi}
-
-\section{Wyniki testów}
-\subsection{Baza danych bez}
-\subsection{Baza danych z danymi początkowymi}
-\section{Analiza wyników}
+\input{chapters/5_testy_wydajnosciowe.tex}
 
 \chapter{Wnioski}
 
