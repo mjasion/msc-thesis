@@ -2,7 +2,7 @@
 \pgfplotstableread[
     col sep = comma
 ]{csv_queries/threads_by_app/tomcat_full_api_validation_requests_per_seq.csv}\mydata
-\begin{figure}
+\begin{figure}[!h]
 \begin{tikzpicture}
   \begin{axis}[
         xmin = 0,
@@ -28,7 +28,7 @@
 \pgfplotstableread[
     col sep = comma
 ]{csv_queries/threads_by_app/tomcat_full_key_validation_requests_per_seq.csv}\mydata
-\begin{figure}
+\begin{figure}[!h]
 \begin{tikzpicture}
   \begin{axis}[
         xmin = 0,
@@ -54,7 +54,7 @@
 \pgfplotstableread[
     col sep = comma
 ]{csv_queries/threads_by_app/tomcat_full_crud_requests_per_seq.csv}\mydata
-\begin{figure}
+\begin{figure}[!h]
 \begin{tikzpicture}
   \begin{axis}[
         xmin = 0,
@@ -80,7 +80,7 @@
 \pgfplotstableread[
     col sep = comma
 ]{csv_queries/threads_by_app/tomcat_full_all_requests_per_seq.csv}\mydata
-\begin{figure}
+\begin{figure}[!h]
 \begin{tikzpicture}
   \begin{axis}[
         xmin = 0,
