@@ -1,4 +1,4 @@
-\pgfplotstableread[col sep = comma]{csv_queries/threads_by_app/tomcat_clean_key_validation_requests_per_seq.csv}\csvdata
+\pgfplotstableread[col sep = comma]{csv_queries/requests_by_app/tomcat_clean_key_validation_requests_per_seq.csv}\csvdata
 \begin{figure}
 \begin{tikzpicture}
   \begin{axis}[xmin = 0, xmax=900, ymin = 0, scaled y ticks = false, xlabel = {Czas [s]}, ylabel = Liczba żądań] %TODO miary?
@@ -15,7 +15,7 @@
 \hspace{-2.5cm} 
 \begin{subfigure}{0.5\textwidth}
 
-\pgfplotstableread[col sep = comma]{csv_queries/threads_by_app/tomcat_clean_key_validation_requests_per_seq.csv}\csvdata
+\pgfplotstableread[col sep = comma]{csv_queries/requests_by_app/tomcat_clean_key_validation_requests_per_seq.csv}\csvdata
 \begin{tikzpicture}
   \begin{axis}[xmin = 0, xmax=900, ymin = 0, scaled y ticks = false, xlabel = {Czas [s]}, ylabel = Liczba żądań] %TODO miary?
     \addplot[color=blue,mark=none] table[x index=0, y index=1]{\csvdata};
@@ -27,7 +27,7 @@
 \end{subfigure}
 \begin{subfigure}{0.5\textwidth}
 \hspace{2cm} 
-\pgfplotstableread[col sep = comma]{csv_queries/threads_by_app/tomcat_clean_key_validation_requests_per_seq.csv}\csvdata
+\pgfplotstableread[col sep = comma]{csv_queries/response_times_by_app/tomcat_clean_key_validation_response_times.csv}\csvdata
 \begin{tikzpicture}
   \begin{axis}[xmin = 0, xmax=900, ymin = 0, scaled y ticks = false, xlabel = {Czas [s]}, ylabel = Liczba żądań] %TODO miary?
     \addplot[color=blue,mark=none] table[x index=0, y index=1]{\csvdata};
