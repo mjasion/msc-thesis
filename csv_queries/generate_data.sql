@@ -6,12 +6,12 @@ CREATE TABLE jmeter_grouped_by_sec (
   test_group         TEST_GROUP,
   test_threads       INTEGER,
   req_per_sec        BIGINT,
-  round              NUMERIC,
+  response_time      NUMERIC,
   PRIMARY KEY (test_language, test_type, seconds_from_start, test_group, test_threads)
 );
 
 
-INSERT INTO jmeter_grouped_by_sec (test_language, test_type, seconds_from_start, test_group, test_threads, req_per_sec, round)
+INSERT INTO jmeter_grouped_by_sec (test_language, test_type, seconds_from_start, test_group, test_threads, req_per_sec, response_time)
   SELECT
     'TOMCAT' AS test_language,
     'CLEAN'  AS test_type,
@@ -25,9 +25,9 @@ INSERT INTO jmeter_grouped_by_sec (test_language, test_type, seconds_from_start,
   GROUP BY seconds_from_start, test_group, test_threads
   ORDER BY seconds_from_start, test_group, test_threads;
 
-INSERT INTO jmeter_grouped_by_sec (test_language, test_type, seconds_from_start, test_group, test_threads, req_per_sec, round)
+INSERT INTO jmeter_grouped_by_sec (test_language, test_type, seconds_from_start, test_group, test_threads, req_per_sec, response_time)
   SELECT
-    'JETTY' AS test_language,
+    'JETTY'  AS test_language,
     'CLEAN'  AS test_type,
     seconds_from_start,
     test_group,
@@ -39,9 +39,9 @@ INSERT INTO jmeter_grouped_by_sec (test_language, test_type, seconds_from_start,
   GROUP BY seconds_from_start, test_group, test_threads
   ORDER BY seconds_from_start, test_group, test_threads;
 
-INSERT INTO jmeter_grouped_by_sec (test_language, test_type, seconds_from_start, test_group, test_threads, req_per_sec, round)
+INSERT INTO jmeter_grouped_by_sec (test_language, test_type, seconds_from_start, test_group, test_threads, req_per_sec, response_time)
   SELECT
-    'GO' AS test_language,
+    'GO'     AS test_language,
     'CLEAN'  AS test_type,
     seconds_from_start,
     test_group,
@@ -53,10 +53,10 @@ INSERT INTO jmeter_grouped_by_sec (test_language, test_type, seconds_from_start,
   GROUP BY seconds_from_start, test_group, test_threads
   ORDER BY seconds_from_start, test_group, test_threads;
 
-INSERT INTO jmeter_grouped_by_sec (test_language, test_type, seconds_from_start, test_group, test_threads, req_per_sec, round)
+INSERT INTO jmeter_grouped_by_sec (test_language, test_type, seconds_from_start, test_group, test_threads, req_per_sec, response_time)
   SELECT
     'TOMCAT' AS test_language,
-    'FULL'  AS test_type,
+    'FULL'   AS test_type,
     seconds_from_start,
     test_group,
     test_threads,
@@ -67,10 +67,10 @@ INSERT INTO jmeter_grouped_by_sec (test_language, test_type, seconds_from_start,
   GROUP BY seconds_from_start, test_group, test_threads
   ORDER BY seconds_from_start, test_group, test_threads;
 
-INSERT INTO jmeter_grouped_by_sec (test_language, test_type, seconds_from_start, test_group, test_threads, req_per_sec, round)
+INSERT INTO jmeter_grouped_by_sec (test_language, test_type, seconds_from_start, test_group, test_threads, req_per_sec, response_time)
   SELECT
-    'JETTY' AS test_language,
-    'FULL'  AS test_type,
+    'JETTY'  AS test_language,
+    'FULL'   AS test_type,
     seconds_from_start,
     test_group,
     test_threads,
@@ -81,10 +81,10 @@ INSERT INTO jmeter_grouped_by_sec (test_language, test_type, seconds_from_start,
   GROUP BY seconds_from_start, test_group, test_threads
   ORDER BY seconds_from_start, test_group, test_threads;
 
-INSERT INTO jmeter_grouped_by_sec (test_language, test_type, seconds_from_start, test_group, test_threads, req_per_sec, round)
+INSERT INTO jmeter_grouped_by_sec (test_language, test_type, seconds_from_start, test_group, test_threads, req_per_sec, response_time)
   SELECT
-    'GO' AS test_language,
-    'FULL'  AS test_type,
+    'GO'     AS test_language,
+    'FULL'   AS test_type,
     seconds_from_start,
     test_group,
     test_threads,
