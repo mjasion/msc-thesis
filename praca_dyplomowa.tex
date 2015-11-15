@@ -11,7 +11,7 @@
 \usepackage{tabularx}
 \usepackage{array}
 \usepackage[polish]{babel}
-\usepackage{subfigure}
+% \usepackage{subfigure}
 \usepackage{amsfonts}
 \usepackage{verbatim}
 \usepackage{indentfirst}
@@ -47,6 +47,8 @@
 %%%%%%%%%%%%%%% Dodatkowe Pakiety %%%%%%%%%%%%%%%%%
 \usepackage{prmag}   % definiuje komendy opieku,nrindeksu, rodzaj pracy, ...
 \usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{subcaption}
 %%%%%%%%%%%%%%% Strona Tytułowa %%%%%%%%%%%%%%%%%
 \title{Porównanie wydajności serwisów RESTful w wybranych platformach programowania}
 
@@ -64,7 +66,7 @@
 \zakres {\input{zakres}}
 
 % Podziekowanie - opcjonalne
-\podziekowania{\input{podziekowania.tex}}
+% \podziekowania{\input{podziekowania.tex}}
 
 \opinie{%
   \input{opiniaopiekuna.tex}
@@ -72,50 +74,47 @@
   \input{recenzja.tex}
 }
 
-
 \begin{document}
 \maketitle
 
-%\chapter{Wstęp}
-%
-%\chapter{Przegląd literatury}
-%\section{Serwisy RESTful}
-%\subsection{Czym jest serwis RESTful}
-%\subsection{Mikroserwisy}
-%\section{Java}
-%\subsection{Historia i ewolucja języka Java}
-%\subsection{Java 8}
-%\subsection{Biblioteka Spring}
-%\subsection{Kontenery aplikacji}
-%\subsubsection{Tomcat8}
-%\subsubsection{Jetty9}
-%
-%\section{Go}
-%\subsection{Historia i ewolucja języka Go}
-%\subsection{Biblioteka mgo}
-%
-%\chapter{Narzędzia wykorzystane do przeprowadzenia testów}
-%\section{Docker}
-%\section{MongoDB}
-%\section{Apache JMeter}
-%\section{Digitalocean}
-%\input{chapters/4_projekt_aplikacji.tex}
+% \chapter{Wstęp}
+
+% \chapter{Przegląd literatury}
+% \section{Serwisy RESTful}
+% \subsection{Czym jest serwis RESTful}
+% \subsection{Mikroserwisy}
+% \section{Java}
+% \subsection{Historia i ewolucja języka Java}
+% \subsection{Java 8}
+% \subsection{Biblioteka Spring}
+% \subsection{Kontenery aplikacji}
+% \subsubsection{Tomcat8}
+% \subsubsection{Jetty9}
+
+% \section{Go}
+% \subsection{Historia i ewolucja języka Go}
+% \subsection{Biblioteka mgo}
+
+% \chapter{Narzędzia wykorzystane do przeprowadzenia testów}
+% \section{Docker}
+% \section{MongoDB}
+% \section{Apache JMeter}
+% \section{Digitalocean}
+% \input{chapters/4_projekt_aplikacji.tex}
 
 \input{chapters/5_testy_wydajnosciowe.tex}
 
-\chapter{Wnioski}
+% \chapter{Wnioski}
+% \appendix
+% \chapter{Implementacja serwisu języku Java}
+% \chapter{Implementacja serwisu języku Go}
+% \chapter{Testy integracyjne}
 
-\appendix
-\chapter{Implementacja serwisu języku Java}
-\chapter{Implementacja serwisu języku Go}
-\chapter{Testy integracyjne}
+% \begin{thebibliography}{99}
+% \addcontentsline{toc}{chapter}{Bibliografia}
+% \end{thebibliography}
 
-\begin{thebibliography}{99}
-\addcontentsline{toc}{chapter}{Bibliografia}
-
-\end{thebibliography}
-
-\zakonczenie  % wklejenie recenzji i opinii
+% \zakonczenie  % wklejenie recenzji i opinii
 
 \end{document}
 %+++ END +++

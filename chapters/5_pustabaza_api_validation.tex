@@ -50,28 +50,28 @@
 \end{figure}
 \clearpage
 
-\pgfplotsset{compat = 1.4}
-\pgfplotstableread[
-    col sep = comma
-]{csv_queries/threads_by_app/go_clean_api_validation_requests_per_seq.csv}\mydata
-\begin{figure}[!ht]
-\begin{tikzpicture}
-  \begin{axis}[
-        xmin = 0,
-        xmax=900,
-        xlabel = {Czas [s]},
-        ymin = 0,
-        scaled y ticks = false,
-        ylabel = Liczba żądań % TODO jakas miara ?
-    ]
-    \addplot[color=blue,mark=none] table[x index=0, y index=1]{\mydata};
-    \addplot[color=green,mark=none] table[x index=0, y index=2]{\mydata};
-    \addlegendimage{/pgfplots/refstyle=Hplot};
-    \addlegendentry{$100$};
-    \addlegendentry{$250$};
-  \end{axis}
+% \pgfplotsset{compat = 1.4}
+% \pgfplotstableread[
+%     col sep = comma
+% ]{csv_queries/threads_by_app/go_clean_api_validation_requests_per_seq.csv}\mydata
+% \begin{figure}[!ht]
+% \begin{tikzpicture}
+%   \begin{axis}[
+%         xmin = 0,
+%         xmax=900,
+%         xlabel = {Czas [s]},
+%         ymin = 0,
+%         scaled y ticks = false,
+%         ylabel = Liczba żądań % TODO jakas miara ?
+%     ]
+%     \addplot[color=blue,mark=none] table[x index=0, y index=1]{\mydata};
+%     \addplot[color=green,mark=none] table[x index=0, y index=2]{\mydata};
+%     \addlegendimage{/pgfplots/refstyle=Hplot};
+%     \addlegendentry{$100$};
+%     \addlegendentry{$250$};
+%   \end{axis}
   
-\end{tikzpicture}
-\caption{Aplikacja GO - walidacja API} % TODO jakoś inaczej ?
-\end{figure}
-\clearpage
+% \end{tikzpicture}
+% \caption{Aplikacja GO - walidacja API} % TODO jakoś inaczej ?
+% \end{figure}
+% \clearpage
