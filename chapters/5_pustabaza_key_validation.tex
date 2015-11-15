@@ -1,7 +1,7 @@
 \pgfplotsset{compat = 1.4}
 \pgfplotstableread[
     col sep = comma
-]{csv_queries/threads_by_app/tomcat_clean_key_validation_requests_per_seq.csv}\mydata
+]{csv_queries/requests_by_app/tomcat_clean_key_validation_requests_per_seq.csv}\mydata
 \begin{figure}[hb]
 \begin{tikzpicture}
   \begin{axis}[
@@ -24,7 +24,7 @@
 \end{figure}
 \pgfplotstableread[
     col sep = comma
-]{csv_queries/threads_by_app/jetty_clean_key_validation_requests_per_seq.csv}\mydata
+]{csv_queries/requests_by_app/jetty_clean_key_validation_requests_per_seq.csv}\mydata
 \begin{figure}[!htb]
 \begin{tikzpicture}
   \begin{axis}[
@@ -47,7 +47,7 @@
 \end{figure}
 \pgfplotstableread[
     col sep = comma
-]{csv_queries/threads_by_app/go_clean_key_validation_requests_per_seq.csv}\mydata
+]{csv_queries/requests_by_app/go_clean_key_validation_requests_per_seq.csv}\mydata
 \begin{figure}[!ht]
 \begin{tikzpicture}
   \begin{axis}[
