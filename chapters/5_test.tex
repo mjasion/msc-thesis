@@ -9,15 +9,15 @@
 \caption{Aplikacja Tomcat8 - walidacja API} % TODO jakoś inaczej ?
 \end{figure}
 
-\renewcommand{\thesubfigure}{\arabic{subfigure}}
+% \renewcommand{\thesubfigure}{\arabic{subfigure}}
 
 \begin{figure}[h]
-\hspace{-2.5cm} 
+\hspace{-2.5cm}
 \begin{subfigure}{0.5\textwidth}
-
+\vspace{-9mm}
 \pgfplotstableread[col sep = comma]{csv_queries/requests_by_app/tomcat_clean_key_validation_requests_per_seq.csv}\csvdata
 \begin{tikzpicture}
-  \begin{axis}[xmin = 0, xmax=900, ymin = 0, scaled y ticks = false, xlabel = {Czas [s]}, ylabel = Liczba żądań] %TODO miary?
+  \begin{axis}[xmin = 0, xmax=900, ymin = 0, scaled y ticks = base 10:-3, xlabel = {Czas [s]}, ylabel = Liczba żądań] %TODO miary?
     \addplot[color=blue,mark=none] table[x index=0, y index=1]{\csvdata};
     \addplot[color=green,mark=none] table[x index=0, y index=2]{\csvdata};
   \end{axis}
@@ -25,16 +25,18 @@
 \caption{Aplikacja Tomcat8 - walidacja API} % TODO jakoś inaczej ?
 % \label{fig:subim1}
 \end{subfigure}
+\hspace{3cm} 
 \begin{subfigure}{0.5\textwidth}
-\hspace{2cm} 
+
 \pgfplotstableread[col sep = comma]{csv_queries/response_times_by_app/tomcat_clean_key_validation_response_times.csv}\csvdata
 \begin{tikzpicture}
-  \begin{axis}[xmin = 0, xmax=900, ymin = 0, scaled y ticks = false, xlabel = {Czas [s]}, ylabel = Liczba żądań] %TODO miary?
+  \begin{axis}[xmin = 0, xmax=900, ymin = 0, scaled y ticks = false, xlabel = {Czas [s]}, ylabel = {Czas odpowiedzi [ms]}] %TODO miary?
     \addplot[color=blue,mark=none] table[x index=0, y index=1]{\csvdata};
     \addplot[color=green,mark=none] table[x index=0, y index=2]{\csvdata};
   \end{axis}
 \end{tikzpicture}
-\caption{Aplikacja Tomcat8 - walidacja API} % TODO jakoś inaczej ?
+% \captionsetup{margin=2cm}
+\caption{Aplikacja Tomcat8 - walidacdawdja API} % TODO jakoś inaczej ?
 % \label{fig:subim2}
 \end{subfigure}
  
