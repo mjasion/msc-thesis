@@ -39,3 +39,46 @@
 \caption{Podpis}
 \label{fig:image2}
 \end{figure}
+
+
+\begin{figure}[h]
+\hspace{-2.5cm}
+\begin{subfigure}{0.5\textwidth}
+% \vspace{-9mm}
+\pgfplotstableread[col sep = comma]{csv_queries/test/test_requests_per_seq.csv}\csvdata
+\begin{tikzpicture}
+  \begin{axis}[xmin = 0, xmax=900, ymin = 0, scaled y ticks = base 10:-3, xlabel = {Czas [s]}, ylabel = Liczba żądań, legend pos=south east, ymajorgrids] %TODO miary?
+    \addplot[mark=none] table[x index=0, y index=1]{\csvdata};
+    \addplot[mark=none] table[x index=0, y index=2]{\csvdata};
+    \addplot[mark=none] table[x index=0, y index=3]{\csvdata};
+    \legend{100,250}
+  \end{axis}
+\end{tikzpicture}
+\caption{Aplikacja Tomcat8 - walidacja API} % TODO jakoś inaczej ?
+% \label{fig:subim1}
+\end{subfigure}
+\hspace{3cm}
+\begin{subfigure}{0.5\textwidth}
+
+\pgfplotstableread[col sep = comma]{csv_queries/test/test_response_time_distribution.csv}\csvdata
+\pgfplotsset{
+    /pgfplots/ybar legend/.style={
+    /pgfplots/legend image code/.code={\draw[##1,/tikz/.cd,yshift=-0.25em](0cm,0cm) rectangle(1pt,0.7em);},
+   }
+}
+\begin{tikzpicture}
+  \begin{axis}[ybar, bar width=0.5, xmin = 0, ymin = 0, scaled y ticks = base 10:-5, xlabel = {Czas odpowiedzi [ms]}, ylabel = {Liczba żądań}, ymajorgrids, xmajorgrids=false] %TODO miary?
+    \addplot[mark=none, fill=blue] table[x index=0, y index=1]{\csvdata};
+    \addplot[mark=none, fill=green] table[x index=0, y index=2]{\csvdata};
+    \addplot[mark=none, fill=green] table[x index=0, y index=3]{\csvdata};
+    \legend{100,250}
+  \end{axis}
+\end{tikzpicture}
+% \captionsetup{margin=2cm}
+\caption{Aplikacja Tomcat8 } % TODO jakoś inaczej ?
+% \label{fig:subim2}
+\end{subfigure}
+
+\caption{Podpis}
+\label{fig:image2}
+\end{figure}
