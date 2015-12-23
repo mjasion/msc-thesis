@@ -16,7 +16,48 @@
 \usepackage{verbatim}
 \usepackage{indentfirst}
 \usepackage[pdftex]{hyperref}
+% Java syntax
+\usepackage{listings}
+\usepackage{color}
 
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=4
+}
+
+
+%  Java syntax
 
 % rozmaite polecenia pomocnicze
 % gdzie rysunki?
@@ -49,6 +90,13 @@
 \usepackage{pgfplots}
 \usepackage{tikz}
 \usepackage{subcaption}
+\usepackage{caption}
+\DeclareCaptionFont{black}{\color{black}}
+\DeclareCaptionFormat{listing}{\colorbox{white}{\parbox{\textwidth}{#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=black,textfont=black}
+
+\renewcommand\lstlistingname{Przykład}
+
 %%%%%%%%%%%%%%% Strona Tytułowa %%%%%%%%%%%%%%%%%
 \title{Porównanie wydajności serwisów RESTful w wybranych platformach programowania}
 
@@ -65,7 +113,7 @@
 % zakres pracy
 \zakres {\input{zakres}}
 
-% Podziekowanie - opcjonalne
+% Podziekowanie - opcjoalne
 % \podziekowania{\input{podziekowania.tex}}
 
 \opinie{%
@@ -75,45 +123,22 @@
 }
 
 \begin{document}
+
 \maketitle
 
-\chapter{Wstęp}
-
-\chapter{Przegląd literatury}
-\section{Serwisy RESTful}
-\subsection{Czym jest serwis RESTful}
-\subsection{Mikroserwisy}
-\section{Java}
-\subsection{Historia i ewolucja języka Java}
-\subsection{Java 8}
-\subsection{Biblioteka Spring}
-\subsection{Kontenery aplikacji}
-\subsubsection{Tomcat8}
-\subsubsection{Jetty9}
-
-\section{Go}
-\subsection{Historia i ewolucja języka Go}
-\subsection{Biblioteka mgo}
-
-\chapter{Narzędzia wykorzystane do przeprowadzenia testów}
-\section{Docker}
-\section{MongoDB}
-\section{Apache JMeter}
-Apa
-\section{Digitalocean}
+\input{chapters/1_wstep.tex}
+\input{chapters/2_przeglad_literatury.tex}
+\input{chapters/3_narzedzia.tex}
 \input{chapters/4_projekt_aplikacji.tex}
-
 \input{chapters/5_testy_wydajnosciowe.tex}
+\input{chapters/6_wnioski.tex}
+\input{chapters/7_zalaczniki.tex}
 
-\chapter{Wnioski}
-% \appendix
-% \chapter{Implementacja serwisu języku Java}
-% \chapter{Implementacja serwisu języku Go}
-% \chapter{Testy integracyjne}
+\begin{thebibliography}{99}
+\addcontentsline{toc}{chapter}{Bibliografia}
+\bibitem{java8}{Cay S. Horstmann, Gary Cornell, ,,Java. Podstawy. Wydanie IX'', Helion, 2013.}
 
-% \begin{thebibliography}{99}
-% \addcontentsline{toc}{chapter}{Bibliografia}
-% \end{thebibliography}
+\end{thebibliography}
 
 % \zakonczenie  % wklejenie recenzji i opinii
 

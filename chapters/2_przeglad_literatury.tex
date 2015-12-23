@@ -1,0 +1,52 @@
+\chapter{Przegląd literatury}
+
+\section{Serwisy RESTful}
+\subsection{Czym jest serwis RESTful}
+\subsection{Mikroserwisy}
+
+\section{Java}
+\subsection{Historia i ewolucja języka Java}
+Początki języka Java miały miejsce w 1991 roku. Wtedy to Patrick Naughton i James Gosling, inżynierowie firmy Sun,  wpadli na pomysł zaprojektowania języka, który będzie można uruchomić na urządzeniach takich jak dekodery telewizyjne\cite{java8}. Ponieważ urządzenia takie pochodziły od różnych producentów i każdy mógł stosować różne procesory, język nie mógł być oparty na jednej architekturze. W ten sposób zespół pracujący na rozwiązaniem wskrzesił model uruchamiania oprogramowania na maszynach wirtualnych, gdzie programy były kompilowane do kodu pośredniego.  
+Początkowo język nosił nazwę Oak. Ponieważ taki język już istniał, postanowiono zmienić nazwę na Java.
+
+Do roku 1994 roku zespół projektowy bez skutku próbował wykorzystać język w urządzeniach kablowych. Wtedy postanowili wykorzystać język do stworzenia przeglądarki internetowej, która będzie niezależna od architektury. W 1995 zaprezentowali oni efekt swojej pracy: przeglądarkę HotJava. Przez wbudowaną przenośność język został uznany, że jest wart rozwijania by w 1996 roku wydano wersję 1.0. Krótko po tym wyszła wersja 1.1 rozszerzająca możliwości m.in o możliwośc drukowania, dodano model zdarzeń dla programowania GUI oraz poprawiono refleksję.
+
+Język miał wciąż spore braki i w 1998 roku wydano wersję 1.2. Wersja ta była ogromną zmianą w porównaniu do poprzedniczek, dlatego zmieniła swoją marketingową nazwę na "Java 2 Standard Edition Software Development Kit Version 1.2". Wraz z nią pojawiło się wiele nowych elementów. Do najważniejszych z nich należą biblioteka Collection oraz Swing. Biblioteka Swing pozwalała na tworzenie aplikacji z graficznymi interfejsami użytkownika(w tym apletów w przeglądarce), której elementy w łatwy sposób skalowały się do ekranów urządzeń na których była uruchamiana. W tym samym momencie swój początek miały dwie wersje języka. Micro Edition przeznaczona do urządzeń przenośnych np. telefonów komórkowych oraz Enterprise Edition do pisania aplikacji serwerowych. Kolejne wersje języka, 1.3 i 1.4 wydane odpowiednio w 2000 i 2002 roku, wprowadzały ulepszenia w samym języku oraz rozszerzały standardową bibliotekę. Z biegiem czasu popularność aplikacji uruchamianych po stronie klienta gasła, jednak rosła popularność pisania aplikacji po stronie uruchamianych na serwerach.
+
+W 2004 pojawiła się nowa wersja języka oznaczona numerem 5.0. Wprowadziła ona typy sparametryzowane(ang. \textsl{generic types}) co rozszerzyło możliwości pisania oprogramowania, bardziej odpornego na błędy programisty. Doszły różwnież rzeczy zaczerpnięte z języka C\#: pętla \textsl{for each} do poruszania się po tabliach i kolekcjach, oraz \textsl{autoboxing} pozwalający konwertować typy proste na obiekty i odwrotnie. Dodane zmiany były zaimplementowane tak, by nie zmieniać nic w maszynie wirtualnej.
+
+Wersja Java SE 6 nie wnosiła nowych funkcji. Rozszerzała ona jednak bibliotekę standardową, oraz poprawiono wydajność i bezpieczeństwo.
+
+W wyniku problemów finansowych firmy Sun, koncern Oracle w 2010 wykupił firmę i w ten sposób stał się właścicielem praw do języka Java. Mocno opóźniona kolejna wersja wyszła w 2011. Wprowadzała ona sporo zmian. Do najważniejszych z nich należało dodanie frameworka \textsl{Fork/Join} upraszający programowanie równoległe, pozwalając na tworzenie procesów oraz poprawa wydajności na systemach z procesorami wielordzeniowymi. Kolejną sporą nowością była nowa biblioteka obsługi wejścia/wyjścia, nazwana NIO. Java 7 wnosiła też mechanizm \textsl{invokedynamic}. Mechanizm ten pozwalał na nowy sposób wywołania metod. Zmiana wymusiła zmiany w \textsl{bytecode} języka. Zmiana miała się stać fundamentem, do tego co przyniesie Java 8.
+
+\subsection{Java 8}
+Obecnie istniejącą wersją języka Java jest wersja numer 8. Została opublikowana w 2014 roku przynosząc długo oczekiwane zmiany.\\*
+Najważniejszą z nich i najbardziej znaną były wyrażenia \textsl{Lambda}. Wyrażenia te pozwalają na czyste i zwięzłe wyrażenie pojedynczej metody. Wyrażenia te są wykorzystywane często przy operowaniu na kolekcjach między innymi do sortowania czy filtrowania kolekcji.\\*
+Przykłady \ref{lst:javaanonymous} i \ref{lst:javalambda} przedstawiają sortowanie kolekcji z użyciem klas anonimowych oraz wyrażenia \textsl{Lambda}. 
+
+\begin{lstlisting}[caption=Przykład sortowania kolekcji w języku Java przy użyciu klas anonimowych, label={lst:javaanonymous}]
+Collections.sort(persons, new Comparator<Person>(){
+  public int compare(Person p1, Person p2){
+    return p1.firstName.compareTo(p2.firstName);
+  }
+});
+\end{lstlisting}
+\begin{lstlisting}[caption=Przykład sortowania kolekcji w języku Java przy użyciu wyrażeń Lambda,label={lst:javalambda}]
+Collections.sort(persons, (p1, p2) -> p1.firstName.compareTo(p2.firstName));
+\end{lstlisting}
+Kod przy użyciu wyrażeń \textsl{Lambda} jest prostszy i krótszy.\\*
+Wyrażenia te w \textsl{bytecode} używają mechanizmu \textsl{invokedynamic} wprowadzonego w Javie 7. Wykorzystanie tego mechanizmu pozwala na opóźnienie przetłumaczenia wyrażenia w \textsl{bytecode} do momentu ich wywołania. Wynikiem wyrażenia \textsl{Lambda} jest metoda statyczna, która jest tworzona w czasie wykonania \textsl{bytecode}.\\*
+Kolejną sporą zmianą jest możliwość tworzenia metod domyślnych(ang. \textsl{default methods}) i statycznych(ang. \textsl{static methods}). Pozwoliło to m.in. na dostarczenie implementacji metody, bez potrzeby tworzenia klas abstrakcyjnych.
+
+Dużą nowością w tej wersji były nowe klasy do obsługi dat i godzin. Pozwalają one na operacje takich jak dodawanie czy odejmowanie w sposób uporządkowany i bardziej naturalny do zrozumienia.\\*
+Z mniej popularnych nowości jest możliwość wywoływania kodu \textsl{JavaScript} na wirtualnej maszynie Java(ang. \textsl{Java Virtual Machine}, w skrócie JVM).
+
+
+\subsection{Biblioteka Spring}
+\subsection{Kontenery aplikacji}
+\subsubsection{Tomcat8}
+\subsubsection{Jetty9}
+
+\section{Go}
+\subsection{Historia i ewolucja języka Go}
+\subsection{Biblioteka mgo}
