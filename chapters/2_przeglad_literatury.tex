@@ -57,7 +57,24 @@ Dużą nowością w tej wersji były nowe klasy do obsługi dat i godzin. Pozwal
 Z mniej popularnych nowości jest możliwość wywoływania kodu \textsl{JavaScript} na wirtualnej maszynie Java(ang. \textsl{Java Virtual Machine}, w skrócie JVM).
 
 
-\subsection{Biblioteka Spring}
+\subsection{Spring}
+\textsl{Spring} jest szkieletem aplikacji(ang. \textsl{framework}), zapoczątkowanym przez Roda Johnsona, który to w 2001 opublikował książkę \textsl{Expert One-on-One: J2EE Design and Development}\cite{jeedesign}. Zaprezentował w niej swoją bibliotekę, która pozwalała tworzyć oprogramowanie biznesowe, składające się się prostych komponentów \textsl{JavaBean}. Biblioteka upubliczniona została natomiast w 2002 roku.
+
+Z czasem biblioteka rozrastała się o nowe funkcję stając się jedną z najpopularniejszych bibliotek do tworzenia aplikacji. Złożenie biblioteki z modułów pozwoliło na dobieranie ich do potrzeb architektury swojej aplikacji. Do najważniejszych i najbardziej popularnych modułów należą:
+\begin{itemize}
+\item IoC - do wstrzykiwania zależności
+\item MVC - do tworzenia aplikacji webowych
+\item Data oraz JDBC - jako warstwa dostępu do baz danych
+\item Security - autoryzacja i zabezpieczanie aplikacji
+\end{itemize}
+Najnowsza wersja biblioteki \textsl{Spring} wydana została w czerwcu 2015 i została oznaczona numerem 4.2.
+
+Tworzenie aplikacji opartych o tą bibliotekę było skomplikowane. Wiązało się z tworzeniem wielu plików konfiguracyjnych oraz zapoznaniem dogłębnie z dokumentacją. W 2013 roku, wraz z wyjściem wersji 4 biblioteki powstał projekt \textsl{Spring Boot}. 
+
+\textsl{Spring Boot} jest biblioteką, która pozwala na tworzenie oprogramowania z zachowaniem zasady\textsl{convention over configuration}. Pozwala on na uruchomienie aplikacji, bez potrzeby zbędnego konfigurowania. Zasada ta zakłada domyślną konfiguracje, pozwaląjacą na uruchomienie jej bez potrzeby zbędnego modyfikowania. Dopiero szczegółowe konfigurowanie wymaga interwencji programisty. W \textsl{Spring Boot} zasada ta stała się na tyle rozpowszechniona, że od rozpoczęcia tworzenia aplikacji, do jej pierwszego uruchomienia wystarczy kilka minut. Dodanie kolejnych bibliotek również nie wymaga żmudnych konfiguracji. Tworzenie aplikacji, które będzie można uruchomić w ciągu kilku minut od rozpoczęcia programowania było celem, któremu twórcy \textsl{Spring} musieli stawić czoła w kontekście mikroserwisów. 
+
+\textsl{Spring Boot} obecnie pozwala na użycie wszystkich modułów, jakich \textsl{Spring} dostarcza(m.in. \textsl{MVC}, \text{Security}, \textsl{Data}) oraz dodając kolejne(m.in. Jetty, Tomcat, metryki, shell). 
+
 \subsection{Kontenery aplikacji}
 \subsubsection{Tomcat8}
 \subsubsection{Jetty9}
