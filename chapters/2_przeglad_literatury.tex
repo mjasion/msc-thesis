@@ -37,16 +37,17 @@ W wyniku problemów finansowych firmy Sun, koncern Oracle w 2010 wykupił firmę
 \subsection{Java 8}
 Obecnie istniejącą wersją języka Java jest wersja numer 8. Została opublikowana w 2014 roku przynosząc długo oczekiwane zmiany.\\*
 Najważniejszą z nich i najbardziej znaną były wyrażenia \textsl{Lambda}. Wyrażenia te pozwalają na czyste i zwięzłe wyrażenie pojedynczej metody. Wyrażenia te są wykorzystywane często przy operowaniu na kolekcjach między innymi do sortowania czy filtrowania kolekcji.\\*
-Przykłady \ref{lst:javaanonymous} i \ref{lst:javalambda} przedstawiają sortowanie kolekcji z użyciem klas anonimowych oraz wyrażenia \textsl{Lambda}. 
+Na przykładzie \ref{lst:javaanonymous} zaprezentowany jest przykład sortowania listy osób, alfabetycznie po imieniu, przy użyciu klas anonimowych. Przykład \ref{lst:javalambda} prezentuje tą samą funkcjonalność, jednak z wykorzystaniem wyrażeń \textsl{Lambda}. 
 
-\begin{lstlisting}[caption=Przykład sortowania kolekcji w języku Java przy użyciu klas anonimowych, label={lst:javaanonymous}]
+\begin{lstlisting}[caption=Sortowanie kolekcji w języku Java przy użyciu klas anonimowych, label={lst:javaanonymous}]
 Collections.sort(persons, new Comparator<Person>(){
   public int compare(Person p1, Person p2){
     return p1.firstName.compareTo(p2.firstName);
   }
 });
 \end{lstlisting}
-\begin{lstlisting}[caption=Przykład sortowania kolekcji w języku Java przy użyciu wyrażeń Lambda,label={lst:javalambda}]
+
+\begin{lstlisting}[caption=Sortowanie kolekcji w języku Java przy użyciu wyrażeń \textsl{Lambda},label={lst:javalambda}, aboveskip=0mm]
 Collections.sort(persons, (p1, p2) -> p1.firstName.compareTo(p2.firstName));
 \end{lstlisting}
 Kod przy użyciu wyrażeń \textsl{Lambda} jest prostszy i krótszy.\\*
@@ -71,7 +72,7 @@ Najnowsza wersja biblioteki \textsl{Spring} wydana została w czerwcu 2015 i zos
 
 Tworzenie aplikacji opartych o tą bibliotekę było skomplikowane. Wiązało się z tworzeniem wielu plików konfiguracyjnych oraz zapoznaniem dogłębnie z dokumentacją. W 2013 roku, wraz z wyjściem wersji 4 biblioteki powstał projekt \textsl{Spring Boot}. 
 
-\textsl{Spring Boot} jest biblioteką, która pozwala na tworzenie oprogramowania z zachowaniem zasady\textsl{convention over configuration}. Pozwala on na uruchomienie aplikacji, bez potrzeby zbędnego konfigurowania. Zasada ta zakłada domyślną konfiguracje, pozwaląjacą na uruchomienie jej bez potrzeby zbędnego modyfikowania. Dopiero szczegółowe konfigurowanie wymaga interwencji programisty. W \textsl{Spring Boot} zasada ta stała się na tyle rozpowszechniona, że od rozpoczęcia tworzenia aplikacji, do jej pierwszego uruchomienia wystarczy kilka minut. Dodanie kolejnych bibliotek również nie wymaga żmudnych konfiguracji. Tworzenie aplikacji, które będzie można uruchomić w ciągu kilku minut od rozpoczęcia programowania było celem, któremu twórcy \textsl{Spring} musieli stawić czoła w kontekście mikroserwisów. 
+\textsl{Spring Boot} jest biblioteką, która pozwala na tworzenie oprogramowania z zachowaniem zasady\textsl{convention over configuration}. Pozwala on na uruchomienie aplikacji, bez potrzeby zbędnego konfigurowania. Zasada ta zakłada domyślną konfiguracje, pozwaląjącą na uruchomienie jej bez potrzeby zbędnego modyfikowania. Dopiero szczegółowe konfigurowanie wymaga interwencji programisty. W \textsl{Spring Boot} zasada ta stała się na tyle rozpowszechniona, że od rozpoczęcia tworzenia aplikacji, do jej pierwszego uruchomienia wystarczy kilka minut. Dodanie kolejnych bibliotek również nie wymaga żmudnych konfiguracji. Tworzenie aplikacji, które będzie można uruchomić w ciągu kilku minut od rozpoczęcia programowania było celem, któremu twórcy \textsl{Spring} musieli stawić czoła w kontekście mikroserwisów. 
 
 \textsl{Spring Boot} obecnie pozwala na użycie wszystkich modułów, jakich \textsl{Spring} dostarcza(m.in. \textsl{MVC}, \textsl{Security}, \textsl{Data}) oraz dodając kolejne(m.in. Jetty, Tomcat, metryki, shell). 
 
