@@ -1,24 +1,29 @@
 List<Map> figuresDetails = [
-        [
-                testGroup  : "api_validation",
-                test_type  : "clean",
-                description: "test walidacji istnienia klucza API"
-        ]
+        [ test_type: "clean", testGroup: "api_validation", description: "testy wydajności walidacji istnienia klucza API"],
+        [ test_type: "clean", testGroup: "key_validation", description: "testy wydajności walidacji inienia rekordu w bazie"],
+        [ test_type: "clean", testGroup: "crud", description: "testy wydajności operacji CRUD"],
+        [ test_type: "clean", testGroup: "all", description: "testy wydajności: walidacji istnienia klucza API, walidacji istnienia, operacji CRUD równolegle"],
+        [ test_type: "full", testGroup: "api_validation", description: "testy wydajności walidacji istnienia klucza API"],
+        [ test_type: "full", testGroup: "key_validation", description: "testy wydajności walidacji inienia rekordu w bazie"],
+        [ test_type: "full", testGroup: "crud", description: "testy wydajności operacji CRUD"],
+        [ test_type: "full", testGroup: "all", description: "testy wydajności: walidacji istnienia klucza API, walidacji istnienia, operacji CRUD równolegle"],
 ]
 
 List languages = [
         [
                 full : 'Tomcat 8',
                 short: 'tomcat'
-        ],[
+        ],
+        [
                 full : 'Jetty 9',
                 short: 'jetty'
-        ],[
+        ],
+        [
                 full : 'Go',
                 short: 'go'
         ],
 ]
-int i=1
+int i = 1
 figuresDetails.each { Map figureDetails ->
     String filename = "5_testy_wydajnosciowe_diagram_${i++}_${figureDetails.test_type}_${figureDetails.testGroup}.tex"
     println filename
@@ -35,7 +40,7 @@ figuresDetails.each { Map figureDetails ->
 \\showcaptionsetup{subfigure}
 \\hspace{-2.5cm}
 \\begin{subfigure}{0.5\\textwidth}
-\\pgfplotstableread[col sep = comma]{csv_queries/requests_per_sec/${reqPerSeqCsv}\\csvdata
+\\pgfplotstableread[col sep = comma]{csv_queries/${reqPerSeqCsv}}\\csvdata
 \\begin{tikzpicture}
   \\begin{axis}[xmin = 0, xmax=900, ymin = 0, scaled y ticks = base 10:-3, xlabel = {Czas [s]}, ylabel = Liczba żądań, legend pos=south east, ymajorgrids] %TODO miary?
     \\addplot[color=blue,mark=none] table[x index=0, y index=1]{\\csvdata};
@@ -49,8 +54,8 @@ figuresDetails.each { Map figureDetails ->
 
 \\hspace{3cm}
 \\begin{subfigure}{0.5\\textwidth}
-\\pgfplotstableread[col sep = comma]{csv_queries/response_time_distribution/${responseTimeDistribution100Csv}\\csva
-\\pgfplotstableread[col sep = comma]{csv_queries/response_time_distribution/${responseTimeDistribution250Csv}\\csvb
+\\pgfplotstableread[col sep = comma]{csv_queries/${responseTimeDistribution100Csv}}\\csva
+\\pgfplotstableread[col sep = comma]{csv_queries/${responseTimeDistribution250Csv}}\\csvb
 \\pgfplotsset{
     /pgfplots/ybar legend/.style={
     /pgfplots/legend image code/.code={\\draw[##1,/tikz/.cd,yshift=-0.25em](0cm,0cm) rectangle(1pt,0.7em);},
