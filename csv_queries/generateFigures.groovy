@@ -77,6 +77,7 @@ figuresDetails.each { Map figureDetails ->
 \\end{figure}"""
         texFile.append(template)
         texFile.append('\n\n')
+        texFile.append('\\clearpage\n')
 
     }
     println ""
