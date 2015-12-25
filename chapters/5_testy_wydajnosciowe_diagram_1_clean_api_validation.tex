@@ -4,7 +4,7 @@
 \showcaptionsetup{subfigure}
 \hspace{-2.5cm}
 \begin{subfigure}{0.5\textwidth}
-\pgfplotstableread[col sep = comma]{csv_queries/requests_per_sec/requests_per_sec/tomcat_clean_api_validation.csv\csvdata
+\pgfplotstableread[col sep = comma]{csv_queries/requests_per_sec/tomcat_clean_api_validation.csv}\csvdata
 \begin{tikzpicture}
   \begin{axis}[xmin = 0, xmax=900, ymin = 0, scaled y ticks = base 10:-3, xlabel = {Czas [s]}, ylabel = Liczba żądań, legend pos=south east, ymajorgrids] %TODO miary?
     \addplot[color=blue,mark=none] table[x index=0, y index=1]{\csvdata};
@@ -18,8 +18,8 @@
 
 \hspace{3cm}
 \begin{subfigure}{0.5\textwidth}
-\pgfplotstableread[col sep = comma]{csv_queries/response_time_distribution/response_time_distribution/tomcat_clean_api_validation_100.csv\csva
-\pgfplotstableread[col sep = comma]{csv_queries/response_time_distribution/response_time_distribution/tomcat_clean_api_validation_250.csv\csvb
+\pgfplotstableread[col sep = comma]{csv_queries/response_time_distribution/tomcat_clean_api_validation_100.csv}\csva
+\pgfplotstableread[col sep = comma]{csv_queries/response_time_distribution/tomcat_clean_api_validation_250.csv}\csvb
 \pgfplotsset{
     /pgfplots/ybar legend/.style={
     /pgfplots/legend image code/.code={\draw[##1,/tikz/.cd,yshift=-0.25em](0cm,0cm) rectangle(1pt,0.7em);},
@@ -46,7 +46,7 @@
 \showcaptionsetup{subfigure}
 \hspace{-2.5cm}
 \begin{subfigure}{0.5\textwidth}
-\pgfplotstableread[col sep = comma]{csv_queries/requests_per_sec/requests_per_sec/jetty_clean_api_validation.csv\csvdata
+\pgfplotstableread[col sep = comma]{csv_queries/requests_per_sec/jetty_clean_api_validation.csv}\csvdata
 \begin{tikzpicture}
   \begin{axis}[xmin = 0, xmax=900, ymin = 0, scaled y ticks = base 10:-3, xlabel = {Czas [s]}, ylabel = Liczba żądań, legend pos=south east, ymajorgrids] %TODO miary?
     \addplot[color=blue,mark=none] table[x index=0, y index=1]{\csvdata};
@@ -60,8 +60,8 @@
 
 \hspace{3cm}
 \begin{subfigure}{0.5\textwidth}
-\pgfplotstableread[col sep = comma]{csv_queries/response_time_distribution/response_time_distribution/jetty_clean_api_validation_100.csv\csva
-\pgfplotstableread[col sep = comma]{csv_queries/response_time_distribution/response_time_distribution/jetty_clean_api_validation_250.csv\csvb
+\pgfplotstableread[col sep = comma]{csv_queries/response_time_distribution/jetty_clean_api_validation_100.csv}\csva
+\pgfplotstableread[col sep = comma]{csv_queries/response_time_distribution/jetty_clean_api_validation_250.csv}\csvb
 \pgfplotsset{
     /pgfplots/ybar legend/.style={
     /pgfplots/legend image code/.code={\draw[##1,/tikz/.cd,yshift=-0.25em](0cm,0cm) rectangle(1pt,0.7em);},
@@ -88,7 +88,7 @@
 \showcaptionsetup{subfigure}
 \hspace{-2.5cm}
 \begin{subfigure}{0.5\textwidth}
-\pgfplotstableread[col sep = comma]{csv_queries/requests_per_sec/requests_per_sec/go_clean_api_validation.csv\csvdata
+\pgfplotstableread[col sep = comma]{csv_queries/requests_per_sec/go_clean_api_validation.csv}\csvdata
 \begin{tikzpicture}
   \begin{axis}[xmin = 0, xmax=900, ymin = 0, scaled y ticks = base 10:-3, xlabel = {Czas [s]}, ylabel = Liczba żądań, legend pos=south east, ymajorgrids] %TODO miary?
     \addplot[color=blue,mark=none] table[x index=0, y index=1]{\csvdata};
@@ -102,8 +102,8 @@
 
 \hspace{3cm}
 \begin{subfigure}{0.5\textwidth}
-\pgfplotstableread[col sep = comma]{csv_queries/response_time_distribution/response_time_distribution/go_clean_api_validation_100.csv\csva
-\pgfplotstableread[col sep = comma]{csv_queries/response_time_distribution/response_time_distribution/go_clean_api_validation_250.csv\csvb
+\pgfplotstableread[col sep = comma]{csv_queries/response_time_distribution/go_clean_api_validation_100.csv}\csva
+\pgfplotstableread[col sep = comma]{csv_queries/response_time_distribution/go_clean_api_validation_250.csv}\csvb
 \pgfplotsset{
     /pgfplots/ybar legend/.style={
     /pgfplots/legend image code/.code={\draw[##1,/tikz/.cd,yshift=-0.25em](0cm,0cm) rectangle(1pt,0.7em);},
