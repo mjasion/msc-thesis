@@ -1,9 +1,5 @@
 \pgfplotsset{grid style={dashed}}
 \begin{figure}[!ht]
-\captionsetup[subfigure]{singlelinecheck=off, justification=centering}
-\showcaptionsetup{subfigure}
-\hspace{-2.5cm}
-\begin{subfigure}{0.5\textwidth}
 \pgfplotstableread[col sep = comma]{csv_queries/requests_per_sec/tomcat_full_crud.csv}\csvdata
 \begin{tikzpicture}
   \begin{axis}[xmin = 0, xmax=900, ymin = 0, scaled y ticks = base 10:-3, xlabel = {Czas [s]}, ylabel = Liczba żądań, legend pos=south east, ymajorgrids] %TODO miary?
@@ -12,12 +8,11 @@
     \legend{100,250}
   \end{axis}
 \end{tikzpicture}
-\caption{Tomcat 8 - liczba żądań obsłużonych przez aplikację w ciągu sekundy}
+\caption{Tomcat 8 - liczba żądań obsłużonych przez aplikację w ciągu sekundy podczas testu operacji CRUD}
 \label{fig:tomcat_full_crud_rps}
-\end{subfigure}
+\end{figure}
 
-\hspace{3cm}
-\begin{subfigure}{0.5\textwidth}
+\begin{figure}[!ht]
 \pgfplotstableread[col sep = comma]{csv_queries/response_time_distribution/tomcat_full_crud_100.csv}\csva
 \pgfplotstableread[col sep = comma]{csv_queries/response_time_distribution/tomcat_full_crud_250.csv}\csvb
 \pgfplotsset{
@@ -32,21 +27,12 @@
     \legend{100,250}
   \end{axis}
 \end{tikzpicture}
-\caption{Tomcat 8 - rozkład czasów odpowiedzi aplikacji (95\% odpowiedzi)}
+\caption{Tomcat 8 - rozkład czasów odpowiedzi aplikacji (95\% odpowiedzi) podczas testu operacji CRUD}
 \label{fig:tomcat_full_crud_td}
-\end{subfigure}
-
-\caption{Tomcat 8 - testy wydajności operacji CRUD}
-\label{fig:tomcat_full_crud}
 \end{figure}
 
-\clearpage
 \pgfplotsset{grid style={dashed}}
 \begin{figure}[!ht]
-\captionsetup[subfigure]{singlelinecheck=off, justification=centering}
-\showcaptionsetup{subfigure}
-\hspace{-2.5cm}
-\begin{subfigure}{0.5\textwidth}
 \pgfplotstableread[col sep = comma]{csv_queries/requests_per_sec/jetty_full_crud.csv}\csvdata
 \begin{tikzpicture}
   \begin{axis}[xmin = 0, xmax=900, ymin = 0, scaled y ticks = base 10:-3, xlabel = {Czas [s]}, ylabel = Liczba żądań, legend pos=south east, ymajorgrids] %TODO miary?
@@ -55,12 +41,11 @@
     \legend{100,250}
   \end{axis}
 \end{tikzpicture}
-\caption{Jetty 9 - liczba żądań obsłużonych przez aplikację w ciągu sekundy}
+\caption{Jetty 9 - liczba żądań obsłużonych przez aplikację w ciągu sekundy podczas testu operacji CRUD}
 \label{fig:jetty_full_crud_rps}
-\end{subfigure}
+\end{figure}
 
-\hspace{3cm}
-\begin{subfigure}{0.5\textwidth}
+\begin{figure}[!ht]
 \pgfplotstableread[col sep = comma]{csv_queries/response_time_distribution/jetty_full_crud_100.csv}\csva
 \pgfplotstableread[col sep = comma]{csv_queries/response_time_distribution/jetty_full_crud_250.csv}\csvb
 \pgfplotsset{
@@ -75,21 +60,12 @@
     \legend{100,250}
   \end{axis}
 \end{tikzpicture}
-\caption{Jetty 9 - rozkład czasów odpowiedzi aplikacji (95\% odpowiedzi)}
+\caption{Jetty 9 - rozkład czasów odpowiedzi aplikacji (95\% odpowiedzi) podczas testu operacji CRUD}
 \label{fig:jetty_full_crud_td}
-\end{subfigure}
-
-\caption{Jetty 9 - testy wydajności operacji CRUD}
-\label{fig:jetty_full_crud}
 \end{figure}
 
-\clearpage
 \pgfplotsset{grid style={dashed}}
 \begin{figure}[!ht]
-\captionsetup[subfigure]{singlelinecheck=off, justification=centering}
-\showcaptionsetup{subfigure}
-\hspace{-2.5cm}
-\begin{subfigure}{0.5\textwidth}
 \pgfplotstableread[col sep = comma]{csv_queries/requests_per_sec/go_full_crud.csv}\csvdata
 \begin{tikzpicture}
   \begin{axis}[xmin = 0, xmax=900, ymin = 0, scaled y ticks = base 10:-3, xlabel = {Czas [s]}, ylabel = Liczba żądań, legend pos=south east, ymajorgrids] %TODO miary?
@@ -98,12 +74,11 @@
     \legend{100,250}
   \end{axis}
 \end{tikzpicture}
-\caption{Go - liczba żądań obsłużonych przez aplikację w ciągu sekundy}
+\caption{Go - liczba żądań obsłużonych przez aplikację w ciągu sekundy podczas testu operacji CRUD}
 \label{fig:go_full_crud_rps}
-\end{subfigure}
+\end{figure}
 
-\hspace{3cm}
-\begin{subfigure}{0.5\textwidth}
+\begin{figure}[!ht]
 \pgfplotstableread[col sep = comma]{csv_queries/response_time_distribution/go_full_crud_100.csv}\csva
 \pgfplotstableread[col sep = comma]{csv_queries/response_time_distribution/go_full_crud_250.csv}\csvb
 \pgfplotsset{
@@ -118,12 +93,7 @@
     \legend{100,250}
   \end{axis}
 \end{tikzpicture}
-\caption{Go - rozkład czasów odpowiedzi aplikacji (95\% odpowiedzi)}
+\caption{Go - rozkład czasów odpowiedzi aplikacji (95\% odpowiedzi) podczas testu operacji CRUD}
 \label{fig:go_full_crud_td}
-\end{subfigure}
-
-\caption{Go - testy wydajności operacji CRUD}
-\label{fig:go_full_crud}
 \end{figure}
 
-\clearpage
