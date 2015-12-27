@@ -5,10 +5,24 @@
 
 \newpage
 \subsection{Testy wydajności walidacji API}
-\input{chapters/5_testy_wydajnosciowe_diagram_1_clean_api_validation.tex}
-\clearpage
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac interdum elit. Mauris consequat consectetur tempor. Nunc posuere malesuada metus nec pharetra. Donec convallis laoreet enim, et finibus felis lobortis ac. Nunc varius fermentum elit, tempor porttitor ex sodales sed. Mauris ipsum ligula, imperdiet vel condimentum ut, luctus ac ligula. Pellentesque bibendum lectus non elit dapibus, ultricies interdum ipsum auctor. Phasellus a nisi suscipit, sollicitudin enim vitae, aliquet purus. In massa ex, volutpat eget justo vitae, tristique scelerisque velit. Aenean blandit egestas finibus. Maecenas pharetra finibus lorem, nec semper nulla venenatis vel. Mauris cursus justo vitae dapibus condimentum.
+% \input{chapters/5_testy_wydajnosciowe_diagram_1_clean_api_validation.tex}
+% \clearpage
 
+\begin{table}[!htb]
+\centering
+\caption{Wykorzystanie procesora i pamięci RAM na serwerze, gdzie uruchomione były aplikacje}
+\label{my-label}
+\begin{tabular}{@{}ccccl@{}}
+\toprule
+\textbf{Język} & \textbf{Liczba wątków} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie CPU (\%)}} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie RAM (MB)}} &  \\ \midrule
+Tomcat 8       & 100                    & 77.50                             & 1882.60                          &  \\
+Tomcat 8       & 250                    & 65.73                            & 1926.08                          &  \\
+Jetty 9        & 100                    & 70.13                            & 2020.03                          &  \\
+Jetty 9        & 250                    & 59.31                            & 2005.06                          &  \\
+Go             & 100                    & 29.93                            & 211.65                           &  \\
+Go             & 250                    & 31.64                            & 228.72                           &  \\ \bottomrule
+\end{tabular}
+\end{table}
 
 % \newpage
 % \subsection{Test wydajności walidacji kluczy w bazie}
