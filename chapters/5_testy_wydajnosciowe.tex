@@ -5,325 +5,53 @@
 
 \newpage
 \subsection{Testy wydajności walidacji API}
-% \input{chapters/5_testy_wydajnosciowe_diagram_1_clean_api_validation.tex}
-% \clearpage
+\input{chapters/5_testy_wydajnosciowe_diagram_1_clean_api_validation.tex}
+\input{chapters/5_testy_wydajnosciowe_tabela_1_clean_api_validation.tex}
+\clearpage
 
-\begin{table}[!htb]
-\centering
-\caption{Wykorzystanie procesora i pamięci RAM na serwerze, gdzie uruchomiona była aplikacja}
-\label{tab:app-clean-api}
-\begin{tabular}{@{}ccccl@{}}
-\toprule
-\textbf{Język} & \textbf{Liczba wątków} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie CPU (\%)}} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie RAM (MB)}} &  \\ \midrule
-Tomcat 8       & 100                    & 77.50                             & 1882.60                          &  \\
-Tomcat 8       & 250                    & 65.73                             & 1926.08                          &  \\
-Jetty 9       & 100                    & 70.13                             & 2020.03                          &  \\
-Jetty 9       & 250                    & 59.31                             & 2005.06                          &  \\
-Go       & 100                    & 29.93                             & 211.65                          &  \\
-Go       & 250                    & 31.64                             & 228.72                          &  \\
-\bottomrule
-\end{tabular}
-\end{table}
+\newpage
+\subsection{Test wydajności walidacji kluczy w bazie}
+\input{chapters/5_testy_wydajnosciowe_diagram_2_clean_key_validation.tex}
+\input{chapters/5_testy_wydajnosciowe_tabela_2_clean_key_validation.tex}
+\clearpage
 
-\begin{table}[!htb]
-\centering
-\caption{Wykorzystanie procesora i pamięci RAM na serwerze, gdzie uruchomiona była baza danych MongoDB}
-\label{tab:mongo-clean-api}
-\begin{tabular}{@{}ccccl@{}}
-\toprule
-\textbf{Język} & \textbf{Liczba wątków} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie CPU (\%)}} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie RAM (MB)}} &  \\ \midrule
-Tomcat 8       & 100                    & 29.4                             & 151.1                          &  \\
-Tomcat 8       & 250                    & 22.05                             & 272.9                          &  \\
-Jetty 9       & 100                    & 30.29                             & 301.42                          &  \\
-Jetty 9       & 250                    & 22.55                             & 270.23                          &  \\
-Go       & 100                    & 18.92                             & 302.67                          &  \\
-Go       & 250                    & 16.84                             & 358.49                          &  \\
-\bottomrule
-\end{tabular}
-\end{table}
+\newpage
+\subsection{Test wydajności operacji CRUD}
+\input{chapters/5_testy_wydajnosciowe_diagram_3_clean_crud.tex}
+\input{chapters/5_testy_wydajnosciowe_tabela_3_clean_crud.tex}
+\clearpage
 
- \newpage
- \subsection{Test wydajności walidacji kluczy w bazie}
-% \input{chapters/5_testy_wydajnosciowe_diagram_2_clean_key_validation.tex}
- \clearpage
+\newpage
+\subsection{Test wydajności walidacji API, walidacji kluczy w bazie oraz operacji CRUD rówlolegle }
+\input{chapters/5_testy_wydajnosciowe_diagram_4_clean_all.tex}
+\input{chapters/5_testy_wydajnosciowe_tabela_4_clean_all.tex}
+\clearpage
 
- \begin{table}[!htb]
- \centering
- \caption{Wykorzystanie procesora i pamięci RAM na serwerze, gdzie uruchomiona była aplikacja}
- \label{tab:app-clean-key}
- \begin{tabular}{@{}ccccl@{}}
- \toprule
- \textbf{Język} & \textbf{Liczba wątków} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie CPU (\%)}} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie RAM (MB)}} &  \\ \midrule
- Tomcat 8       & 100                    & 50.63                             & 1935.12                          &  \\
- Tomcat 8       & 250                    & 49.02                             & 2009.8                          &  \\
- Jetty 9       & 100                    & 50.61                             & 1949.84                          &  \\
- Jetty 9       & 250                    & 45.24                             & 1851.88                          &  \\
- Go       & 100                    & 39.28                             & 214.6                          &  \\
- Go       & 250                    & 45.59                             & 234.03                          &  \\
- \bottomrule
- \end{tabular}
- \end{table}
+\newpage
+\section{Wyniki testów - baza danych z danymi początkowymi}
+\subsection{Testy wydajności walidacji API}
+\input{chapters/5_testy_wydajnosciowe_diagram_5_full_api_validation.tex}
+\input{chapters/5_testy_wydajnosciowe_diagram_5_full_api_validation.tex}
+\clearpage
+
+\newpage
+\subsection{Test wydajności walidacji kluczy w bazie}
+\input{chapters/5_testy_wydajnosciowe_diagram_6_full_key_validation.tex}
+\input{chapters/5_testy_wydajnosciowe_tabela_6_full_key_validation.tex}
+\clearpage
+
+\newpage
+\subsection{Test wydajności operacji CRUD}
+\input{chapters/5_testy_wydajnosciowe_diagram_7_full_crud.tex}
+\input{chapters/5_testy_wydajnosciowe_tabela_7_full_crud.tex}
+\clearpage
 
 
- \begin{table}[!htb]
- \centering
- \caption{Wykorzystanie procesora i pamięci RAM na serwerze, gdzie uruchomiona była baza danych MongoDB}
- \label{tab:mongo-clean-key}
- \begin{tabular}{@{}ccccl@{}}
- \toprule
- \textbf{Język} & \textbf{Liczba wątków} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie CPU (\%)}} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie RAM (MB)}} &  \\ \midrule
- Tomcat 8       & 100                    & 44.74                             & 167.05                          &  \\
- Tomcat 8       & 250                    & 39.64                             & 277.01                          &  \\
- Jetty 9       & 100                    & 58.65                             & 260.65                          &  \\
- Jetty 9       & 250                    & 43.34                             & 268.43                          &  \\
- Go       & 100                    & 42.72                             & 302.94                          &  \\
- Go       & 250                    & 41.54                             & 365.98                          &  \\
- \bottomrule
- \end{tabular}
- \end{table}
+\newpage
+\subsection{Test wydajności walidacji API, walidacji kluczy w bazie oraz operacji CRUD rówlolegle }
+\input{chapters/5_testy_wydajnosciowe_diagram_8_full_all.tex}
+\input{chapters/5_testy_wydajnosciowe_tabela_8_full_all.tex}
+\clearpage
 
-
- \newpage
- \subsection{Test wydajności operacji CRUD}
-% \input{chapters/5_testy_wydajnosciowe_diagram_3_clean_crud.tex}
- \clearpage
-
-\begin{table}[!htb]
-\centering
-\caption{Wykorzystanie procesora i pamięci RAM na serwerze, gdzie uruchomiona była aplikacja}
-\label{tab:app-clean-crud}
-\begin{tabular}{@{}ccccl@{}}
-\toprule
-\textbf{Język} & \textbf{Liczba wątków} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie CPU (\%)}} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie RAM (MB)}} &  \\ \midrule
-Tomcat 8       & 100                    & 42.38                             & 1959.11                          &  \\
-Tomcat 8       & 250                    & 40.25                             & 2034.83                          &  \\
-Jetty 9       & 100                    & 36.32                             & 1753.27                          &  \\
-Jetty 9       & 250                    & 39.6                             & 1605.56                          &  \\
-Go       & 100                    & 33.31                             & 222.13                          &  \\
-Go       & 250                    & 41.36                             & 242.23                          &  \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-
-\begin{table}[!htb]
-\centering
-\caption{Wykorzystanie procesora i pamięci RAM na serwerze, gdzie uruchomiona była baza danych MongoDB}
-\label{tab:mongo-clean-crud}
-\begin{tabular}{@{}ccccl@{}}
-\toprule
-\textbf{Język} & \textbf{Liczba wątków} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie CPU (\%)}} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie RAM (MB)}} &  \\ \midrule
-Tomcat 8       & 100                    & 59.35                             & 174.04                          &  \\
-Tomcat 8       & 250                    & 53.36                             & 276.73                          &  \\
-Jetty 9       & 100                    & 59.18                             & 247.87                          &  \\
-Jetty 9       & 250                    & 55.55                             & 269.8                          &  \\
-Go       & 100                    & 40.46                             & 303.32                          &  \\
-Go       & 250                    & 39.74                             & 361.53                          &  \\
-\bottomrule
-\end{tabular}
-\end{table}
-
- \newpage
- \subsection{Test wydajności walidacji API, walidacji kluczy w bazie oraz operacji CRUD rówlolegle }
-% \input{chapters/5_testy_wydajnosciowe_diagram_4_clean_all.tex}
- \clearpage
-
- \begin{table}[!htb]
- \centering
- \caption{Wykorzystanie procesora i pamięci RAM na serwerze, gdzie uruchomiona była aplikacja}
- \label{tab:app-clean-all}
- \begin{tabular}{@{}ccccl@{}}
- \toprule
- \textbf{Język} & \textbf{Liczba wątków} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie CPU (\%)}} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie RAM (MB)}} &  \\ \midrule
- Tomcat 8       & 100                    & 56.12                             & 1976.99                          &  \\
- Tomcat 8       & 250                    & 46.62                             & 2063.85                          &  \\
- Jetty 9       & 100                    & 51.55                             & 1944.2                          &  \\
- Jetty 9       & 250                    & 46.04                             & 1600.48                          &  \\
- Go       & 100                    & 40.59                             & 223.55                          &  \\
- Go       & 250                    & 46.66                             & 244.16                          &  \\
- \bottomrule
- \end{tabular}
- \end{table}
-
-
- \begin{table}[!htb]
- \centering
- \caption{Wykorzystanie procesora i pamięci RAM na serwerze, gdzie uruchomiona była baza danych MongoDB}
- \label{tab:mongo-clean-all}
- \begin{tabular}{@{}ccccl@{}}
- \toprule
- \textbf{Język} & \textbf{Liczba wątków} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie CPU (\%)}} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie RAM (MB)}} &  \\ \midrule
- Tomcat 8       & 100                    & 55                             & 175.78                          &  \\
- Tomcat 8       & 250                    & 42.89                             & 275.74                          &  \\
- Jetty 9       & 100                    & 61.82                             & 248.13                          &  \\
- Jetty 9       & 250                    & 48.07                             & 269.2                          &  \\
- Go       & 100                    & 41.66                             & 305.38                          &  \\
- Go       & 250                    & 39.77                             & 359.53                          &  \\
- \bottomrule
- \end{tabular}
- \end{table}
-
-
- \newpage
- \section{Wyniki testów - baza danych z danymi początkowymi}
- \subsection{Testy wydajności walidacji API}
-% \input{chapters/5_testy_wydajnosciowe_diagram_5_full_api_validation.tex}
- \clearpage
-
-\begin{table}[!htb]
-\centering
-\caption{Wykorzystanie procesora i pamięci RAM na serwerze, gdzie uruchomiona była aplikacja}
-\label{tab:app-full-api}
-\begin{tabular}{@{}ccccl@{}}
-\toprule
-\textbf{Język} & \textbf{Liczba wątków} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie CPU (\%)}} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie RAM (MB)}} &  \\ \midrule
-Tomcat 8       & 100                    & 74.01                             & 1932.11                          &  \\
-Tomcat 8       & 250                    & 47.96                             & 1965.24                          &  \\
-Jetty 9       & 100                    & 81.33                             & 1990.89                          &  \\
-Jetty 9       & 250                    & 59.42                             & 1980.65                          &  \\
-Go       & 100                    & 31.35                             & 241.75                          &  \\
-Go       & 250                    & 32.38                             & 249.13                          &  \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-
-\begin{table}[!htb]
-\centering
-\caption{Wykorzystanie procesora i pamięci RAM na serwerze, gdzie uruchomiona była baza danych MongoDB}
-\label{tab:mongo-full-api}
-\begin{tabular}{@{}ccccl@{}}
-\toprule
-\textbf{Język} & \textbf{Liczba wątków} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie CPU (\%)}} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie RAM (MB)}} &  \\ \midrule
-Tomcat 8       & 100                    & 24.54                             & 464.09                          &  \\
-Tomcat 8       & 250                    & 14.05                             & 463.1                          &  \\
-Jetty 9       & 100                    & 33.73                             & 488                          &  \\
-Jetty 9       & 250                    & 17.44                             & 464.01                          &  \\
-Go       & 100                    & 18.66                             & 141.83                          &  \\
-Go       & 250                    & 19.16                             & 144.53                          &  \\
-\bottomrule
-\end{tabular}
-\end{table}
-
- \newpage
- \subsection{Test wydajności walidacji kluczy w bazie}
-% \input{chapters/5_testy_wydajnosciowe_diagram_6_full_key_validation.tex}
- \clearpage
-
-\begin{table}[!htb]
-\centering
-\caption{Wykorzystanie procesora i pamięci RAM na serwerze, gdzie uruchomiona była aplikacja}
-\label{tab:app-full-key}
-\begin{tabular}{@{}ccccl@{}}
-\toprule
-\textbf{Język} & \textbf{Liczba wątków} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie CPU (\%)}} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie RAM (MB)}} &  \\ \midrule
-Tomcat 8       & 100                    & 44.94                             & 1996.1                          &  \\
-Tomcat 8       & 250                    & 39.3                             & 2040.71                          &  \\
-Jetty 9       & 100                    & 51.93                             & 2051.5                          &  \\
-Jetty 9       & 250                    & 42.63                             & 2049.01                          &  \\
-Go       & 100                    & 29.86                             & 244.53                          &  \\
-Go       & 250                    & 34.68                             & 251.53                          &  \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-
-\begin{table}[!htb]
-\centering
-\caption{Wykorzystanie procesora i pamięci RAM na serwerze, gdzie uruchomiona była baza danych MongoDB}
-\label{tab:mongo-full-key}
-\begin{tabular}{@{}ccccl@{}}
-\toprule
-\textbf{Język} & \textbf{Liczba wątków} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie CPU (\%)}} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie RAM (MB)}} &  \\ \midrule
-Tomcat 8       & 100                    & 42.32                             & 435.73                          &  \\
-Tomcat 8       & 250                    & 43.57                             & 458.27                          &  \\
-Jetty 9       & 100                    & 60.13                             & 437.91                          &  \\
-Jetty 9       & 250                    & 40.57                             & 436.32                          &  \\
-Go       & 100                    & 38.89                             & 181.49                          &  \\
-Go       & 250                    & 41.61                             & 189.06                          &  \\
-\bottomrule
-\end{tabular}
-\end{table}
-
- \newpage
- \subsection{Test wydajności operacji CRUD}
-% \input{chapters/5_testy_wydajnosciowe_diagram_7_full_crud.tex}
- \clearpage
-
-\begin{table}[!htb]
-\centering
-\caption{Wykorzystanie procesora i pamięci RAM na serwerze, gdzie uruchomiona była aplikacja}
-\label{tab:app-full-crud}
-\begin{tabular}{@{}ccccl@{}}
-\toprule
-\textbf{Język} & \textbf{Liczba wątków} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie CPU (\%)}} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie RAM (MB)}} &  \\ \midrule
-Tomcat 8       & 100                    & 28.86                             & 1752.04                          &  \\
-Tomcat 8       & 250                    & 27.06                             & 2053.7                          &  \\
-Jetty 9       & 100                    & 27.3                             & 1951.18                          &  \\
-Jetty 9       & 250                    & 28.24                             & 2081.26                          &  \\
-Go       & 100                    & 23.9                             & 251.78                          &  \\
-Go       & 250                    & 23.23                             & 260.53                          &  \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-
-\begin{table}[!htb]
-\centering
-\caption{Wykorzystanie procesora i pamięci RAM na serwerze, gdzie uruchomiona była baza danych MongoDB}
-\label{tab:mongo-full-crud}
-\begin{tabular}{@{}ccccl@{}}
-\toprule
-\textbf{Język} & \textbf{Liczba wątków} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie CPU (\%)}} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie RAM (MB)}} &  \\ \midrule
-Tomcat 8       & 100                    & 54.46                             & 438.29                          &  \\
-Tomcat 8       & 250                    & 53.02                             & 449.68                          &  \\
-Jetty 9       & 100                    & 52.66                             & 441.22                          &  \\
-Jetty 9       & 250                    & 51.48                             & 442.63                          &  \\
-Go       & 100                    & 37.04                             & 256.85                          &  \\
-Go       & 250                    & 37.27                             & 264.31                          &  \\
-\bottomrule
-\end{tabular}
-\end{table}
-
- \newpage
- \subsection{Test wydajności walidacji API, walidacji kluczy w bazie oraz operacji CRUD rówlolegle }
-% \input{chapters/5_testy_wydajnosciowe_diagram_8_full_all.tex}
- \clearpage
-
- \begin{table}[!htb]
- \centering
- \caption{Wykorzystanie procesora i pamięci RAM na serwerze, gdzie uruchomiona była aplikacja}
- \label{tab:app-full-all}
- \begin{tabular}{@{}ccccl@{}}
- \toprule
- \textbf{Język} & \textbf{Liczba wątków} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie CPU (\%)}} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie RAM (MB)}} &  \\ \midrule
- Tomcat 8       & 100                    & 43.92                             & 1641                          &  \\
- Tomcat 8       & 250                    & 38.52                             & 2064.93                          &  \\
- Jetty 9       & 100                    & 37.57                             & 1979.89                          &  \\
- Jetty 9       & 250                    & 33.75                             & 2031.93                          &  \\
- Go       & 100                    & 28.85                             & 253.25                          &  \\
- Go       & 250                    & 30.64                             & 260.94                          &  \\
- \bottomrule
- \end{tabular}
- \end{table}
-
-
- \begin{table}[!htb]
- \centering
- \caption{Wykorzystanie procesora i pamięci RAM na serwerze, gdzie uruchomiona była baza danych MongoDB}
- \label{tab:mongo-full-all}
- \begin{tabular}{@{}ccccl@{}}
- \toprule
- \textbf{Język} & \textbf{Liczba wątków} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie CPU (\%)}} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie RAM (MB)}} &  \\ \midrule
- Tomcat 8       & 100                    & 57.45                             & 463.62                          &  \\
- Tomcat 8       & 250                    & 49.17                             & 466.37                          &  \\
- Jetty 9       & 100                    & 58.51                             & 472.62                          &  \\
- Jetty 9       & 250                    & 49.68                             & 469.12                          &  \\
- Go       & 100                    & 40.57                             & 309.93                          &  \\
- Go       & 250                    & 41.41                             & 314.7                          &  \\
- \bottomrule
- \end{tabular}
- \end{table}
-
-% \newpage
- \section{Analiza wyników}
+\newpage
+\section{Analiza wyników}

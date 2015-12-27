@@ -95,9 +95,12 @@ List dstatCsv = ['TOMCAT,100,50.63,1935.12,APP,Key Validation,CLEAN',
                  'GO,100,37.04,256.85,MONGO,CRUD,FULL',
                  'GO,250,37.27,264.31,MONGO,CRUD,FULL'
 ]
-
+int i = 1
 ['CLEAN', 'FULL'].each { String testType ->
     ['API Validation', 'Key Validation', 'CRUD', 'ALL'].each { String testGroup ->
+        String filename = "5_testy_wydajnosciowe_tabela_${i++}_${testType.toLowerCase()}_${testGroup.toLowerCase().replace(' ','_')}.tex"
+        println filename
+        File texFile = new File("../chapters/${filename}")
         ['APP', 'MONGO'].each { String server ->
             List<String> tableCsvData = dstatCsv.findAll { String line -> line.contains("$server,$testGroup,$testType") }
             String testGroupShort = testGroup.toLowerCase().split(' ')[0]
@@ -107,7 +110,7 @@ List dstatCsv = ['TOMCAT,100,50.63,1935.12,APP,Key Validation,CLEAN',
                 String lang = cells[0] == 'TOMCAT' ? 'Tomcat 8' : (cells[0] == 'JETTY' ? 'Jetty 9' : 'Go')
                 return "$lang       & ${cells[1]}                    & ${cells[2]}                             & ${cells[3]}                          &  \\\\"
             }.join('\n')
-            println """
+            String table = """
 \\begin{table}[!htb]
 \\centering
 \\caption{Wykorzystanie procesora i pamięci RAM na serwerze, gdzie $serverDescription}
@@ -120,7 +123,8 @@ $data
 \\end{tabular}
 \\end{table}
 """
-
+        texFile.append(table)
+        texFile.append('\n')
         }
     }
 }
