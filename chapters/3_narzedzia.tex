@@ -1,39 +1,37 @@
 \chapter{Narzędzia wykorzystane do przeprowadzenia testów}
 
 \section{Docker}
-% Docker jest platforma dla programistów i administratorów systemóœ do tworzenia, dostarczania i uruchamiania aplikacji. Docker pozwala zbudować aplikację z zależnościami, która zachowywać się będzie tak samo na środowisku produkcyjnym jak i programistycznym. Dzieje się tak, ponieważ budując aplikację tworzymy obrazy, które po zbudowaniu przenosimy na docelowe środowisko.
-
-% Docker opiera się na kontenerach linuxowych(LXC - Linux Containers). Kontenery w Linuxie są wirtualizacją na poziome systemu operacyjnego, która umożliwia na separacje aplikacji od systemu operacyjnego i fizycznej infrastruktury wykorzystywanej m.in. do połączeń sieciowych czy plików. Każdy z kontenerów może uruchomić swój proces, może mieć własnych użytkowników. Kontenerów w jednym systemie może być uruchomiona nieograniczona ilość. Konteneryzacja w przeciwieństwie do wirtualizacji  oferuje niewielki narzut na zasoby. Uruchomienie pojedynczego kontenera ogranicza się do wykonania kilku standardowych poleceń systemowych. 
-% Dla niniejszej pracy użyto Docker w wersji 1.9.0.
+Docker jest platforma dla programistów i administratorów systemóœ do tworzenia, dostarczania i uruchamiania aplikacji. Docker pozwala zbudować aplikację z zależnościami, która zachowywać się będzie tak samo na środowisku produkcyjnym jak i programistycznym. Dzieje się tak, ponieważ budując aplikację tworzymy obrazy, które po zbudowaniu przenosimy na docelowe środowisko.\\*
+Docker opiera się na kontenerach linuxowych(LXC - Linux Containers). Kontenery w Linuxie są wirtualizacją na poziome systemu operacyjnego, która umożliwia na separacje aplikacji od systemu operacyjnego i fizycznej infrastruktury wykorzystywanej m.in. do połączeń sieciowych czy plików. Każdy z kontenerów może uruchomić swój proces, może mieć własnych użytkowników. Kontenerów w jednym systemie może być uruchomiona nieograniczona ilość. Konteneryzacja w przeciwieństwie do wirtualizacji  oferuje niewielki narzut na zasoby. Uruchomienie pojedynczego kontenera ogranicza się do wykonania kilku standardowych poleceń systemowych. 
+Dla niniejszej pracy użyto Docker w wersji 1.9.0.
 
 \section{MongoDB}
-% MongoDB(https://www.mongodb.org/)jest nierelacyjną bazą danych(ang. \textsl{NoSQL database}). Główną cechą tej bazy jest brak ściśle zdefiniowanej struktury. Dane w bazie przechowywane są w postaci dokumentów. Dokument jest strukturą złożoną z par klucz-wartość, przypominających obiekt JSON. Wartości w dokumencie mogą zawierać inne dokumenty, tablice czy tablice dokumentów:
-% \begin{lstlisting}[language=JavaScript,caption=Przykład dokumentu w formacie JSON]
-% {
-%     firstname: "Jan",
-%     lastname: "Kowalski",
-%     age: 40
-% }
-% \end{lstlisting}
+MongoDB(https://www.mongodb.org/)jest nierelacyjną bazą danych(ang. \textsl{NoSQL database}). Główną cechą tej bazy jest brak ściśle zdefiniowanej struktury. Dane w bazie przechowywane są w postaci dokumentów. Dokument jest strukturą złożoną z par klucz-wartość, przypominających obiekt JSON. Wartości w dokumencie mogą zawierać inne dokumenty, tablice czy tablice dokumentów:
+\begin{lstlisting}[language=JavaScript,caption=Przykład dokumentu w formacie JSON]
+{
+    firstname: "Jan",
+    lastname: "Kowalski",
+    age: 40
+}
+\end{lstlisting}
 
 
 \section{Apache JMeter}
-% Apache JMeter(http://jmeter.apache.org/) jest programem służącym do wykonywania testów aplikacji w celu zmierzenia jej wydajności.  Początkowo został stworzony do tworzenia testów serwisów internetowych. Jednak z czasem został on rozszerzony o dodatkowe funkcje. Apache JMeter można użyć do symulowania wysokiego obciążenia aplikacji na serwerze, sieci lub innych testowanych obiektach.
-% Obecnie JMeter można zastosować do testowania serwerów i protokołów:
-% \begin{itemize}
-% \item HTTP
-% \item HTTPS
-% \item FTP
-% \item SOAP oraz REST
-% \item relacyjne bazy danych - przy użyciu sternika JDBC
-% \item nierelacyjne bazy danych np MongoDB
-% \item usług pocztowych wykorzstujących protokoły: SMTP, POP3 oraz IMAP
-% \item TCP
-% \end{itemize}
-% Apache JMeter można rozszerzać o własne pluginy więc lista usług dostępnych do testowania jest nieograniczona. \\*
-% Apache JMeter jest wielowątkowym narzędziem, przez co można wykonywać ten sam test rówlnolegle, symulując w ten sposób wielu urzytkowników. 
-
-% % TODO Jak tworzyć testy
-% Pierwsza stabilna wersja Apache JMeter została wydana 15 grudnia 1998r. Dla testów w pracy użyto wersji 2.13, która została wydana 14 marca 2015r.
+Apache JMeter(http://jmeter.apache.org/) jest programem służącym do wykonywania testów aplikacji w celu zmierzenia jej wydajności.  Początkowo został stworzony do tworzenia testów serwisów internetowych. Jednak z czasem został on rozszerzony o dodatkowe funkcje. Apache JMeter można użyć do symulowania wysokiego obciążenia aplikacji na serwerze, sieci lub innych testowanych obiektach.
+Obecnie JMeter można zastosować do testowania serwerów i protokołów:
+\begin{itemize}
+\item HTTP
+\item HTTPS
+\item FTP
+\item SOAP oraz REST
+\item relacyjne bazy danych - przy użyciu sternika JDBC
+\item nierelacyjne bazy danych np MongoDB
+\item usług pocztowych wykorzstujących protokoły: SMTP, POP3 oraz IMAP
+\item TCP
+\end{itemize}
+Apache JMeter można rozszerzać o własne pluginy więc lista usług dostępnych do testowania jest nieograniczona. \\*
+Apache JMeter jest wielowątkowym narzędziem, przez co można wykonywać ten sam test rówlnolegle, symulując w ten sposób wielu urzytkowników. \\
+% TODO Jak tworzyć testy
+Pierwsza stabilna wersja Apache JMeter została wydana 15 grudnia 1998r. Dla testów w pracy użyto wersji 2.13, która została wydana 14 marca 2015r.
 
 \section{Digitalocean}
