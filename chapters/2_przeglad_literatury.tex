@@ -1,8 +1,22 @@
 \chapter{Przegląd literatury}
 
-\section{Serwisy RESTful}
-\subsection{Czym jest serwis RESTful}
-\subsection{Mikroserwisy}
+\section{REST}
+Termin \textsl{REST}(ang. \textsl{REpresntation State Transfer}) po raz pierwszy został zaprezentowany w pracy doktorskiej "Architectural Styles and te Design of Network-based Software Architectures", której autorem był Roy Thomas Fielding w 2000 roku. Autor pracy zaprezentował \textsl{REST} jako architekturę do tworzenia rozproszonych aplikacji wykorzystujących \textsl{hypermedia} czyli danych będących powiązaniem grafiki, dźwięku, wideo, tekstu oraz \textsl{hyperlinków}). \textsl{REST} łączy kilka wzorców tworzenia aplikacji sieciowych. 
+
+Pierwszym z nich jest klient-serwer. W tym przypadku polega on na podziale ról: serwera i klienta. Rolą serwera jest zapewnienie danych, natomiast rolą klienta jest zgłaszanie się po dane. Dla klientów do zalet takiego rozwiązania należy możliwość tworzenia aplikacji wykorzystujących ten sam interfejs, uruchomionych na różnych systemach. Natomiast dla serwerów pozwala to na rozwijanie interfejsów, niezależnie od klientów. Takie podejście jest szczególnie przydatne w przypadku aplikacji internetowych. Wzorzec klient-serwer jest to najczęściej spotykany wzorzec tworzenia aplikacji sieciowych.
+
+Kolejnym wzorcem jest bez stanowość(ang. \textsl{stateless}). We wzorcu tym ważne jest, by każde żądanie z klienta do serwera musi zawierać informacje potrzebne do zrozumienia tego żądania. W praktyce oznacza to, że klient nie może poprosić serwera o przechowanie w swoim kontekście danych szczególnych temu klientowi. Stan sesji jest wiec trzymany w kliencie. Takie podejście pozwala na poprawienie skalowalności. Jednak powoduje ono, że czasem część danych jest przesyłana nadmiarowo.
+
+W celu poprawy wydajności wykorzystuje się pamięć podręczną(ang. \textsl{cache}). Celem takiego rozwiązania jest, by bez potrzeby nie generować tej samej odpowiedzi dwukrotnie. Pamięć podręczna może zostać zaimplementowana u klienta oraz serwera.
+
+Systemy budowane w oparciu o \textsl{REST} mogą wykorzystywać architekturę warstwową. Dzięki temu podejściu możliwe jest zhierarchizowanie komponentów systemu, tak by nie nie musiały wiedzieć o systemie więcej, niż to do czego zostały stworzone. 
+
+Charakterystyczną cechą odróżniającą \textsl{REST} od innych wzorców aplikacji sieciowych jest nacisk na ujednolicenie interfejsu pomiędzy komponentami. Zastosowanie tej zasady z inżynierii oprogramowania sprawia, że architektura systemu jest uproszona. Przekłada się to na ogólną widoczność interakcji w systemie. Implementacje od usług są rozdzielone, co przekłada się na możliwość niezależnego rozwoju wykorzystywanych serwisów.
+
+\subsection{REST a RESTful}
+% https://stackoverflow.com/questions/671118/what-exactly-is-restful-programming
+\subsection{HATEOAS}
+\section{Mikroserwisy}
 Mikroserwisy są małymi, niezależnymi serwisami, które ze sobą współpracują\cite{newman}. Mikroserwisy są odpowiedzią na rosnącą popularność trendów w tworzeniu tworzenia oprogramowania, które są ukierunkowane na domenę(ang. \textsl{Domain-Driven Design}, skrót \textsl{DDD}), zapewniające ciągłość dostaw zmian(ang. \textsl{continous delivery}), tworzone przez małe, niezależne zespoły oraz pozwalające na ich łatwe skalowanie. 
 
 Oprogramowanie ukierunkowane na domenę pierwszy zyskało popularność w 2003. Eric Evans w książce \textsl{Domain-Driven Design: Tackling Complexity in the Heart of Software}\cite{ddd} przedstawił sposób na tworzenie oprogramowania skupionym na domenie. Należy podkreślić że DDD nie jest metodyką tworzenia oprogramowania. Jest sposobem na zrozumienie działania rozległych systemów, co pozwala na ustalenie priorytetów podczas ich tworzenia. Książka przedstawiała to, jak ważna jest reprezentacja prawdziwego świata w tworzonym oprogramowaniu. Od 2003 roku podejście to podlega nieustannemu rozwojowi koncepcyjnemu, a jeszcze technologicznemu.
