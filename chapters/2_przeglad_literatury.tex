@@ -1,12 +1,12 @@
 \chapter{Przegląd literatury}
 
-\section{REST}
+\section{Architektura REST}
 
-Termin \textsl{REST}(ang. \textsl{REpresntation State Transfer}) po raz pierwszy został zaprezentowany w pracy doktorskiej \textsl{"Architectural Styles and te Design of Network-based Software Architectures"}, której autorem był Roy Thomas Fielding w 2000 roku. Autor pracy badał sukces sieci \textsl{Internet} jakim był jej szybki rozwój. W pracy zostały przestawione style architektoniczne, które przyczyniły się do szybkiego rozwoju m.in. sieci \textsl{WWW}(ang. \textsl{World Wide Web}). Źródłem sukcesu było zdaniem autora rozproszenie systemu, oraz to jak poszczególne zasoby sieci ze sobą współdziałały\cite{restinpractice}. Roy Thomas Fielding zdefiniował architekturę sieci \textsl{WWW} naywając ją właśnie jako \textsl{REpresntation State Transfer}. 
+W 2000 roku Roy Thomas Fielding w swojej pracy doktorskiej zatytułowanej \textsl{''Architectural Styles and te Design of Network-based Software Architectures"} badał szybki rozwój sieci \textsl{Internet}. Autor w pracy przedstawił różne style architektoniczne, które przyczyniły się do szybkiego rozwoju m.in. sieci \textsl{WWW}(ang. \textsl{World Wide Web}). Sieć \textsl{WWW} jest zbiorem zasobów i dokumentów, które są połączone ze sobą hiperłączami oraz URLami. Do swojego działania wykorzystuje sieć \textsl{Internet}.  Zdaniem autora źródłem sukcesu sieci \textsl{WWW} było rozproszenie systemu, oraz to jak poszczególne zasoby sieci ze sobą współdziałały\cite{restinpractice}. Roy Thomas Fielding nawiązał do takiej architektury nazywając ją właśnie terminem \textsl{REpresntation State Transfer}. \textsl{REST} opisuje sieć \textsl{WWW} jako rozproszony zbiór aplikacji, wykorzystujących \textsl{hypermedia} czyli dane będące powiązaniem grafiki, dźwięku, wideo, tekstu oraz \textsl{hyperlinków}. 
 
-zaprezentował \textsl{REST} jako architekturę do tworzenia rozproszonych aplikacji wykorzystujących \textsl{hypermedia} czyli dane będące powiązaniem grafiki, dźwięku, wideo, tekstu oraz \textsl{hyperlinków}. \textsl{REST} łączy kilka wzorców tworzenia aplikacji sieciowych. 
+\textsl{REST} swoją architekturą łączy kilka wzorców tworzenia aplikacji sieciowych. 
 
-Pierwszym z nich jest klient-serwer. Polega on na podziale ról: serwera i klienta. Rolą serwera w przypadku \textsl{REST} jest zapewnienie danych, natomiast rolą klienta jest zgłaszanie się po dane. Dla klientów do zalet takiego rozwiązania należy zaliczyć możliwość tworzenia aplikacji wykorzystujących ten sam interfejs, które można uruchomić na różnych systemach. Natomiast dla serwerów pozwala to na rozwijanie interfejsów, niezależnie od klientów. Takie podejście jest wykorzystywane od lat w aplikacjach internetowych. Wzorzec klient-serwer jest to najczęściej spotykany wzorzec tworzenia aplikacji sieciowych.
+Pierwszą z nich jest najpopularniejszy wzorzec: klient-serwer. Polega on na podziale ról: serwera i klienta. Rolą serwera w przypadku \textsl{REST} jest zapewnienie danych, natomiast rolą klienta jest zgłaszanie się po dane. Dla klientów do zalet takiego rozwiązania należy zaliczyć możliwość tworzenia aplikacji wykorzystujących ten sam interfejs, które można uruchomić na różnych systemach. Natomiast dla serwerów pozwala to na rozwijanie interfejsów, niezależnie od klientów. Takie podejście jest wykorzystywane od lat w aplikacjach internetowych. 
 
 Kolejnym wzorcem jest bez stanowość(ang. \textsl{stateless}). Opiera się ono na zasadzie, że każde żądanie z klienta do serwera musi zawierać informacje potrzebne do zrozumienia tego żądania. W praktyce oznacza to, że klient nie może poprosić serwera o przechowanie w swoim kontekście danych szczególnych temu klientowi. Stan sesji musi więc być trzymany po stronie klienta co pozwala na zapewnienie skalowalności. Jednak powoduje ono, że czasem część danych jest przesyłana nadmiarowo.
 
@@ -14,90 +14,98 @@ W celu poprawy wydajności wykorzystuje się pamięć podręczną(ang. \textsl{c
 
 Kolejną zasadą, którą \textsl{REST} wykosztuje jest architektura warstwowa. Dzięki temu podejściu możliwe jest zhierarchizowanie komponentów systemu, tak by nie nie musiały wiedzieć o systemie więcej, niż to do czego zostały stworzone. W ten sposób, system staje się prostszy do zrozumienia, a poszczególne komponenty mogą być wykorzystywane wielokrotnie przez inne.
 
-Rzeczą która odróżnia \textsl{REST} od innych wzorców aplikacji sieciowych jest nacisk na ujednolicenie interfejsu pomiędzy komponentami. Zastosowanie tej zasady z inżynierii oprogramowania sprawia, że architektura systemu jest uproszona. Przekłada się to na ogólną widoczność interakcji w systemie. 
+Rzeczą która odróżnia architekturę \textsl{REST} od innych wzorców aplikacji sieciowych jest nacisk na ujednolicenie interfejsu pomiędzy komponentami. Zastosowanie tej zasady z inżynierii oprogramowania sprawia, że architektura systemu jest uproszona. Przekłada się to na ogólną widoczność interakcji w systemie. 
 
-Cechami charakterystycznymi 
+W \textsl{REST} 
+
+\subsection{Budowa usług REST}
+Myśląc
+Pierwszą rzeczą, odróżniającą \textsl{REST} od innych usług sieciowych jest jego niezależność od protokołu którym dane są wymieniane. Dlatego może on zwracać obiekty \textsl{JSON}(ang. \textsl{JavaScript Object Notation}), \textsl{XML}(ang. \textsl{Extensible Markup Language}) czy też po prostu czysty tekst. 
+
+Do komunikacji z usługami \textsl{REST} wykorzystuje się protokół \textsl{HTTP}(ang. \textsl{Hypertext Transfer Protocol}). Poprzez adresy URL można odwoływać się do zasobów.
+
 \subsection{REST a RESTful}
-% https://stackoverflow.com/questions/671118/what-exactly-is-restful-programming
+https://stackoverflow.com/questions/671118/what-exactly-is-restful-programming
 \subsection{HATEOAS}
-\section{Mikroserwisy}
-Mikroserwisy są małymi, niezależnymi serwisami, które ze sobą współpracują\cite{newman}. Mikroserwisy są odpowiedzią na rosnącą popularność trendów w tworzeniu tworzenia oprogramowania, które są ukierunkowane na domenę(ang. \textsl{Domain-Driven Design}, skrót \textsl{DDD}), zapewniające ciągłość dostaw zmian(ang. \textsl{continous delivery}), tworzone przez małe, niezależne zespoły oraz pozwalające na ich łatwe skalowanie. 
+System taki można określić jako zbiór aplikacji, których stany są przedstawiane unikalnie identyfikowanymi zasobami
+% \section{Mikroserwisy}
+% Mikroserwisy są małymi, niezależnymi serwisami, które ze sobą współpracują\cite{newman}. Mikroserwisy są odpowiedzią na rosnącą popularność trendów w tworzeniu tworzenia oprogramowania, które są ukierunkowane na domenę(ang. \textsl{Domain-Driven Design}, skrót \textsl{DDD}), zapewniające ciągłość dostaw zmian(ang. \textsl{continous delivery}), tworzone przez małe, niezależne zespoły oraz pozwalające na ich łatwe skalowanie. 
 
-Oprogramowanie ukierunkowane na domenę pierwszy zyskało popularność w 2003. Eric Evans w książce \textsl{Domain-Driven Design: Tackling Complexity in the Heart of Software}\cite{ddd} przedstawił sposób na tworzenie oprogramowania skupionym na domenie. Należy podkreślić że DDD nie jest metodyką tworzenia oprogramowania. Jest sposobem na zrozumienie działania rozległych systemów, co pozwala na ustalenie priorytetów podczas ich tworzenia. Książka przedstawiała to, jak ważna jest reprezentacja prawdziwego świata w tworzonym oprogramowaniu. Od 2003 roku podejście to podlega nieustannemu rozwojowi koncepcyjnemu, a jeszcze technologicznemu.
+% Oprogramowanie ukierunkowane na domenę pierwszy zyskało popularność w 2003. Eric Evans w książce \textsl{Domain-Driven Design: Tackling Complexity in the Heart of Software}\cite{ddd} przedstawił sposób na tworzenie oprogramowania skupionym na domenie. Należy podkreślić że DDD nie jest metodyką tworzenia oprogramowania. Jest sposobem na zrozumienie działania rozległych systemów, co pozwala na ustalenie priorytetów podczas ich tworzenia. Książka przedstawiała to, jak ważna jest reprezentacja prawdziwego świata w tworzonym oprogramowaniu. Od 2003 roku podejście to podlega nieustannemu rozwojowi koncepcyjnemu, a jeszcze technologicznemu.
 
-Podejście do tworzenia oprogramowania przy użyciu mikroserwisów idzie w parze z \textsl{DDD}. Mikroserwisy jak wcześniej wspomniałem są małe. Tworzone oprogramowanie rośnie wraz ze zmianami dodawanymi do systemu. Gdy system rozrośnie się, dodanie kolejnej zmiany może skutkować błędami w innej części systemu, których nie dało się przewidzieć. Często taka sytuacja zdarza się przy dużych systemach, będącymi monolitami.
+% Podejście do tworzenia oprogramowania przy użyciu mikroserwisów idzie w parze z \textsl{DDD}. Mikroserwisy jak wcześniej wspomniałem są małe. Tworzone oprogramowanie rośnie wraz ze zmianami dodawanymi do systemu. Gdy system rozrośnie się, dodanie kolejnej zmiany może skutkować błędami w innej części systemu, których nie dało się przewidzieć. Często taka sytuacja zdarza się przy dużych systemach, będącymi monolitami.
 
-Mikroserwisy przez to, że są małe pozwalają być skupione tylko na zadaniu, do którego zostały stworzone. Komunikacja między mikroserwisami odbywa się przez, sieć więc bez problemu można je uruchomić na odizolowanym środowisku lub platformie przez co mikroserwisy stają się niezależne. 
+% Mikroserwisy przez to, że są małe pozwalają być skupione tylko na zadaniu, do którego zostały stworzone. Komunikacja między mikroserwisami odbywa się przez, sieć więc bez problemu można je uruchomić na odizolowanym środowisku lub platformie przez co mikroserwisy stają się niezależne. 
 
- Uruchamianie mikroserwisów na różnych systemach pozwala na stworzenie systemu bardziej odpornego na awarie. Jeśli jeden z mikroserwisów przestanie działać np. przez awarię sprzętu, spowoduje to wyłączenie pojedynczej funkcjonalności. Sam system będzie wciąż działał, a niedziałającą usługę szybko można przenieść i uruchomić w innym miejscu. Przy monolitycznym systemie, by zabezpieczyć się przed awariami musimy uruchomić ten sam system na kilku maszynach marnując przez to zasoby.
+%  Uruchamianie mikroserwisów na różnych systemach pozwala na stworzenie systemu bardziej odpornego na awarie. Jeśli jeden z mikroserwisów przestanie działać np. przez awarię sprzętu, spowoduje to wyłączenie pojedynczej funkcjonalności. Sam system będzie wciąż działał, a niedziałającą usługę szybko można przenieść i uruchomić w innym miejscu. Przy monolitycznym systemie, by zabezpieczyć się przed awariami musimy uruchomić ten sam system na kilku maszynach marnując przez to zasoby.
 
-Mikroserwisy pozwalają na łatwe skalowanie. Wystarczy że uruchomimy ten sam serwis w kilku miejscach, a wydajność danej części systemu powinna wzrosnąć. W monolitycznych systemach jesteśmy zmuszeni do skalowania całych systemów więc również funkcjonalności, których w systemie rzadziej się używa również będą powielone.
+% Mikroserwisy pozwalają na łatwe skalowanie. Wystarczy że uruchomimy ten sam serwis w kilku miejscach, a wydajność danej części systemu powinna wzrosnąć. W monolitycznych systemach jesteśmy zmuszeni do skalowania całych systemów więc również funkcjonalności, których w systemie rzadziej się używa również będą powielone.
 
-Niezależność mikroserwisów jest również zaletą przy wyborze technologi. Można stworzyć te same mikroserwisy w różnych językach o ile każdy będzie działać tak samo. Przydaje się to również gdy chcemy poprawić wydajność danej usługi lub technologia, której używamy nie jest przystosowana pod konkretne zadanie. 
+% Niezależność mikroserwisów jest również zaletą przy wyborze technologi. Można stworzyć te same mikroserwisy w różnych językach o ile każdy będzie działać tak samo. Przydaje się to również gdy chcemy poprawić wydajność danej usługi lub technologia, której używamy nie jest przystosowana pod konkretne zadanie. 
 
-Kolejną sporą zaletą tworzenia systemów opartych o mikroserwisy jest wygoda ich wdrażania na środowiska produkcyjne niezależnie od pozostałych części systemu. Jeśli dodamy nową zmianę w danych serwisie, nie ma potrzeby restartowania całego systemu. Również w przypadku błędu pozwala to na szybkie znalezienie błędu, poprawienie i wdrożenie bez potrzeby zbędnego oczekiwania. 
+% Kolejną sporą zaletą tworzenia systemów opartych o mikroserwisy jest wygoda ich wdrażania na środowiska produkcyjne niezależnie od pozostałych części systemu. Jeśli dodamy nową zmianę w danych serwisie, nie ma potrzeby restartowania całego systemu. Również w przypadku błędu pozwala to na szybkie znalezienie błędu, poprawienie i wdrożenie bez potrzeby zbędnego oczekiwania. 
 
-\section{Java}
-\subsection{Historia i ewolucja języka Java}
-Początki języka Java miały miejsce w 1991 roku. Wtedy to Patrick Naughton i James Gosling, inżynierowie firmy Sun,  wpadli na pomysł zaprojektowania języka, który będzie można uruchomić na urządzeniach takich jak dekodery telewizyjne\cite{java8}. Ponieważ urządzenia takie pochodziły od różnych producentów i każdy mógł stosować różne procesory, język nie mógł być oparty na jednej architekturze. W ten sposób zespół pracujący na rozwiązaniem wskrzesił model uruchamiania oprogramowania na maszynach wirtualnych, gdzie programy były kompilowane do kodu pośredniego.  
-Początkowo język nosił nazwę Oak. Ponieważ taki język już istniał, postanowiono zmienić nazwę na Java.
+% \section{Java}
+% \subsection{Historia i ewolucja języka Java}
+% Początki języka Java miały miejsce w 1991 roku. Wtedy to Patrick Naughton i James Gosling, inżynierowie firmy Sun,  wpadli na pomysł zaprojektowania języka, który będzie można uruchomić na urządzeniach takich jak dekodery telewizyjne\cite{java8}. Ponieważ urządzenia takie pochodziły od różnych producentów i każdy mógł stosować różne procesory, język nie mógł być oparty na jednej architekturze. W ten sposób zespół pracujący na rozwiązaniem wskrzesił model uruchamiania oprogramowania na maszynach wirtualnych, gdzie programy były kompilowane do kodu pośredniego.  
+% Początkowo język nosił nazwę Oak. Ponieważ taki język już istniał, postanowiono zmienić nazwę na Java.
 
-Do roku 1994 roku zespół projektowy bez skutku próbował wykorzystać język w urządzeniach kablowych. Wtedy postanowili wykorzystać język do stworzenia przeglądarki internetowej, która będzie niezależna od architektury. W 1995 zaprezentowali oni efekt swojej pracy: przeglądarkę HotJava. Przez wbudowaną przenośność język został uznany, że jest wart rozwijania by w 1996 roku wydano wersję 1.0. Krótko po tym wyszła wersja 1.1 rozszerzająca możliwości m.in o możliwośc drukowania, dodano model zdarzeń dla programowania GUI oraz poprawiono refleksję.
+% Do roku 1994 roku zespół projektowy bez skutku próbował wykorzystać język w urządzeniach kablowych. Wtedy postanowili wykorzystać język do stworzenia przeglądarki internetowej, która będzie niezależna od architektury. W 1995 zaprezentowali oni efekt swojej pracy: przeglądarkę HotJava. Przez wbudowaną przenośność język został uznany, że jest wart rozwijania by w 1996 roku wydano wersję 1.0. Krótko po tym wyszła wersja 1.1 rozszerzająca możliwości m.in o możliwośc drukowania, dodano model zdarzeń dla programowania GUI oraz poprawiono refleksję.
 
-Język miał wciąż spore braki i w 1998 roku wydano wersję 1.2. Wersja ta była ogromną zmianą w porównaniu do poprzedniczek, dlatego zmieniła swoją marketingową nazwę na "Java 2 Standard Edition Software Development Kit Version 1.2". Wraz z nią pojawiło się wiele nowych elementów. Do najważniejszych z nich należą biblioteka Collection oraz Swing. Biblioteka Swing pozwalała na tworzenie aplikacji z graficznymi interfejsami użytkownika(w tym apletów w przeglądarce), której elementy w łatwy sposób skalowały się do ekranów urządzeń na których była uruchamiana. W tym samym momencie swój początek miały dwie wersje języka. Micro Edition przeznaczona do urządzeń przenośnych np. telefonów komórkowych oraz Enterprise Edition do pisania aplikacji serwerowych. Kolejne wersje języka, 1.3 i 1.4 wydane odpowiednio w 2000 i 2002 roku, wprowadzały ulepszenia w samym języku oraz rozszerzały standardową bibliotekę. Z biegiem czasu popularność aplikacji uruchamianych po stronie klienta gasła, jednak rosła popularność pisania aplikacji po stronie uruchamianych na serwerach.
+% Język miał wciąż spore braki i w 1998 roku wydano wersję 1.2. Wersja ta była ogromną zmianą w porównaniu do poprzedniczek, dlatego zmieniła swoją marketingową nazwę na "Java 2 Standard Edition Software Development Kit Version 1.2". Wraz z nią pojawiło się wiele nowych elementów. Do najważniejszych z nich należą biblioteka Collection oraz Swing. Biblioteka Swing pozwalała na tworzenie aplikacji z graficznymi interfejsami użytkownika(w tym apletów w przeglądarce), której elementy w łatwy sposób skalowały się do ekranów urządzeń na których była uruchamiana. W tym samym momencie swój początek miały dwie wersje języka. Micro Edition przeznaczona do urządzeń przenośnych np. telefonów komórkowych oraz Enterprise Edition do pisania aplikacji serwerowych. Kolejne wersje języka, 1.3 i 1.4 wydane odpowiednio w 2000 i 2002 roku, wprowadzały ulepszenia w samym języku oraz rozszerzały standardową bibliotekę. Z biegiem czasu popularność aplikacji uruchamianych po stronie klienta gasła, jednak rosła popularność pisania aplikacji po stronie uruchamianych na serwerach.
 
-W 2004 pojawiła się nowa wersja języka oznaczona numerem 5.0. Wprowadziła ona typy sparametryzowane(ang. \textsl{generic types}) co rozszerzyło możliwości pisania oprogramowania, bardziej odpornego na błędy programisty. Doszły różwnież rzeczy zaczerpnięte z języka C\#: pętla \textsl{for each} do poruszania się po tabliach i kolekcjach, oraz \textsl{autoboxing} pozwalający konwertować typy proste na obiekty i odwrotnie. Dodane zmiany były zaimplementowane tak, by nie zmieniać nic w maszynie wirtualnej.
+% W 2004 pojawiła się nowa wersja języka oznaczona numerem 5.0. Wprowadziła ona typy sparametryzowane(ang. \textsl{generic types}) co rozszerzyło możliwości pisania oprogramowania, bardziej odpornego na błędy programisty. Doszły różwnież rzeczy zaczerpnięte z języka C\#: pętla \textsl{for each} do poruszania się po tabliach i kolekcjach, oraz \textsl{autoboxing} pozwalający konwertować typy proste na obiekty i odwrotnie. Dodane zmiany były zaimplementowane tak, by nie zmieniać nic w maszynie wirtualnej.
 
-Wersja Java SE 6 nie wnosiła nowych funkcji. Rozszerzała ona jednak bibliotekę standardową, oraz poprawiono wydajność i bezpieczeństwo.
+% Wersja Java SE 6 nie wnosiła nowych funkcji. Rozszerzała ona jednak bibliotekę standardową, oraz poprawiono wydajność i bezpieczeństwo.
 
-W wyniku problemów finansowych firmy Sun, koncern Oracle w 2010 wykupił firmę i w ten sposób stał się właścicielem praw do języka Java. Mocno opóźniona kolejna wersja wyszła w 2011. Wprowadzała ona sporo zmian. Do najważniejszych z nich należało dodanie frameworka \textsl{Fork/Join} upraszający programowanie równoległe, pozwalając na tworzenie procesów oraz poprawa wydajności na systemach z procesorami wielordzeniowymi. Kolejną sporą nowością była nowa biblioteka obsługi wejścia/wyjścia, nazwana NIO. Java 7 wnosiła też mechanizm \textsl{invokedynamic}. Mechanizm ten pozwalał na nowy sposób wywołania metod. Zmiana wymusiła zmiany w \textsl{bytecode} języka. Zmiana miała się stać fundamentem, do tego co przyniesie Java 8.
+% W wyniku problemów finansowych firmy Sun, koncern Oracle w 2010 wykupił firmę i w ten sposób stał się właścicielem praw do języka Java. Mocno opóźniona kolejna wersja wyszła w 2011. Wprowadzała ona sporo zmian. Do najważniejszych z nich należało dodanie frameworka \textsl{Fork/Join} upraszający programowanie równoległe, pozwalając na tworzenie procesów oraz poprawa wydajności na systemach z procesorami wielordzeniowymi. Kolejną sporą nowością była nowa biblioteka obsługi wejścia/wyjścia, nazwana NIO. Java 7 wnosiła też mechanizm \textsl{invokedynamic}. Mechanizm ten pozwalał na nowy sposób wywołania metod. Zmiana wymusiła zmiany w \textsl{bytecode} języka. Zmiana miała się stać fundamentem, do tego co przyniesie Java 8.
 
-\subsection{Java 8}
-Obecnie istniejącą wersją języka Java jest wersja numer 8. Została opublikowana w 2014 roku przynosząc długo oczekiwane zmiany.\\*
-Najważniejszą z nich i najbardziej znaną były wyrażenia \textsl{Lambda}. Wyrażenia te pozwalają na czyste i zwięzłe wyrażenie pojedynczej metody. Wyrażenia te są wykorzystywane często przy operowaniu na kolekcjach między innymi do sortowania czy filtrowania kolekcji.\\*
-Na przykładzie \ref{lst:javaanonymous} zaprezentowany jest przykład sortowania listy osób, alfabetycznie po imieniu, przy użyciu klas anonimowych. Przykład \ref{lst:javalambda} prezentuje tą samą funkcjonalność, jednak z wykorzystaniem wyrażeń \textsl{Lambda}. 
+% \subsection{Java 8}
+% Obecnie istniejącą wersją języka Java jest wersja numer 8. Została opublikowana w 2014 roku przynosząc długo oczekiwane zmiany.\\*
+% Najważniejszą z nich i najbardziej znaną były wyrażenia \textsl{Lambda}. Wyrażenia te pozwalają na czyste i zwięzłe wyrażenie pojedynczej metody. Wyrażenia te są wykorzystywane często przy operowaniu na kolekcjach między innymi do sortowania czy filtrowania kolekcji.\\*
+% Na przykładzie \ref{lst:javaanonymous} zaprezentowany jest przykład sortowania listy osób, alfabetycznie po imieniu, przy użyciu klas anonimowych. Przykład \ref{lst:javalambda} prezentuje tą samą funkcjonalność, jednak z wykorzystaniem wyrażeń \textsl{Lambda}. 
 
-\begin{lstlisting}[caption=Sortowanie kolekcji w języku Java przy użyciu klas anonimowych, label={lst:javaanonymous}]
-Collections.sort(persons, new Comparator<Person>(){
-  public int compare(Person p1, Person p2){
-    return p1.firstName.compareTo(p2.firstName);
-  }
-});
-\end{lstlisting}
+% \begin{lstlisting}[caption=Sortowanie kolekcji w języku Java przy użyciu klas anonimowych, label={lst:javaanonymous}]
+% Collections.sort(persons, new Comparator<Person>(){
+%   public int compare(Person p1, Person p2){
+%     return p1.firstName.compareTo(p2.firstName);
+%   }
+% });
+% \end{lstlisting}
 
-\begin{lstlisting}[caption=Sortowanie kolekcji w języku Java przy użyciu wyrażeń \textsl{Lambda},label={lst:javalambda}, aboveskip=0mm]
-Collections.sort(persons, (p1, p2) -> p1.firstName.compareTo(p2.firstName));
-\end{lstlisting}
-Kod przy użyciu wyrażeń \textsl{Lambda} jest prostszy i krótszy.\\*
-Wyrażenia te w \textsl{bytecode} używają mechanizmu \textsl{invokedynamic} wprowadzonego w Javie 7. Wykorzystanie tego mechanizmu pozwala na opóźnienie przetłumaczenia wyrażenia w \textsl{bytecode} do momentu ich wywołania. Wynikiem wyrażenia \textsl{Lambda} jest metoda statyczna, która jest tworzona w czasie wykonania \textsl{bytecode}.\\*
-Kolejną sporą zmianą jest możliwość tworzenia metod domyślnych(ang. \textsl{default methods}) i statycznych(ang. \textsl{static methods}). Pozwoliło to m.in. na dostarczenie implementacji metody, bez potrzeby tworzenia klas abstrakcyjnych.
+% \begin{lstlisting}[caption=Sortowanie kolekcji w języku Java przy użyciu wyrażeń \textsl{Lambda},label={lst:javalambda}, aboveskip=0mm]
+% Collections.sort(persons, (p1, p2) -> p1.firstName.compareTo(p2.firstName));
+% \end{lstlisting}
+% Kod przy użyciu wyrażeń \textsl{Lambda} jest prostszy i krótszy.\\*
+% Wyrażenia te w \textsl{bytecode} używają mechanizmu \textsl{invokedynamic} wprowadzonego w Javie 7. Wykorzystanie tego mechanizmu pozwala na opóźnienie przetłumaczenia wyrażenia w \textsl{bytecode} do momentu ich wywołania. Wynikiem wyrażenia \textsl{Lambda} jest metoda statyczna, która jest tworzona w czasie wykonania \textsl{bytecode}.\\*
+% Kolejną sporą zmianą jest możliwość tworzenia metod domyślnych(ang. \textsl{default methods}) i statycznych(ang. \textsl{static methods}). Pozwoliło to m.in. na dostarczenie implementacji metody, bez potrzeby tworzenia klas abstrakcyjnych.
 
-Dużą nowością w tej wersji były nowe klasy do obsługi dat i godzin. Pozwalają one na operacje takich jak dodawanie czy odejmowanie w sposób uporządkowany i bardziej naturalny do zrozumienia.\\*
-Z mniej popularnych nowości jest możliwość wywoływania kodu \textsl{JavaScript} na wirtualnej maszynie Java(ang. \textsl{Java Virtual Machine}, w skrócie JVM).
+% Dużą nowością w tej wersji były nowe klasy do obsługi dat i godzin. Pozwalają one na operacje takich jak dodawanie czy odejmowanie w sposób uporządkowany i bardziej naturalny do zrozumienia.\\*
+% Z mniej popularnych nowości jest możliwość wywoływania kodu \textsl{JavaScript} na wirtualnej maszynie Java(ang. \textsl{Java Virtual Machine}, w skrócie JVM).
 
 
-\subsection{Spring}
-\textsl{Spring} jest szkieletem aplikacji(ang. \textsl{framework}), zapoczątkowanym przez Roda Johnsona, który to w 2001 opublikował książkę \textsl{Expert One-on-One: J2EE Design and Development}\cite{jeedesign}. Zaprezentował w niej swoją bibliotekę, która pozwalała tworzyć oprogramowanie biznesowe, składające się się prostych komponentów \textsl{JavaBean}. Biblioteka upubliczniona została natomiast w 2002 roku\cite{springinaction}.
+% \subsection{Spring}
+% \textsl{Spring} jest szkieletem aplikacji(ang. \textsl{framework}), zapoczątkowanym przez Roda Johnsona, który to w 2001 opublikował książkę \textsl{Expert One-on-One: J2EE Design and Development}\cite{jeedesign}. Zaprezentował w niej swoją bibliotekę, która pozwalała tworzyć oprogramowanie biznesowe, składające się się prostych komponentów \textsl{JavaBean}. Biblioteka upubliczniona została natomiast w 2002 roku\cite{springinaction}.
 
-Z czasem biblioteka rozrastała się o nowe funkcję stając się jedną z najpopularniejszych bibliotek do tworzenia aplikacji. Złożenie biblioteki z modułów pozwoliło na dobieranie ich do potrzeb architektury swojej aplikacji. Do najważniejszych i najbardziej popularnych modułów należą:
-\begin{itemize}
-\item IoC - do wstrzykiwania zależności
-\item MVC - do tworzenia aplikacji webowych
-\item Data oraz JDBC - jako warstwa dostępu do baz danych
-\item Security - autoryzacja i zabezpieczanie aplikacji
-\end{itemize}
-Najnowsza wersja biblioteki \textsl{Spring} wydana została w czerwcu 2015 i została oznaczona numerem 4.2.
+% Z czasem biblioteka rozrastała się o nowe funkcję stając się jedną z najpopularniejszych bibliotek do tworzenia aplikacji. Złożenie biblioteki z modułów pozwoliło na dobieranie ich do potrzeb architektury swojej aplikacji. Do najważniejszych i najbardziej popularnych modułów należą:
+% \begin{itemize}
+% \item IoC - do wstrzykiwania zależności
+% \item MVC - do tworzenia aplikacji webowych
+% \item Data oraz JDBC - jako warstwa dostępu do baz danych
+% \item Security - autoryzacja i zabezpieczanie aplikacji
+% \end{itemize}
+% Najnowsza wersja biblioteki \textsl{Spring} wydana została w czerwcu 2015 i została oznaczona numerem 4.2.
 
-Tworzenie aplikacji opartych o tą bibliotekę było skomplikowane. Wiązało się z tworzeniem wielu plików konfiguracyjnych oraz zapoznaniem dogłębnie z dokumentacją. W 2013 roku, wraz z wyjściem wersji 4 biblioteki powstał projekt \textsl{Spring Boot}. 
+% Tworzenie aplikacji opartych o tą bibliotekę było skomplikowane. Wiązało się z tworzeniem wielu plików konfiguracyjnych oraz zapoznaniem dogłębnie z dokumentacją. W 2013 roku, wraz z wyjściem wersji 4 biblioteki powstał projekt \textsl{Spring Boot}. 
 
-\textsl{Spring Boot} jest biblioteką, która pozwala na tworzenie oprogramowania z zachowaniem zasady\textsl{convention over configuration}. Pozwala on na uruchomienie aplikacji, bez potrzeby zbędnego konfigurowania. Zasada ta zakłada domyślną konfiguracje, pozwaląjącą na uruchomienie jej bez potrzeby zbędnego modyfikowania. Dopiero szczegółowe konfigurowanie wymaga interwencji programisty. W \textsl{Spring Boot} zasada ta stała się na tyle rozpowszechniona, że od rozpoczęcia tworzenia aplikacji, do jej pierwszego uruchomienia wystarczy kilka minut. Dodanie kolejnych bibliotek również nie wymaga żmudnych konfiguracji. Tworzenie aplikacji, które będzie można uruchomić w ciągu kilku minut od rozpoczęcia programowania było celem, któremu twórcy \textsl{Spring} musieli stawić czoła w kontekście mikroserwisów. 
+% \textsl{Spring Boot} jest biblioteką, która pozwala na tworzenie oprogramowania z zachowaniem zasady\textsl{convention over configuration}. Pozwala on na uruchomienie aplikacji, bez potrzeby zbędnego konfigurowania. Zasada ta zakłada domyślną konfiguracje, pozwaląjącą na uruchomienie jej bez potrzeby zbędnego modyfikowania. Dopiero szczegółowe konfigurowanie wymaga interwencji programisty. W \textsl{Spring Boot} zasada ta stała się na tyle rozpowszechniona, że od rozpoczęcia tworzenia aplikacji, do jej pierwszego uruchomienia wystarczy kilka minut. Dodanie kolejnych bibliotek również nie wymaga żmudnych konfiguracji. Tworzenie aplikacji, które będzie można uruchomić w ciągu kilku minut od rozpoczęcia programowania było celem, któremu twórcy \textsl{Spring} musieli stawić czoła w kontekście mikroserwisów. 
 
-\textsl{Spring Boot} obecnie pozwala na użycie wszystkich modułów, jakich \textsl{Spring} dostarcza(m.in. \textsl{MVC}, \textsl{Security}, \textsl{Data}) oraz dodając kolejne(m.in. Jetty, Tomcat, metryki, shell). 
+% \textsl{Spring Boot} obecnie pozwala na użycie wszystkich modułów, jakich \textsl{Spring} dostarcza(m.in. \textsl{MVC}, \textsl{Security}, \textsl{Data}) oraz dodając kolejne(m.in. Jetty, Tomcat, metryki, shell). 
 
-\subsection{Kontenery aplikacji}
-\subsubsection{Tomcat8}
-\subsubsection{Jetty9}
+% \subsection{Kontenery aplikacji}
+% \subsubsection{Tomcat8}
+% \subsubsection{Jetty9}
 
-\section{Go}
-\subsection{Historia i ewolucja języka Go}
-\subsection{Biblioteka mgo}
+% \section{Go}
+% \subsection{Historia i ewolucja języka Go}
+% \subsection{Biblioteka mgo}
