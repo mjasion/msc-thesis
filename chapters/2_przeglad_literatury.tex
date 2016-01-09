@@ -105,9 +105,7 @@ Tworzenie aplikacji opartych o tą bibliotekę było skomplikowane. Wiązało si
 \subsection{Kontenery aplikacji - Tomcat 8 i Jetty 9} 
 
 \section{Język Go}
-Język Go, potocznie nazywany również \textsl{golang}, powstał w 2007 roku w firmie Google. Autorami jego byli Ken Thompson, Robert Griesemer oraz Rob Pike\cite{programmingingo}. Każdy z nich miał swój wkład w rozwój języka \textsl{C}. Chcieli oni stworzyć język programowania, który będzie w momencie tworzenia tym, czym \textsl{C} był w latach 80.
-
-Na przykładzie \ref{lst:gohelloworld} zaprezenotwany jest przykładowy program, który wypisuje tekst \textsl{Hello World}.
+Język \textsl{Go}, potocznie nazywany również \textsl{golang}, powstał w 2007 roku w firmie Google. Autorami jego byli Ken Thompson, Robert Griesemer oraz Rob Pike\cite{programmingingo}. Każdy z nich miał swój wkład w rozwój języka \textsl{C}. Chcieli oni stworzyć język programowania, który będzie w momencie tworzenia tym, czym \textsl{C} był w latach 80. Autorzy języka chcieli, by tworzony język pozwalał na tworzenie dużych systemów, które będą łatwo się skalować, kompilacja ich będzie bardzo krótka, będzie statycznie typowany a zarządzanie pamięcią nie będzie zmorą programistów. Na przykładzie \ref{lst:gohelloworld} zaprezentowany jest program, który wypisuje tekst \textsl{Hello World}.
 \begin{lstlisting}[language=Go, caption={Przykład programu w języku Go}, label={lst:gohelloworld}]
 package main
 
@@ -147,4 +145,6 @@ Język \textsl{Go}, podobnie jak \textsl{Java} jest językiem statycznie typowan
 
 Dostępnie typy zmiennych są w większości podobne do tych, które występują w języku \textsl{C}. Występują tu również struktury i interfejsy. Język pozwala na tworzenie metod(prywatnych i publicznych), które będą przypisane do struktury, jednak nie można powiedzieć że język ten należy do grupy języków obiektowych ponieważ niemożliwe jest np. zaprogramowanie dziedziczenia. Kolejną różnicą w stosunku do języka \textsl{Java} jest brak typów generycznych, które tak bardzo pomogły w tworzonych systemach
  
-Składnia języka \textsl{Go} jest bardzo czytelna łatwa do zrozumienia. Autorzy języka stworzyli zbiór standardów dotyczący m.in. wcięć czy wywoływania metod, które mają na celu uspójnienie pisanych programów. Kompilator języka ma wbudowany analizator, który w momencie odstępstw przerywa dalszą kompilację. Takie podejście pozwala, by programista mógł wdrożyć się w istniejący system skupiają się na jego działaniu, a nie dodatkowo na stylu składni, jaki panuje w zespole
+Składnia języka \textsl{Go} jest bardzo czytelna i łatwa do zrozumienia. Autorzy języka stworzyli zbiór standardów dotyczący m.in. wcięć czy wywoływania metod, które mają na celu uspójnienie pisanych programów. Kompilator języka ma wbudowany analizator, który w momencie odstępstw przerywa dalszą kompilację. Takie podejście pozwala, by programista mógł wdrożyć się w istniejący system skupiają się na jego działaniu, a nie dodatkowo na stylu składni, jaki panuje w zespole
+
+Język \textsl{Go} co raz częściej jest wykorzystywany. Przykładowymi systemami, wykorzystującymi język są \textsl{Docker}, \textsl{Kubernetes}. Język znalazł zastosowanie również w usługach sieciowych takich jak serwery DNS czy bazy danych.
