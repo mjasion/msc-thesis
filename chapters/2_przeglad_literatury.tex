@@ -102,7 +102,12 @@ Tworzenie aplikacji opartych o tą bibliotekę było skomplikowane. Wiązało si
 
 \textsl{Spring Boot} obecnie pozwala na użycie wszystkich modułów, jakich \textsl{Spring} dostarcza(m.in. \textsl{MVC}, \textsl{Security}, \textsl{Data}) oraz dodając kolejne(m.in. Jetty, Tomcat, metryki, shell). 
 
-\subsection{Kontenery aplikacji - Tomcat 8 i Jetty 9} 
+\subsection{Serwery Tomcat 8 i Jetty 9} 
+Serwery \textsl{Tomcat} i \textsl{Jetty} są serwerami \textsl{HTTP} napisanymi w języku \textsl{Java}. Oba serwery dodatkowo pełnią funkcję kontenerów serwletów. Oznacza to, że na serwerach można uruchomić aplikacje, które implementują interfejs \textsl{javax.servlet.Servlet}, służący do obsługi żądań HTTP. Do bibliotek, wykorzystujących ten interfejs zaliczyć należy \textsl{Java Server Pages} czy \textsl{Spring MVC}. Aplikacje które implementują klasę \textsl{javax.servlet.Servlet} buduję się do pliku \textsl{WAR}, a następnie wgrywa na kontener, gdzie jest rozpakowywana i uruchamiana pod wybranym kontekstem. \textsl{Tomcat} i \textsl{Jetty} implementują najnowszą wersje \textsl{Servlet 3.1}, która wykorzystuje nieblokującą kolejkę wejść-wyjść oraz pozwala na zastosowanie technologi \textsl{WebSocket}. Serwery są dostępne również w formie bibliotek, które można dołączyć do aplikacji, zbudować do pliku \textsl{JAR} i uruchomić. Ten sposób jest wykorzystywany w \textsl{Spring Boot}.
+
+Serwery między sobą się różnią. Jedną z rzeczy je odróżniających jest sposób obsługi żądań. Tomcat wraz ze startem serwera ucuhamia zdefiniowaną w konfiguracji liczbę wątków, nie mniejszą niż jeden. W momencie gdy przychodzi pojedyncze żądaniem jeden z uruchomionych wątków przechwytuje go i dalej obsługuje. Gdy do serwera dochodzi więcej żądań, są one obsługiwane przez pozostałe wątki. W jednym momencie może być obsługiwanych maksymalnie tyle połączeń ile zostało uruchomionych wątków. Gdy liczba żądań dochodzących do serwera jest większa niż liczba wątków trafiają one do kolejki 
+
+
 
 \section{Język Go}
 Język \textsl{Go}, potocznie nazywany również \textsl{golang}, powstał w 2007 roku w firmie Google. Autorami jego byli Ken Thompson, Robert Griesemer oraz Rob Pike\cite{programmingingo}. Każdy z nich miał swój wkład w rozwój języka \textsl{C}. Chcieli oni stworzyć język programowania, który będzie w momencie tworzenia tym, czym \textsl{C} był w latach 80. Autorzy języka chcieli, by tworzony język pozwalał na tworzenie dużych systemów, które będą łatwo się skalować, kompilacja ich będzie bardzo krótka, będzie statycznie typowany a zarządzanie pamięcią nie będzie zmorą programistów. Na przykładzie \ref{lst:gohelloworld} zaprezentowany jest program, który wypisuje tekst \textsl{Hello World}.
