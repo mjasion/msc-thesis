@@ -1,0 +1,28 @@
+
+
+W 2000 roku Roy Thomas Fielding w swojej pracy doktorskiej zatytułowanej \textsl{''Architectural Styles and te Design of Network-based Software Architectures"} badał szybki rozwój sieci \textsl{Internet}. Autor w pracy przedstawił różne style architektoniczne, które przyczyniły się do szybkiego rozwoju m.in. sieci \textsl{WWW}(ang. \textsl{World Wide Web}). Sieć \textsl{WWW} jest zbiorem zasobów i dokumentów, które są połączone ze sobą hiperłączami oraz URLami. Do swojego działania wykorzystuje sieć \textsl{Internet}.  Zdaniem autora źródłem sukcesu sieci \textsl{WWW} było rozproszenie systemu, oraz to jak poszczególne zasoby sieci ze sobą współdziałały\cite{restinpractice}. Roy Thomas Fielding nawiązał do takiej architektury nazywając ją właśnie terminem \textsl{REpresntation State Transfer}. \textsl{REST} opisuje sieć \textsl{WWW} jako rozproszony zbiór aplikacji, wykorzystujących \textsl{hypermedia} czyli dane będące powiązaniem grafiki, dźwięku, wideo, tekstu oraz \textsl{hyperlinków}. 
+
+\textsl{REST} swoją architekturą łączy kilka wzorców tworzenia aplikacji sieciowych. 
+
+Pierwszą z nich jest najpopularniejszy wzorzec: klient-serwer. Polega on na podziale ról: serwera i klienta. Rolą serwera w przypadku \textsl{REST} jest zapewnienie danych, natomiast rolą klienta jest zgłaszanie się po dane. Dla klientów do zalet takiego rozwiązania należy zaliczyć możliwość tworzenia aplikacji wykorzystujących ten sam interfejs, które można uruchomić na różnych systemach. Natomiast dla serwerów pozwala to na rozwijanie interfejsów, niezależnie od klientów. Takie podejście jest wykorzystywane od lat w aplikacjach internetowych. 
+
+Kolejnym wzorcem jest bez stanowość(ang. \textsl{stateless}). Opiera się ono na zasadzie, że każde żądanie z klienta do serwera musi zawierać informacje potrzebne do zrozumienia tego żądania. W praktyce oznacza to, że klient nie może poprosić serwera o przechowanie w swoim kontekście danych szczególnych temu klientowi. Stan sesji musi więc być trzymany po stronie klienta co pozwala na zapewnienie skalowalności. Jednak powoduje ono, że czasem część danych jest przesyłana nadmiarowo.
+
+W celu poprawy wydajności wykorzystuje się pamięć podręczną(ang. \textsl{cache}). Celem takiego rozwiązania jest, by bez potrzeby nie generować tej samej odpowiedzi dwukrotnie. Pamięć podręczna może zostać zaimplementowana zarówno po stronie klienta jak i serwera.
+
+Kolejną zasadą, którą \textsl{REST} wykosztuje jest architektura warstwowa. Dzięki temu podejściu możliwe jest zhierarchizowanie komponentów systemu, tak by nie nie musiały wiedzieć o systemie więcej, niż to do czego zostały stworzone. W ten sposób, system staje się prostszy do zrozumienia, a poszczególne komponenty mogą być wykorzystywane wielokrotnie przez inne.
+
+Rzeczą która odróżnia architekturę \textsl{REST} od innych wzorców aplikacji sieciowych jest nacisk na ujednolicenie interfejsu pomiędzy komponentami. Zastosowanie tej zasady z inżynierii oprogramowania sprawia, że architektura systemu jest uproszona. Przekłada się to na ogólną widoczność interakcji w systemie. 
+
+W \textsl{REST} 
+
+\subsection{Budowa usług REST}
+Myśląc
+Pierwszą rzeczą, odróżniającą \textsl{REST} od innych usług sieciowych jest jego niezależność od protokołu którym dane są wymieniane. Dlatego może on zwracać obiekty \textsl{JSON}(ang. \textsl{JavaScript Object Notation}), \textsl{XML}(ang. \textsl{Extensible Markup Language}) czy też po prostu czysty tekst. 
+
+Do komunikacji z usługami \textsl{REST} wykorzystuje się protokół \textsl{HTTP}(ang. \textsl{Hypertext Transfer Protocol}). Poprzez adresy URL można odwoływać się do zasobów.
+
+\subsection{REST a RESTful}
+https://stackoverflow.com/questions/671118/what-exactly-is-restful-programming
+\subsection{HATEOAS}
+System taki można określić jako zbiór aplikacji, których stany są przedstawiane unikalnie identyfikowanymi zasobami

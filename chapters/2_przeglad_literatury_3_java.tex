@@ -1,0 +1,58 @@
+\subsection{Historia i ewolucja języka Java}
+Początki języka Java miały miejsce w 1991 roku. Wtedy to Patrick Naughton i James Gosling, inżynierowie firmy Sun,  wpadli na pomysł zaprojektowania języka, który będzie można uruchomić na urządzeniach takich jak dekodery telewizyjne\cite{java8}. Ponieważ urządzenia takie pochodziły od różnych producentów i każdy mógł stosować różne procesory, język nie mógł być oparty na jednej architekturze. W ten sposób zespół pracujący na rozwiązaniem wskrzesił model uruchamiania oprogramowania na maszynach wirtualnych, gdzie programy były kompilowane do kodu pośredniego.  
+Początkowo język nosił nazwę Oak. Ponieważ taki język już istniał, postanowiono zmienić nazwę na Java.
+
+Do roku 1994 roku zespół projektowy bez skutku próbował wykorzystać język w urządzeniach kablowych. Wtedy postanowili wykorzystać język do stworzenia przeglądarki internetowej, która będzie niezależna od architektury. W 1995 zaprezentowali oni efekt swojej pracy: przeglądarkę HotJava. Przez wbudowaną przenośność język został uznany, że jest wart rozwijania by w 1996 roku wydano wersję 1.0. Krótko po tym wyszła wersja 1.1 rozszerzająca możliwości m.in o możliwośc drukowania, dodano model zdarzeń dla programowania GUI oraz poprawiono refleksję.
+
+Język miał wciąż spore braki i w 1998 roku wydano wersję 1.2. Wersja ta była ogromną zmianą w porównaniu do poprzedniczek, dlatego zmieniła swoją marketingową nazwę na "Java 2 Standard Edition Software Development Kit Version 1.2". Wraz z nią pojawiło się wiele nowych elementów. Do najważniejszych z nich należą biblioteka Collection oraz Swing. Biblioteka Swing pozwalała na tworzenie aplikacji z graficznymi interfejsami użytkownika(w tym apletów w przeglądarce), której elementy w łatwy sposób skalowały się do ekranów urządzeń na których była uruchamiana. W tym samym momencie swój początek miały dwie wersje języka. Micro Edition przeznaczona do urządzeń przenośnych np. telefonów komórkowych oraz Enterprise Edition do pisania aplikacji serwerowych. Kolejne wersje języka, 1.3 i 1.4 wydane odpowiednio w 2000 i 2002 roku, wprowadzały ulepszenia w samym języku oraz rozszerzały standardową bibliotekę. Z biegiem czasu popularność aplikacji uruchamianych po stronie klienta gasła, jednak rosła popularność pisania aplikacji po stronie uruchamianych na serwerach.
+
+W 2004 pojawiła się nowa wersja języka oznaczona numerem 5.0. Wprowadziła ona typy sparametryzowane(ang. \textsl{generic types}) co rozszerzyło możliwości pisania oprogramowania, bardziej odpornego na błędy programisty. Doszły różwnież rzeczy zaczerpnięte z języka C\#: pętla \textsl{for each} do poruszania się po tabliach i kolekcjach, oraz \textsl{autoboxing} pozwalający konwertować typy proste na obiekty i odwrotnie. Dodane zmiany były zaimplementowane tak, by nie zmieniać nic w maszynie wirtualnej.
+
+Wersja Java SE 6 nie wnosiła nowych funkcji. Rozszerzała ona jednak bibliotekę standardową, oraz poprawiono wydajność i bezpieczeństwo.
+
+W wyniku problemów finansowych firmy Sun, koncern Oracle w 2010 wykupił firmę i w ten sposób stał się właścicielem praw do języka Java. Mocno opóźniona kolejna wersja wyszła w 2011. Wprowadzała ona sporo zmian. Do najważniejszych z nich należało dodanie frameworka \textsl{Fork/Join} upraszający programowanie równoległe, pozwalając na tworzenie procesów oraz poprawa wydajności na systemach z procesorami wielordzeniowymi. Kolejną sporą nowością była nowa biblioteka obsługi wejścia/wyjścia, nazwana NIO. Java 7 wnosiła też mechanizm \textsl{invokedynamic}. Mechanizm ten pozwalał na nowy sposób wywołania metod. Zmiana wymusiła zmiany w \textsl{bytecode} języka. Zmiana miała się stać fundamentem, do tego co przyniesie Java 8.
+
+\subsection{Java 8}
+Obecnie istniejącą wersją języka Java jest wersja numer 8. Została opublikowana w 2014 roku przynosząc długo oczekiwane zmiany.\\*
+Najważniejszą z nich i najbardziej znaną były wyrażenia \textsl{Lambda}. Wyrażenia te pozwalają na czyste i zwięzłe wyrażenie pojedynczej metody. Wyrażenia te są wykorzystywane często przy operowaniu na kolekcjach między innymi do sortowania czy filtrowania kolekcji.\\*
+Na przykładzie \ref{lst:javaanonymous} zaprezentowany jest przykład sortowania listy osób, alfabetycznie po imieniu, przy użyciu klas anonimowych. Przykład \ref{lst:javalambda} prezentuje tą samą funkcjonalność, jednak z wykorzystaniem wyrażeń \textsl{Lambda}. 
+
+\begin{lstlisting}[caption=Sortowanie kolekcji w języku Java przy użyciu klas anonimowych, label={lst:javaanonymous}]
+Collections.sort(persons, new Comparator<Person>(){
+  public int compare(Person p1, Person p2){
+    return p1.firstName.compareTo(p2.firstName);
+  }
+});
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Sortowanie kolekcji w języku Java przy użyciu wyrażeń \textsl{Lambda},label={lst:javalambda}, aboveskip=0mm]
+Collections.sort(persons, (p1, p2) -> p1.firstName.compareTo(p2.firstName));
+\end{lstlisting}
+Kod przy użyciu wyrażeń \textsl{Lambda} jest prostszy i krótszy.\\*
+Wyrażenia te w \textsl{bytecode} używają mechanizmu \textsl{invokedynamic} wprowadzonego w Javie 7. Wykorzystanie tego mechanizmu pozwala na opóźnienie przetłumaczenia wyrażenia w \textsl{bytecode} do momentu ich wywołania. Wynikiem wyrażenia \textsl{Lambda} jest metoda statyczna, która jest tworzona w czasie wykonania \textsl{bytecode}.\\*
+Kolejną sporą zmianą jest możliwość tworzenia metod domyślnych(ang. \textsl{default methods}) i statycznych(ang. \textsl{static methods}). Pozwoliło to m.in. na dostarczenie implementacji metody, bez potrzeby tworzenia klas abstrakcyjnych.
+
+Dużą nowością w tej wersji były nowe klasy do obsługi dat i godzin. Pozwalają one na operacje takich jak dodawanie czy odejmowanie w sposób uporządkowany i bardziej naturalny do zrozumienia.\\*
+Z mniej popularnych nowości jest możliwość wywoływania kodu \textsl{JavaScript} na wirtualnej maszynie Java(ang. \textsl{Java Virtual Machine}, w skrócie JVM).
+
+
+\subsection{Spring}
+\textsl{Spring} jest szkieletem aplikacji(ang. \textsl{framework}), zapoczątkowanym przez Roda Johnsona, który to w 2001 opublikował książkę \textsl{Expert One-on-One: J2EE Design and Development}\cite{jeedesign}. Zaprezentował w niej swoją bibliotekę, która pozwalała tworzyć oprogramowanie biznesowe, składające się się prostych komponentów \textsl{JavaBean}. Biblioteka upubliczniona została natomiast w 2002 roku\cite{springinaction}.
+
+Z czasem biblioteka rozrastała się o nowe funkcję stając się jedną z najpopularniejszych bibliotek do tworzenia aplikacji. Złożenie biblioteki z modułów pozwoliło na dobieranie ich do potrzeb architektury swojej aplikacji. Do najważniejszych i najbardziej popularnych modułów należą:
+\begin{itemize}
+\item IoC - do wstrzykiwania zależności
+\item MVC - do tworzenia aplikacji webowych
+\item Data oraz JDBC - jako warstwa dostępu do baz danych
+\item Security - autoryzacja i zabezpieczanie aplikacji
+\end{itemize}
+Najnowsza wersja biblioteki \textsl{Spring} wydana została w czerwcu 2015 i została oznaczona numerem 4.2.
+
+Tworzenie aplikacji opartych o tą bibliotekę było skomplikowane. Wiązało się z tworzeniem wielu plików konfiguracyjnych oraz zapoznaniem dogłębnie z dokumentacją. W 2013 roku, wraz z wyjściem wersji 4 biblioteki powstał projekt \textsl{Spring Boot}. 
+
+\textsl{Spring Boot} jest biblioteką, która pozwala na tworzenie oprogramowania z zachowaniem zasady\textsl{convention over configuration}. Pozwala on na uruchomienie aplikacji, bez potrzeby zbędnego konfigurowania. Zasada ta zakłada domyślną konfiguracje, pozwaląjącą na uruchomienie jej bez potrzeby zbędnego modyfikowania. Dopiero szczegółowe konfigurowanie wymaga interwencji programisty. W \textsl{Spring Boot} zasada ta stała się na tyle rozpowszechniona, że od rozpoczęcia tworzenia aplikacji, do jej pierwszego uruchomienia wystarczy kilka minut. Dodanie kolejnych bibliotek również nie wymaga żmudnych konfiguracji. Tworzenie aplikacji, które będzie można uruchomić w ciągu kilku minut od rozpoczęcia programowania było celem, któremu twórcy \textsl{Spring} musieli stawić czoła w kontekście mikroserwisów. 
+
+\textsl{Spring Boot} obecnie pozwala na użycie wszystkich modułów, jakich \textsl{Spring} dostarcza(m.in. \textsl{MVC}, \textsl{Security}, \textsl{Data}) oraz dodając kolejne(m.in. Jetty, Tomcat, metryki, shell). 
+
+\subsection{Serwery Tomcat 8 i Jetty 9} 
+Serwery \textsl{Tomcat} i \textsl{Jetty} są serwerami \textsl{HTTP} napisanymi w języku \textsl{Java}. Oba serwery dodatkowo pełnią funkcję kontenerów aplikacji. Na serwerach można uruchomić aplikacje, które implementują interfejs \textsl{javax.servlet.Servlet}, służący do obsługi żądań HTTP tworzonych w języku \textsl{Java}. Do bibliotek, wykorzystujących ten interfejs zaliczyć należy \textsl{Java Server Pages} czy \textsl{Spring MVC}. Aplikacje które implementują klasę \textsl{javax.servlet.Servlet} buduję się do pliku \textsl{WAR}, a następnie wgrywa na kontener, gdzie jest rozpakowywana i uruchamiana pod wybranym kontekstem. \textsl{Tomcat} i \textsl{Jetty} implementują najnowszą wersje \textsl{Servlet 3.1}, która wykorzystuje nieblokującą kolejkę wejść-wyjść oraz pozwala na zastosowanie technologi \textsl{WebSocket}. Serwery są napisane również w języku \textsl{Java}, więc są one dostępne również w formie bibliotek, które można dołączyć do aplikacji, następnie zbudować do pliku \textsl{JAR} i uruchomić. Poprzez dołączenie biblioteki można zbudować a następnie uruchomić projekt w \textsl{Spring Boot}
