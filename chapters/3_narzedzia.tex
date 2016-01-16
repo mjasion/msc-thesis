@@ -56,3 +56,20 @@ Pierwsza stabilna wersja Apache JMeter została wydana 15 grudnia 1998r. Dla tes
 Digitalocean(https://www.digitalocean.com/) jest usługą, pozwalającą na zakup wirtualnych serwerów w tzw. chmurze. Zastosowany model chmury to \textsl{Infrastructure as a Service}(skrót: \textsl{IAAS}, z ang. infrastruktura jako usługa"), dzięki której klient może kupić zasoby sprzętowe(dysk, procesor, łącze, pamięć ram) w zależności od potrzeb i budżetu. Zaletą takiego modelu dla klientów jest możliwość zakupu, tylko wtedy gdy dana usługa jest potrzeba. Kolejną zaletą jest możliwość dostosowania potrzebnych zasobów w zależności od obciążenia aplikacji.
 
 Digitalocean pozwala na wybór lokalizacji, w której kupowany serwer wirtualny będzie uruchomiony. Wśród obecnie dostępnych lokalizacji są Amsterdam, Frankfurt, Londyn, Nowy Jork, Singapur, San Francisco oraz Toronto. Taka możliwość pozwala tworzyć i uruchamiać aplikację w serwerowniach jak najbliżej docelowych użytkowników. 
+
+\section{Testy integracyjne - Groovy i Spock}
+
+\textsl{Groovy} jest językiem obiektowym, podobnym do języka \textsl{Java}. Język ten kompilowany jest do kodu bajtowego \textsl{Java} dzięki czemu może być uruchomiony na maszynie wirtualnej \textsl{Java}. 
+
+\textsl{Groovy} wprowadza kilka funkcji, które nie są dostępne w języku \textsl{Java}. Pierwszą z nich jest możliwość stosowania domknięć (ang. \textsl{closure}), które pojawiły się dopiero w ósmej wersji języka \textsl{Java} w postaci wyrażeń \textsl{lambda}. \textsl{Groovy} pozwala również na tworzenie klas na dwa sposoby: dynamicznie interpretowanych oraz statycznie kompilowanych. Ostatnią funkcją dostępną w \textsl{Groovy} jest możliwość tworzenia języków dziedzinowych (ang. \textsl{domain-specific language}). Funkcja ta jest wykorzystywana w bibliotece \textsl{Spock} służącej do testowania tworzonego oprogramowania.
+
+Biblioteka \textsl{Spock} służy do tworzenia testów jednostkowych i integracyjnych w zachowaniu praktyki \textsl{BDD} (ang. \textsl{behavior-driven development}). Biblioteka wymaga języka \textsl{Groovy}, a do swojego działania wykorzystuje m.in. bibliotekę \textsl{JUnit} do uruchamiania testów oraz \textsl{Mockito} do tworzenia atrap obiektów (ang. \textsl{mock}). 
+
+W przeciwieństwie do innych bibliotek służących do testowania w \textsl{Spock} tworzy się scenariusze, które dzielą się na trzy główne części: 
+\begin{itemize}
+    \item \textsl{given} - gdzie określane są założenia początkowe
+    \item \textsl{when} - gdzie określana jest funkcja, którą się testuje
+    \item \textsl{then} - gdzie sprawdzane jest, czy testowana funkcja zachowała się poprawnie
+\end{itemize}
+
+\textsl{Given-When-Then} jest stylem twotrzenia specyfikacji zachowań aplikacji, który został zapoczątkowany wraz z metodyką \textsl{BDD} (ang. \textsl{behavior-driven development}). \textsl{BDD} polega polega na tworzeniu oprogramowania poprzez opisywanie zachowania. Wspólnie z metodyką \textsl{TDD} (ang. \textsl{test-driven development}), która polega na tworzeniu oprogramowania sterowanego testami, należą do zbioru metodyk zwinnego wytwarzania oprogramowania \textsl{Agile}.

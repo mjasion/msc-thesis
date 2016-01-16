@@ -1,14 +1,11 @@
 \chapter{Projekt Aplikacji}
 \section{Opis}
 \subsection{Infrastruktura}
-Do przeprowadzenia testów wydajnościowych wykorzystywane były serwery:
+Do przeprowadzenia testów wydajnościowych wykorzystywane były 3 serwery wirtualne. Specyfikacje techniczne serwerów wirtualnych, wykorzystanych w testach to: 
 \begin{itemize}
-    \item serwer aplikacji - serwer na którym uruchomiona była testowana aplikacja
-    \item serwer bazy MongoDB
-    \item serwer testowy z aplikacją \textsl{Apache JMeter} skąd prowadzone były testy
+    \item 8 rdzeni, 16 gigabajtów pamięci RAM, 160 gigabajtów dysku SSD dla serwera aplikacyjnego
+    \item 4 rdzenie, 8 gigabajtów pamięci RAM, 80 gigabajtów dysku SSD dla serwera bazy danych 
+    \item 4 rdzenie, 8 gigabajtów pamięci RAM, 80 gigabajtów dysku SSD dla serwera, na którym uruchomiony był program \textsl{Apache JMeter}
 \end{itemize}
-Serwer z aplikacją 
 
-Wszystkie serwery zostały wykupione w serwerowni Frankfurt. Komunikacja odbywała się po sieci lokalnej \textsl{LAN}.
-
-\section{Testy integracyjne}
+\subsection{Testy akceptacyjne}
