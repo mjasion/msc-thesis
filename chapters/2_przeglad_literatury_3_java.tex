@@ -17,7 +17,7 @@ Obecnie istniejącą wersją języka Java jest wersja numer 8. Została opubliko
 Najważniejszą z nich i najbardziej znaną były wyrażenia \textsl{Lambda}. Wyrażenia te pozwalają na czyste i zwięzłe wyrażenie pojedynczej metody. Wyrażenia te są wykorzystywane często przy operowaniu na kolekcjach między innymi do sortowania czy filtrowania kolekcji.\\*
 Na przykładzie \ref{lst:javaanonymous} zaprezentowany jest przykład sortowania listy osób, alfabetycznie po imieniu, przy użyciu klas anonimowych. Przykład \ref{lst:javalambda} prezentuje tą samą funkcjonalność, jednak z wykorzystaniem wyrażeń \textsl{Lambda}. 
 
-\begin{lstlisting}[caption=Sortowanie kolekcji w języku Java przy użyciu klas anonimowych, label={lst:javaanonymous}]
+\begin{lstlisting}[caption=Sortowanie kolekcji przy użyciu klas anonimowych, label={lst:javaanonymous}]
 Collections.sort(persons, new Comparator<Person>(){
   public int compare(Person p1, Person p2){
     return p1.firstName.compareTo(p2.firstName);
@@ -25,7 +25,7 @@ Collections.sort(persons, new Comparator<Person>(){
 });
 \end{lstlisting}
 
-\begin{lstlisting}[caption=Sortowanie kolekcji w języku Java przy użyciu wyrażeń \textsl{Lambda},label={lst:javalambda}, aboveskip=0mm]
+\begin{lstlisting}[caption=Sortowanie kolekcji przy użyciu wyrażeń \textsl{Lambda}, label={lst:javalambda}, aboveskip=0mm]
 Collections.sort(persons, (p1, p2) -> p1.firstName.compareTo(p2.firstName));
 \end{lstlisting}
 Kod przy użyciu wyrażeń \textsl{Lambda} jest prostszy i krótszy.\\*
