@@ -7,5 +7,9 @@ Do przeprowadzenia testów wydajnościowych wykorzystywane były 3 serwery wirtu
     \item 4 rdzenie, 8 gigabajtów pamięci RAM, 80 gigabajtów dysku SSD dla serwera bazy danych 
     \item 4 rdzenie, 8 gigabajtów pamięci RAM, 80 gigabajtów dysku SSD dla serwera, na którym uruchomiony był program \textsl{Apache JMeter}
 \end{itemize}
+Serwery komunikowały się po sieci lokalnej (ang. \textsl{LAN}) bezpośrednio między sobą.
+\subsection{Testy akceptacyjne} 
 
-\subsection{Testy akceptacyjne}
+By potwierdzić, że \textsl{API} aplikacji w językach \textsl{Java} i \textsl{Go} jest zachowuje się tak samo zostało przygotowane 24 testy akceptacyjnych używając biblioteki \textsl{Spock}. 
+
+W dodatku \ref{sec:acceptance_tests_appendix} przedstawione zostały rezultaty testów aplikacji uruchomionej na serwerze \textsl{Tomcat} (rysunek \ref{fig:acceptance_test_tomcat}), \textsl{Jetty} (rysunek \ref{fig:acceptance_test_jetty}) oraz w języku \textsl{Go} (rysunek \ref{fig:acceptance_test_go}).
