@@ -1,5 +1,39 @@
 \chapter{Projekt Aplikacji}
 \section{Opis}
+Aplikacja stworzona na potrzeby przeprowadzenia badań jest serwisem typu \textsl{RESTful}. Celem jest przechowywanie danych w bazie w postaci klucz-wartość.  Aplikacja udostępnia w tym celu \textsl{API}. Aby móc skorzystać z aplikacji klient musi się autoryzować unikalnym kluczem (\textsl{API key}). Klucz można otrzymać automatycznie wykonując żądanie: \textsl{GET /api/}. W odpowiedzi aplikacja zwróci unikalny, losowy klucz identyfikujący danego klienta. Do generowania kluczy użyty został mechanizm \textsl{UUID} (ang. \textsl{universally unique identifier}) generujący losowy 128 bitowy ciąg znaków. Przykładowy identyfikator wygląda następująco: \textsl{f0778bae-2902-4ff6-93fa-9776403ecb0f}.
+
+Klient posiadający swój klucz może tworzyć, aktualizować, usuwać i pobierać wartości które są zapisane w bazie danych. Każde żądanie w adresie musi w adresie zawierać ten klucz. Początek żądania ma formę \textsl{/api/\{api\_key\}/}. W przypadku podania błędnego klucza lub jego braku aplikacja zwróci błąd autoryzacji. 
+
+Mając do dyspozycji klucz, klient może wykonywać żądania, jakie zostały zaprezentowane w tabeli \ref{tab:restcache-api}.
+\begin{table}[!htb]
+\centering
+\caption{Metody dostępne w API aplikacji dla klienta}
+\label{tab:restcache-api}
+\begin{tabularx}{\textwidth}{@{} X X @{}}
+\toprule
+\multicolumn{1}{c}{\textbf{Żądanie HTTP}}            & \multicolumn{1}{c}{\textbf{Krótki opis}}                                               \\ \midrule
+GET /api/\{api\_key\}                                & Pobranie wszystkich elementów zapisanych w bazie, przypisanych kluczowi \textsl\{API\} \\
+GET /api/\{api\_key\}/\{key\}                        & Pobranie elementu z bazy znajdującego się pod kluczem \textsl\{key\}                   \\
+POST /api/\{api\_key\}/\{key\}                       & Utworzenie elementu w bazie pod kluczem \textsl\{key\}                                 \\
+PUT /api/\{api\_key\}/\{key\}                        & Aktualizowanie elementu na bazie, znajdującego się pod kluczem \textsl\{key\}        \\
+DELETE /api/\{api\_key\}/\{key\} & Usunięcie elementu z bazy elementu o kluczu \textsl\{key\}                            
+\end{tabularx}
+\end{table}
+
+
+
+Dane przechowywane w bazie muszą mieć unikalny klucz, a wartość może być dowolnym ciągiem znaków. 
+
+Model wykorzystywany w aplikacji składa z dwóch klas które są jednakowo odwzorowane w kolekcjach bazy \textsl{MongoDB}. Klasa \textsl{Api} służy do przechowywania w bazie danych informacji o zarejestrowanych kluczach API (\textsl{API key}). Jeśli w kolekcji \textsl{Api} nie występuje klucz, aplikacja będzie zgłaszać błąd braku autoryzacji. Druga klasa, \textsl{Cache}, jest obiektem służącym do przechowywania.
+
+Na rysunku \ref{fig:class_diagram} przedstawiony jest diagram klas aplikacji. 
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=13cm]{\ImgPath/diagram_klas.png}
+\caption{Diagram klas aplikacji wykorzystywanej do przeprowadzenia testów}
+\label{fig:class_diagram}
+\end{figure}
+
 \subsection{Infrastruktura}
 Do przeprowadzenia testów wydajnościowych wykorzystywane były 3 serwery wirtualne. Specyfikacje techniczne serwerów wirtualnych, wykorzystanych w testach to: 
 \begin{itemize}
@@ -8,8 +42,18 @@ Do przeprowadzenia testów wydajnościowych wykorzystywane były 3 serwery wirtu
     \item 4 rdzenie, 8 gigabajtów pamięci RAM, 80 gigabajtów dysku SSD dla serwera, na którym uruchomiony był program \textsl{Apache JMeter}
 \end{itemize}
 Serwery komunikowały się po sieci lokalnej (ang. \textsl{LAN}) bezpośrednio między sobą.
+
+Na rysunku \ref{fig:deployment_diagram} zaprezentowany został diagram wdrożenia infrastruktury wykorzystanej do przeprowadzenia testóœ.
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=13cm]{\ImgPath/diagram_wdrozenia.png}
+\caption{Diagram wdrożenia infrastruktury wykorzystywanej do przeprowadzenia testów}
+\label{fig:deployment_diagram}
+\end{figure}
+
 \subsection{Testy akceptacyjne} 
 
 By potwierdzić, że \textsl{API} aplikacji w językach \textsl{Java} i \textsl{Go} jest zachowuje się tak samo zostało przygotowane 24 testy akceptacyjnych używając biblioteki \textsl{Spock}. 
 
 W dodatku \ref{sec:acceptance_tests_appendix} przedstawione zostały rezultaty testów aplikacji uruchomionej na serwerze \textsl{Tomcat} (rysunek \ref{fig:acceptance_test_tomcat}), \textsl{Jetty} (rysunek \ref{fig:acceptance_test_jetty}) oraz w języku \textsl{Go} (rysunek \ref{fig:acceptance_test_go}).
+
