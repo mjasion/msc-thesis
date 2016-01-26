@@ -7,7 +7,7 @@ Druga klasa, \textsl{Cache}, jest obiektem służącym do przechowywania danych 
 \begin{itemize}
     \item na pole \textsl{\_id}
     \item na pole \textsl{api}, by wyszukiwanie wszystkich obiektów zapisanych z danym kluczem \textsl{API key} było najszybsze
-    \item na parę pół (\textsl{api}, \textsl{key}), który jest unikalny, by wyszukiwanie pojedynczych obiektów klienta było jak najszybsze.
+    \item na parę pół (\textsl{api}, \textsl{key}), by wyszukiwanie pojedynczych obiektów klienta było jak najszybsze.
 \end{itemize}
 Na rysunku \ref{fig:class_diagram} przedstawiony jest diagram klas aplikacji. 
 \begin{figure}[!ht]
@@ -29,7 +29,7 @@ Metoda \textsl{GET /api/\{api\_key\}/\{key\}} pozwala na pobranie zapisanej wart
 \label{fig:pobieranie_obiektu}
 \end{figure}
 
-Metoda \textsl{POST /api/\{api\_key\}/\{key\}} pozwala na utworzenie obiektu \textsl{Cache} w bazie danych. Jeśli w bazie danych istnieje obiekt \textsl{Cache} o podanym kluczu zwracany jest błąd \textsl{HTTP 409 - Conflict}. Natomiast jeśli w żądaniu obiektu \textsl{Cache} nie będzie istnieć (będzie \textsl{null}), aplikacja zwróci błąd \textsl{HTTP 400 - Bad request}.  Rysunek \ref{fig:tworzenie_obiektu} prezentuje diagram aktywności dla aktualizowania obiektu w aplikacji restcache.
+Metoda \textsl{POST /api/\{api\_key\}/\{key\}} pozwala na utworzenie obiektu \textsl{Cache} w bazie danych. Jeśli w bazie danych istnieje obiekt \textsl{Cache} o podanym kluczu zwracany jest błąd \textsl{HTTP 409 - Conflict}. Natomiast jeśli w przesyłanym żądaniu pole \textsl{value} zdefiniowane, lub wartość będzie pusta (\textsl{null}), aplikacja zwróci błąd \textsl{HTTP 400 - Bad request}.  Rysunek \ref{fig:tworzenie_obiektu} prezentuje diagram aktywności dla aktualizowania obiektu w aplikacji restcache.
 \begin{figure}[!ht]
 \centering
 \includegraphics[height=15cm]{\ImgPath/dodawanie_obiektu.png}
@@ -37,7 +37,7 @@ Metoda \textsl{POST /api/\{api\_key\}/\{key\}} pozwala na utworzenie obiektu \te
 \label{fig:tworzenie_obiektu}
 \end{figure}
 
-Metoda \textsl{PUT /api/\{api\_key\}/\{key\}} pozwala na aktualizacje istniejącego obiektu \textsl{Cache} w bazie danych. Jeśli w bazie danych  nie istnieje obiekt \textsl{Cache} o podanym kluczu zwracany jest błąd \textsl{HTTP 404 - Not Found}, a  jeśli w przesłanym żądaniu pole z wartością nie będzie istnieć aplikacja zwróci błąd \textsl{HTTP 400 - Bad request}. Rysunek \ref{fig:aktualizowanie_obiektu} prezentuje diagram aktywności dla aktualizowania obiektu w aplikacji restcache.
+Metoda \textsl{PUT /api/\{api\_key\}/\{key\}} pozwala na aktualizacje istniejącego obiektu \textsl{Cache} w bazie danych. Jeśli w bazie danych  nie istnieje obiekt \textsl{Cache} o podanym kluczu zwracany jest błąd \textsl{HTTP 404 - Not Found}, a  jeśli w przesyłanym żądaniu pole \textsl{value} zdefiniowane, lub wartość będzie pusta (\textsl{null}) aplikacja zwróci błąd \textsl{HTTP 400 - Bad request}. Rysunek \ref{fig:aktualizowanie_obiektu} prezentuje diagram aktywności dla aktualizowania obiektu w aplikacji restcache.
 \begin{figure}[!ht]
 \centering
 \includegraphics[height=18cm]{\ImgPath/aktualizacja_obiektu.png}
@@ -45,7 +45,7 @@ Metoda \textsl{PUT /api/\{api\_key\}/\{key\}} pozwala na aktualizacje istniejąc
 \label{fig:aktualizowanie_obiektu}
 \end{figure}
 
-Medota \textsl{DELETE /api/\{api\_key\}/\{key\}} pozwala na usunięcie istniejącego obiektu \textsl{Cache} z bazy danych. Rysunek \ref{fig:usuwanie_obiektu} prezentuje diagram aktywności dla aktualizowania obiektu w aplikacji restcache.
+Metoda \textsl{DELETE /api/\{api\_key\}/\{key\}} pozwala na usunięcie istniejącego obiektu \textsl{Cache} z bazy danych. Rysunek \ref{fig:usuwanie_obiektu} prezentuje diagram aktywności dla aktualizowania obiektu w aplikacji restcache.
 \begin{figure}[!ht]
 \centering
 \includegraphics[height=15cm]{\ImgPath/usuwanie_obiektu.png}
