@@ -1,6 +1,23 @@
 \chapter{Testy wydajnościowe}
-\section{Środowisko testowe}
 \section{Opis testów}
+
+\section{Środowisko testowe}
+Do przeprowadzenia testów wydajnościowych wykorzystywane były 3 serwery wirtualne. Specyfikacje techniczne serwerów wirtualnych, wykorzystanych w testach to: 
+\begin{itemize}
+    \item 8 rdzeni, 16 gigabajtów pamięci RAM, 160 gigabajtów dysku SSD dla serwera aplikacyjnego
+    \item 4 rdzenie, 8 gigabajtów pamięci RAM, 80 gigabajtów dysku SSD dla serwera bazy danych 
+    \item 4 rdzenie, 8 gigabajtów pamięci RAM, 80 gigabajtów dysku SSD dla serwera, na którym uruchomiony był program \textsl{Apache JMeter}
+\end{itemize}
+Serwery komunikowały się po sieci lokalnej (ang. \textsl{LAN}) bezpośrednio między sobą.
+
+Na rysunku \ref{fig:deployment_diagram} zaprezentowany został diagram wdrożenia infrastruktury wykorzystanej do przeprowadzenia testów.
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=12cm, height=9cm]{\ImgPath/diagram_wdrozenia.png}
+\caption{Diagram wdrożenia infrastruktury wykorzystywanej do przeprowadzenia testów}
+\label{fig:deployment_diagram}
+\end{figure}
+
 \section{Wyniki testów - pusta baza danych}
 
 \newpage
