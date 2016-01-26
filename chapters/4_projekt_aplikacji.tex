@@ -1,6 +1,6 @@
 \chapter{Projekt Aplikacji}
 \section{Opis}
-Aplikacja stworzona na potrzeby przeprowadzenia badań jest serwisem typu \textsl{RESTful}. Celem jest przechowywanie danych w bazie w postaci klucz-wartość. Aby móc skorzystać z aplikacji klient musi się autoryzować unikalnym kluczem (\textsl{API key}). Klient posiadający klucz ma możliwość zapisywać i odczytywać dane. 
+Aplikacja stworzona na potrzeby przeprowadzenia badań jest serwisem typu \textsl{RESTful}. Celem jest przechowywanie danych w bazie w postaci \textsl{klucz-wartość}. Aby móc skorzystać z aplikacji klient musi się autoryzować unikalnym kluczem (\textsl{API key}). Klient posiadający klucz ma możliwość zapisywać i odczytywać dane. 
 
 Model wykorzystywany w aplikacji składa z dwóch klas, które są jednakowo odwzorowane w kolekcjach bazy \textsl{MongoDB}. Klasa \textsl{Api} służy do przechowywania w bazie danych informacji o zarejestrowanych kluczach API (\textsl{API key}). Indeksem głównym w kolekcji jest pole \textsl{key}.
 Druga klasa, \textsl{Cache}, jest obiektem służącym do przechowywania danych \textsl{klucz-wartość}, które klient chce przechować w bazie. Kolekcja \textsl{Cache} posiada trzy indeksy:
@@ -25,24 +25,32 @@ Metoda \textsl{GET /api/\{api\_key\}/\{key\}} pozwala na pobranie zapisanej wart
 \begin{figure}[!ht]
 \centering
 \includegraphics[height=15cm]{\ImgPath/pobieranie_obiektu.png}
-\caption{Diagram aktywności pobierania obiektu w aplikacji restcache}
+\caption{Diagram aktywności pobierania obiektu w aplikacji}
 \label{fig:pobieranie_obiektu}
 \end{figure}
 
-Metoda \textsl{POST /api/\{api\_key\}/\{key\}} pozwala na utworzenie obiektu \textsl{Cache} w bazie danych. Jeśli w bazie danych istnieje obiekt \textsl{Cache} o podanym kluczu zwracany jest błąd \textsl{HTTP 404 - Not found}. Natomiast jeśli w żądaniu obiektu \textsl{Cache} nie będzie istnieć (będzie \textsl{null}), aplikacja zwróci błąd \textsl{HTTP 400 - Bad request}.  Rysunek \ref{fig:aktualizowanie_obiektu} prezentuje diagram aktywności dla aktualizowania obiektu w aplikacji restcache.
+Metoda \textsl{POST /api/\{api\_key\}/\{key\}} pozwala na utworzenie obiektu \textsl{Cache} w bazie danych. Jeśli w bazie danych istnieje obiekt \textsl{Cache} o podanym kluczu zwracany jest błąd \textsl{HTTP 409 - Conflict}. Natomiast jeśli w żądaniu obiektu \textsl{Cache} nie będzie istnieć (będzie \textsl{null}), aplikacja zwróci błąd \textsl{HTTP 400 - Bad request}.  Rysunek \ref{fig:tworzenie_obiektu} prezentuje diagram aktywności dla aktualizowania obiektu w aplikacji restcache.
 \begin{figure}[!ht]
 \centering
-\includegraphics[height=15cm,keepaspectratio]{\ImgPath/aktualizacja_obiektu.png}
-\caption{Diagram aktywności aktualizowania obiektu w aplikacji restcache}
-\label{fig:aktualizowanie_obiektu}
+\includegraphics[height=15cm]{\ImgPath/dodawanie_obiektu.png}
+\caption{Diagram aktywności tworzenia obiektu w aplikacji}
+\label{fig:tworzenie_obiektu}
 \end{figure}
 
-Metoda \textsl{PUT /api/\{api\_key\}/\{key\}} pozwala na aktualizacje istniejącego obiektu \textsl{Cache} w bazie danych. Jeśli w bazie danych nie  istnieje obiekt \textsl{Cache} o podanym kluczu zwracany jest błąd \textsl{HTTP 409 - Conflict}. Rysunek \ref{fig:aktualizowanie_obiektu} prezentuje diagram aktywności dla aktualizowania obiektu w aplikacji restcache.
+Metoda \textsl{PUT /api/\{api\_key\}/\{key\}} pozwala na aktualizacje istniejącego obiektu \textsl{Cache} w bazie danych. Jeśli w bazie danych  nie istnieje obiekt \textsl{Cache} o podanym kluczu zwracany jest błąd \textsl{HTTP 404 - Not Found}, a  jeśli w przesłanym żądaniu pole z wartością nie będzie istnieć aplikacja zwróci błąd \textsl{HTTP 400 - Bad request}. Rysunek \ref{fig:aktualizowanie_obiektu} prezentuje diagram aktywności dla aktualizowania obiektu w aplikacji restcache.
 \begin{figure}[!ht]
 \centering
 \includegraphics[height=18cm]{\ImgPath/aktualizacja_obiektu.png}
-\caption{Diagram aktywności aktualizowania obiektu w aplikacji restcache}
+\caption{Diagram aktywności aktualizowania obiektu w aplikacji}
 \label{fig:aktualizowanie_obiektu}
+\end{figure}
+
+Medota \textsl{DELETE /api/\{api\_key\}/\{key\}} pozwala na usunięcie istniejącego obiektu \textsl{Cache} z bazy danych. Rysunek \ref{fig:usuwanie_obiektu} prezentuje diagram aktywności dla aktualizowania obiektu w aplikacji restcache.
+\begin{figure}[!ht]
+\centering
+\includegraphics[height=15cm]{\ImgPath/usuwanie_obiektu.png}
+\caption{Diagram aktywności usuwanie obiektu w aplikacji}
+\label{fig:usuwanie_obiektu}
 \end{figure}
 
 Ostatnią dostępną metodą jest żądanie \textsl{GET /api/\{api\_key\}}, które pozwala na pobranie listy wszystkich obiektów, które klient o danym \textsl{api\_key} zapisał.
