@@ -1,31 +1,14 @@
 \chapter{Projekt Aplikacji}
 \section{Opis}
-Aplikacja stworzona na potrzeby przeprowadzenia badań jest serwisem typu \textsl{RESTful}. Celem jest przechowywanie danych w bazie w postaci klucz-wartość.  Aplikacja udostępnia w tym celu \textsl{API}. Aby móc skorzystać z aplikacji klient musi się autoryzować unikalnym kluczem (\textsl{API key}). Klient posiadający klucz ma możliwość zapisywać i odczytywać dane. 
+Aplikacja stworzona na potrzeby przeprowadzenia badań jest serwisem typu \textsl{RESTful}. Celem jest przechowywanie danych w bazie w postaci klucz-wartość. Aby móc skorzystać z aplikacji klient musi się autoryzować unikalnym kluczem (\textsl{API key}). Klient posiadający klucz ma możliwość zapisywać i odczytywać dane. 
 
-Klucz można otrzymać automatycznie wykonując żądanie: \textsl{GET /api/}. W odpowiedzi aplikacja zwróci unikalny, losowy klucz identyfikujący danego klienta. Do generowania kluczy użyty został mechanizm \textsl{UUID} (ang. \textsl{universally unique identifier}) generujący losowy 128 bitowy ciąg znaków. Przykładowy identyfikator wygląda następująco: \textsl{f0778bae-2902-4ff6-93fa-9776403ecb0f}.
-
-Klient posiadający swój klucz może tworzyć, aktualizować, usuwać i pobierać wartości które są zapisane w bazie danych. Każde żądanie w adresie musi w adresie zawierać ten klucz. Początek żądania ma formę \textsl{/api/\{api\_key\}/}. W przypadku podania błędnego klucza lub jego braku aplikacja zwróci błąd autoryzacji. W tabeli \ref{tab:restcache-api} zostały zaprezentowane dostępne metody, do zarządzania danymi.
-\begin{table}[!htb]
-\centering
-\caption{Metody dostępne w API aplikacji dla klienta}
-\label{tab:restcache-api}
-\begin{tabularx}{\textwidth}{@{} X X @{}}
-\toprule
-\multicolumn{1}{c}{\textbf{Żądanie HTTP}}            & \multicolumn{1}{c}{\textbf{Krótki opis}}                                               \\ \midrule
-GET /api/\{api\_key\}/\{key\}                        & Pobranie obiektu z bazy znajdującego się pod kluczem \textsl\{key\}                   \\
-POST /api/\{api\_key\}/\{key\}                       & Utworzenie obiektu w bazie pod kluczem \textsl\{key\}                                 \\
-PUT /api/\{api\_key\}/\{key\}                        & Aktualizowanie obiektu w bazie, znajdującego się pod kluczem \textsl\{key\}        \\
-DELETE /api/\{api\_key\}/\{key\} & Usunięcie elementu z bazy elementu o kluczu \textsl\{key\}                            \\
-GET /api/\{api\_key\}                                & Pobranie wszystkich obiektów zapisanych w bazie, przypisanych kluczowi \textsl\{API\} \\
-\end{tabularx}
-\end{table}
-
-Każda z metod służąca do modyfikowania danych ma zaimplementowane odpowiednie walidacje. Meetoda \textsl{} pozwala na pobranie zapisanej wartości w bazie danych. Jeśli nie istnieje wartość o podanym kluczu zwracany jest błąd \textsl{HTTP 404 - Not Found}. Następną metodą umożliwia tworzyć obiekty w bazie danych. Jeśli w bazie istnieje już obiekt o podanym kluczu, przypisany temu samemu klientowi aplikacja zwraca błąd \textsl{HTTP 409 - Conflict}.f
-
-Ostatnią dostępną metodą jest żądanie \textsl{GET /api/\{api\_key\}}, które pozwala na pobranie wszystkich elementów z bazy danych. Je
-
-Model wykorzystywany w aplikacji składa z dwóch klas które są jednakowo odwzorowane w kolekcjach bazy \textsl{MongoDB}. Klasa \textsl{Api} służy do przechowywania w bazie danych informacji o zarejestrowanych kluczach API (\textsl{API key}). Jeśli w kolekcji \textsl{Api} nie występuje klucz, aplikacja będzie zgłaszać błąd braku autoryzacji. Druga klasa, \textsl{Cache}, jest obiektem służącym do przechowywania.
-
+Model wykorzystywany w aplikacji składa z dwóch klas, które są jednakowo odwzorowane w kolekcjach bazy \textsl{MongoDB}. Klasa \textsl{Api} służy do przechowywania w bazie danych informacji o zarejestrowanych kluczach API (\textsl{API key}). Indeksem głównym w kolekcji jest pole \textsl{key}.
+Druga klasa, \textsl{Cache}, jest obiektem służącym do przechowywania danych \textsl{klucz-wartość}, które klient chce przechować w bazie. Kolekcja \textsl{Cache} posiada trzy indeksy:
+\begin{itemize}
+    \item na pole \textsl{\_id}
+    \item na pole \textsl{api}, by wyszukiwanie wszystkich obiektów zapisanych z danym kluczem \textsl{API key} było najszybsze
+    \item na parę pół (\textsl{api}, \textsl{key}), który jest unikalny, by wyszukiwanie pojedynczych obiektów klienta było jak najszybsze.
+\end{itemize}
 Na rysunku \ref{fig:class_diagram} przedstawiony jest diagram klas aplikacji. 
 \begin{figure}[!ht]
 \centering
@@ -34,6 +17,38 @@ Na rysunku \ref{fig:class_diagram} przedstawiony jest diagram klas aplikacji.
 \label{fig:class_diagram}
 \end{figure}
 
+Stworzone \textsl{API} aplikacji jest następujące. Aby otrzymać klucz należy wykonać żądanie: \textsl{GET /api/}. W odpowiedzi aplikacja zwróci unikalny, losowy klucz identyfikujący danego klienta. Do generowania kluczy użyty został mechanizm \textsl{UUID} (ang. \textsl{universally unique identifier}) generujący losowy 128 bitowy ciąg znaków. Przykładowy identyfikator wygląda następująco: \textsl{f0778bae-2902-4ff6-93fa-9776403ecb0f}.
+
+W tym momencie klient posiadający swój klucz może tworzyć, aktualizować, usuwać i pobierać obiekty, które są zapisane w bazie danych. Każde żądanie w adresie musi w adresie zawierać ten klucz. Początek żądania ma formę \textsl{/api/\{api\_key\}/}. W przypadku podania błędnego klucza lub jego braku aplikacja zwróci błąd autoryzacji. Każda z metod służąca do obsługi obiektów \textsl{Cache} ma zaimplementowane odpowiednie walidacje. 
+
+Metoda \textsl{GET /api/\{api\_key\}/\{key\}} pozwala na pobranie zapisanej wartości w bazie danych. Jeśli nie istnieje wartość o podanym kluczu zwracany jest błąd \textsl{HTTP 404 - Not Found}. Rysunek \ref{fig:pobieranie_obiektu} prezentuje diagram aktywności dla pobierania obiektu.
+\begin{figure}[!ht]
+\centering
+\includegraphics[height=15cm]{\ImgPath/pobieranie_obiektu.png}
+\caption{Diagram aktywności pobierania obiektu w aplikacji restcache}
+\label{fig:pobieranie_obiektu}
+\end{figure}
+
+Metoda \textsl{POST /api/\{api\_key\}/\{key\}} pozwala na utworzenie obiektu \textsl{Cache} w bazie danych. Jeśli w bazie danych istnieje obiekt \textsl{Cache} o podanym kluczu zwracany jest błąd \textsl{HTTP 404 - Not found}. Natomiast jeśli w żądaniu obiektu \textsl{Cache} nie będzie istnieć (będzie \textsl{null}), aplikacja zwróci błąd \textsl{HTTP 400 - Bad request}.  Rysunek \ref{fig:aktualizowanie_obiektu} prezentuje diagram aktywności dla aktualizowania obiektu w aplikacji restcache.
+\begin{figure}[!ht]
+\centering
+\includegraphics[height=15cm,keepaspectratio]{\ImgPath/aktualizacja_obiektu.png}
+\caption{Diagram aktywności aktualizowania obiektu w aplikacji restcache}
+\label{fig:aktualizowanie_obiektu}
+\end{figure}
+
+Metoda \textsl{PUT /api/\{api\_key\}/\{key\}} pozwala na aktualizacje istniejącego obiektu \textsl{Cache} w bazie danych. Jeśli w bazie danych nie  istnieje obiekt \textsl{Cache} o podanym kluczu zwracany jest błąd \textsl{HTTP 409 - Conflict}. Rysunek \ref{fig:aktualizowanie_obiektu} prezentuje diagram aktywności dla aktualizowania obiektu w aplikacji restcache.
+\begin{figure}[!ht]
+\centering
+\includegraphics[height=18cm]{\ImgPath/aktualizacja_obiektu.png}
+\caption{Diagram aktywności aktualizowania obiektu w aplikacji restcache}
+\label{fig:aktualizowanie_obiektu}
+\end{figure}
+
+Ostatnią dostępną metodą jest żądanie \textsl{GET /api/\{api\_key\}}, które pozwala na pobranie listy wszystkich obiektów, które klient o danym \textsl{api\_key} zapisał.
+
+
+\newpage
 \subsection{Infrastruktura}
 Do przeprowadzenia testów wydajnościowych wykorzystywane były 3 serwery wirtualne. Specyfikacje techniczne serwerów wirtualnych, wykorzystanych w testach to: 
 \begin{itemize}
@@ -43,14 +58,13 @@ Do przeprowadzenia testów wydajnościowych wykorzystywane były 3 serwery wirtu
 \end{itemize}
 Serwery komunikowały się po sieci lokalnej (ang. \textsl{LAN}) bezpośrednio między sobą.
 
-Na rysunku \ref{fig:deployment_diagram} zaprezentowany został diagram wdrożenia infrastruktury wykorzystanej do przeprowadzenia testóœ.
+Na rysunku \ref{fig:deployment_diagram} zaprezentowany został diagram wdrożenia infrastruktury wykorzystanej do przeprowadzenia testów.
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=13cm]{\ImgPath/diagram_wdrozenia.png}
+\includegraphics[width=12cm, height=9cm]{\ImgPath/diagram_wdrozenia.png}
 \caption{Diagram wdrożenia infrastruktury wykorzystywanej do przeprowadzenia testów}
 \label{fig:deployment_diagram}
 \end{figure}
-
 \subsection{Testy akceptacyjne} 
 
 By potwierdzić, że \textsl{API} aplikacji w językach \textsl{Java} i \textsl{Go} jest zachowuje się tak samo zostało przygotowane 24 testy akceptacyjnych używając biblioteki \textsl{Spock}. 
