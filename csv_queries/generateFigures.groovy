@@ -43,7 +43,7 @@ figuresDetails.each { Map figureDetails ->
   \\begin{axis}[xmin = 0, xmax=900, ymin = 0, scaled y ticks = base 10:-3, xlabel = {Czas [s]}, ylabel = Liczba żądań, legend pos=south east, ymajorgrids,width=13cm, height=6cm] %TODO miary?
     \\addplot[color=blue,mark=none] table[x index=0, y index=1]{\\csvdata};
     \\addplot[color=green,mark=none] table[x index=0, y index=2]{\\csvdata};
-    \\legend{100,250}
+    \\legend{100 klientów,250 klientów}
   \\end{axis}
 \\end{tikzpicture}
 \\caption{${lang.full} - liczba żądań obsłużonych przez aplikację w ciągu sekundy podczas ${figureDetails.description}}
@@ -62,7 +62,7 @@ figuresDetails.each { Map figureDetails ->
   \\begin{axis}[ybar, bar width=0.5, xmin = 0, ymin = 0, scaled y ticks = base 10:-5, xlabel = {Czas odpowiedzi [ms]}, ylabel = {Liczba żądań}, ymajorgrids,width=13cm, height=6cm] %TODO miary?
     \\addplot[color=blue, mark=none, fill=blue] table[x index=0, y index=1]{\\csva};
     \\addplot[color=green, mark=none, fill=green] table[x index=0, y index=1]{\\csvb};
-    \\legend{100,250}
+    \\legend{100 klientów,250 klientów}
   \\end{axis}
 \\end{tikzpicture}
 \\caption{${lang.full} - rozkład czasów odpowiedzi aplikacji (95\\% odpowiedzi) podczas ${figureDetails.description}}
@@ -86,7 +86,7 @@ figuresDetails.each { Map figureDetails ->
 //  \\begin{axis}[xmin = 0, xmax=900, ymin = 0, scaled y ticks = base 10:-3, xlabel = {Czas [s]}, ylabel = Liczba żądań, legend pos=south east, ymajorgrids] %TODO miary?
 //    \\addplot[color=blue,mark=none] table[x index=0, y index=1]{\\csvdata};
 //    \\addplot[color=green,mark=none] table[x index=0, y index=2]{\\csvdata};
-//    \\legend{100,250}
+//    \\legend{100 klientów,250 klientów}
 //  \\end{axis}
 //\\end{tikzpicture}
 //\\caption{${lang.full} - liczba żądań obsłużonych przez aplikację w ciągu sekundy}
@@ -106,7 +106,7 @@ figuresDetails.each { Map figureDetails ->
 //  \\begin{axis}[ybar, bar width=0.5, xmin = 0, ymin = 0, scaled y ticks = base 10:-5, xlabel = {Czas odpowiedzi [ms]}, ylabel = {Liczba żądań}, ymajorgrids] %TODO miary?
 //    \\addplot[color=blue, mark=none, fill=blue] table[x index=0, y index=1]{\\csva};
 //    \\addplot[color=green, mark=none, fill=green] table[x index=0, y index=1]{\\csvb};
-//    \\legend{100,250}
+//    \\legend{100 klientów,250 klientów}
 //  \\end{axis}
 //\\end{tikzpicture}
 //\\caption{${lang.full} - rozkład czasów odpowiedzi aplikacji (95\\% odpowiedzi)}
