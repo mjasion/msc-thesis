@@ -25,13 +25,15 @@ Z diagramów rozkładu czasów odpowiedzi (rys. \ref{fig:tomcat_clean_key_valida
 \subsection{Test wydajności operacji CRUD}
 Wyniki testów wydajności operacji CRUD przedstawiają  rys. 6.13 – 6.18.
 
-W przypadku tego testu licza żądań obsłużonych przez aplikację, zarówno przy 100 jak i 250 klientach, najlepsze wyniki miała aplikacja w Go (rys. 6.17). Obsługiwała ona od 4.5 do 5.0 tysięcy żądań w ciągu sekundy. Serwery Tomcat 8 i Jetty 9 (rys.6.13 i 6.15) wykazały się porównywalną do siebie, ale znacznie niższą przepustowością (od 2.0 do 2.5 tysiąca obsłużonych żądań). Serwer Tomcat 8 miał przy tym  większe wahania przepustowości.
+W przypadku tego testu licza żądań obsłużonych przez aplikację, zarówno przy 100 jak i 250 klientach, najlepsze wyniki miała aplikacja w Go (rys. 6.17). Obsługiwała ona od 4.5 do 5.0 tysięcy żądań w ciągu sekundy. Serwery Tomcat 8 i Jetty 9 (rys.6.13 i 6.15) wykazały się porównywalną do siebie, ale znacznie niższą przepustowością (od 2.0 do 2.5 tysiąca obsłużonych żądań). Serwer Tomcat 8 miał przy tym  większe wahania przepustowości.  
+
+Na podstawie wyników rozkładu czasów odpowiedzi aplikacji (rys. 6.16, 6.16, 6,18)  widać,  że w każdym przypadku są one równomierne. Jednak przy 250 klientach rozkłady te są bardziej spłaszczone. Najkrótsze czasy zanotowano podczas testu aplikacji w Go - najdłuższe  żądania trwały 35 milisekundy przy 100 klientach i 90 milisekund przy 250 klientów. Czasy żądań serwerów Tomcat 8 i Jetty 9 były porównywalne do siebie, jednak dłuższe od aplikacji w Go
 
 \input{chapters/5_testy_wydajnosciowe_diagram_3_clean_crud.tex}
 \clearpage
 
 \subsection{Test wydajności walidacji API, obiektów Cache oraz operacji CRUD równolegle}
-% \input{chapters/5_testy_wydajnosciowe_diagram_4_clean_all.tex}
+\input{chapters/5_testy_wydajnosciowe_diagram_4_clean_all.tex}
 \clearpage
 
 \newpage
