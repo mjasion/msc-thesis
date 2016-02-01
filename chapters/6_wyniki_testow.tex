@@ -10,7 +10,7 @@ Wyniki testów wydajności walidujących istnienie klucza API przedstawiają dia
 Z diagramów prezentujących liczbę żądań obsłużonych w ciągu sekundy przez poszczególne aplikacje (rys. \ref{fig:tomcat_clean_api_validation_rps}, \ref{fig:jetty_clean_api_validation_rps}, \ref{fig:go_clean_api_validation_rps}) wynika, że największą wydajność miała aplikacja napisana w \textsl{Go} – przy 100 klientach była w stanie obsłużyć około 10 tysięcy żądań,  a przy 250 klientach jej wydajność oscylowała w granicach 9 tysięcy żądań. Wydajność serwera \textsl{Jetty 9} z aplikacją Java oscylowała w przedziale 7 do 10 tysięcy żądań przy 100 klientach i 5 do 10 tysięcy żądań przy 250 klientach. Najmniejszą przepustowością wykazał się serwer Tomcat 8, również z aplikacją Java – jego przepustowość osiągnęła wartości między 6 a 8 tysięcy żądań przy 100 klientach i 4 do 8 tysięcy żądań przy 250 klientach.   
 Z diagramów rozkładu czasów odpowiedzi aplikacji (rys. \ref{fig:tomcat_clean_api_validation_td}, \ref{fig:jetty_clean_api_validation_td}, \ref{fig:go_clean_api_validation_td}) wynika, że podczas próby 100 klientów najlepsze wyniki osiągnęła aplikacja  w Go - średni czasy odpowiedzi wyniósł 8.31 milisekund. Dla aplikacji Java uruchamianej na serwerze \textsl{Jetty 9} największa ilość żądań trwała poniżej 10 milisekund, a dla aplikacji uruchamianej na serwerze \textsl{Tomcat 8} średni czas odpowiedzi wyniósł 11.82 milisekund. W teście z 250 klientami, również najmniejszy średni czas odpowiedzi osiągnęła aplikacja  w \textsl{Go} (23,80 milisekundy).  Serwery \textsl{Jetty 9} i \textsl{Tomcat 8} miały porównywalne średnie czasy odpowiedzi (33,66 i 33,73 milisekund), ale w obu przypadkach rozkład czasów bardzo się spłaszczył. 
 
-\input{chapters/5_testy_wydajnosciowe_diagram_1_clean_api_validation.tex}
+% \input{chapters/5_testy_wydajnosciowe_diagram_1_clean_api_validation.tex}
 \clearpage
 
 \subsection{Test wydajności walidacji istnienia obiektów Cache}
@@ -19,7 +19,7 @@ Wyniki testów wydajności walidacji istnienia obiektów Cache przedstawiają ry
 Z diagramów przedstawiających rozkład  ilości żądań obsłużonych przez poszczególne aplikacje podczas testu (rys. \ref{fig:tomcat_clean_key_validation_rps}, \ref{fig:jetty_clean_key_validation_rps}, \ref{fig:go_clean_key_validation_rps}) wynika, że największą wydajność miała aplikacja napisana w Go. Była ona w stanie obsłużyć ponad 7 tysięcy żądań na sekundę zarówno przy 100, jak i przy 250 klientach. Przy 100 klientach serwer Jetty 9 był w stanie osiągnąć przepustowość od 3.5 do 4.5 tysiąca żądań, podczas gdy serwer Tomcat 8 osiągnął najmniejsze wartości przepustowości (od 2.5 do 4 tysięcy żądań). W przypadku 250 klientów serwery Jetty 9 i Tomcat 8 osiągnęły wyniki zbliżone do siebie  (około 3.0 tysiące żądań),  jednak  serwer Tomcat 8 miał większe wahania przepustowości.
 
 Z diagramów rozkładu czasów odpowiedzi (rys. \ref{fig:tomcat_clean_key_validation_td}, \ref{fig:jetty_clean_key_validation_td}, \ref{fig:go_clean_key_validation_td}) wynika, że podczas próby 100 klientów najlepsze wyniki osiągnęła aplikacja w Go, gdzie najdłużej trwające żądania trwały 25 milisekund, a średni czas odpowiedzi wynosił  12.80 milisekund. Rozkład czasów serwera Jetty był równomierny, a średnia czasów odpowiedzi wyniosła 21.55 milisekund. Najgorsze wyniki zanotowano w teście serwera Tomcat, gdzie średnia odpowiedzi wyniosła 26.73 milisekundy, a najdłuższe żądania trwały 120 milisekund podczas testu. W teście z 250 klientami, wyniki poszczególnych aplikacji ułożyły się w takiej samej kolejności. Najmniejszy  średni czas odpowiedzi  uzyskała  aplikacja w Go (30.43 milisekundy). Następny był serwer Jetty 9 ze średnią 76.41 milisekund, a najdłużej żądania obsługiwał serwer Tomcat 8 (średnio 80.19 milisekund). Dodatkowo, dla serwera Tomcat 8 przy 250 klientach rozkład czasów jest spłaszczony. 
-\input{chapters/5_testy_wydajnosciowe_diagram_2_clean_key_validation.tex}
+% \input{chapters/5_testy_wydajnosciowe_diagram_2_clean_key_validation.tex}
 \clearpage
 
 \subsection{Test wydajności operacji CRUD}
@@ -33,13 +33,19 @@ Na podstawie wyników rozkładu czasów odpowiedzi aplikacji (rys. 6.16, 6.16, 6
 \clearpage
 
 \subsection{Test wydajności walidacji API, obiektów Cache oraz operacji CRUD równolegle}
+Diagramy zawierające wyniki wydajności walidacji API, obiektów Cache oraz operacji CRUD równolegle zamieszczono na rys. 6.19 – 6.24.                                                                                            
+
+Z rozkładów ilości żądań obsłużonych podczas testu przez poszczególne aplikacje (rys. 6.19, 6.21, 6.23) wynika, że największą wydajność osiągnęła  aplikacja napisana w języku Go. Obsługiwała ona ponad 7.0 tysięcy żądań na sekundę, zarówno przy 100 jak i przy 250 klientach. Serwery Tomcat 8 i  Jetty 9  miały dużo  mniejszą wydajność. Przy 100 klientach  serwer Tomcat 8 obsłużył około 3.5 tysiąca klientów, a serwer Jetty 9 około 4.0 tysięcy. Przy 250 klientach ilość obsłużonych żądań była jeszcze mniejsza i wynosiła około 2.5 tysiąca dla serwera Tomcat 8 i 3.0 tysiące dla serwera Jetty 9.  
+
+Z diagramów rozkładu czasów odpowiedzi (rys. 6.20, 6.22, 6,24) wynika, że podczas prób ze 100 i 250 klientami najlepsze wyniki osiągnęła aplikacja w Go, a najgorsze  serwer Tomcat 8. W aplikacji w Go przy 100 klientach najdłuższe żądania trwało około 30 milisekund, a  przy 250 klientach 85 milisekund.  W teście serwera Tomcat 8 przy 100 klientach, najdłuższe żądania trwało około 100 milisekund, a przy 250 klientach aż 180 milisekund. W teście serwera Jetty 9  czasy najdłuższych żądań kształtowały się na poziomie 65 i 150 milisekund odpowiednio dla 100 i 250 klientów.
+
 \input{chapters/5_testy_wydajnosciowe_diagram_4_clean_all.tex}
 \clearpage
 
 \newpage
-\section{Wyniki testów - baza danych wypełniona danymi początkowymi}
-\subsection{Testy wydajnośsci walidacji API}
-% \input{chapters/5_testy_wydajnosciowe_diagram_5_full_api_validation.tex}
+\section{Testy z bazą wypełnioną danymi początkowymi}
+\subsection{Testy wydajności walidacji API}
+\input{chapters/5_testy_wydajnosciowe_diagram_5_full_api_validation.tex}
 \clearpage
 
 \subsection{Test wydajności walidacji istnienia obiektów Cache}
