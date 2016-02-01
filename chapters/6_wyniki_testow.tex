@@ -5,7 +5,7 @@ Dodatkowo dla każdej grupy testów w  tabelach zestawiono średnie  wykorzystan
 
 Wyniki testów podzielono na dwie grupy, zależne od początkowego stanu bazy danych.
 
-\section{Wyniki testów - pusta baza danych}
+\section{Testy z pustą bazą danych}
 
 \subsection{Testy wydajności walidacji API}
 Pierwszą grupą testów były testy wydajności walidujących istnienie kliczy \textsl{API}. Z diagramów \ref{fig:tomcat_clean_api_validation_rps} i \ref{fig:tomcat_clean_api_validation_td} przedstawiających wydajność aplikacji \textsl{Java} uruchomionej na serwerze \textsl{Tomcat 8} wynika, że przy 100 równolegle uruchomionych klientach liczba obsłużonych żądań wahała się od 6 do 8 tysięcy żądań w ciągu sekundy. Natomiast średni czas odpowiedzi wynosił 11.82 milisekund. W przypadku 250 klientów, którzy testowali aplikację liczba żądań wahała się miedzy 4 a 8 tysiącami, a rozkład czasów odpowiedzi bardzo się spłaszczył. Średni czas odpowiedzi wynosił w tym teście 33.73 milisekundy.
@@ -16,8 +16,8 @@ Ostatnią testowaną aplikacją była aplikacja napisana w języku \textsl{Go}. 
 
 W tabelach \ref{tab:app-clean-api} oraz \ref{tab:mongo-clean-api} zaprezentowane są średnie wykorzystanie procesora oraz pamięci \textsl{RAM} na maszynach, gdzie uruchomione były aplikacje oraz baza danych \textsl{MongoD}. Aplkacja \textsl{Java} uruchomiona na serwerze \textsl{Tomcat 8} wykorzystywała najbardziej zasoby procesora (77.50\% i 65.73\%), serwer \textsl{Jetty 9} obciążał o około 5\% mniej procesor. Natomiast aplikacja w języku \textsl{Go} wymagała najmniej zasobów procesora (29.93\% i 31.54\%). Serwer \textsl{Jetty 9} potrzebował najwięcej pamięci \textsl{RAM} do działania (ponad 2000 MB), \textsl{Tomcat 8} potrzebował o 100 MB mniej, a aplikacja w języku \textsl{Go} potrzebowała około 210 MB pamięci. Roœnież serwer bazy danych był mniej obciążony w teście aplikacji napisanej w języku \textsl{Go}.
 
-\input{chapters/5_testy_wydajnosciowe_diagram_1_clean_api_validation.tex}
-\input{chapters/5_testy_wydajnosciowe_tabela_1_clean_api_validation.tex}
+% \input{chapters/5_testy_wydajnosciowe_diagram_1_clean_api_validation.tex}
+% \input{chapters/5_testy_wydajnosciowe_tabela_1_clean_api_validation.tex}
 \clearpage
 
 \subsection{Test wydajności walidacji istnienia obiektów Cache}
@@ -28,8 +28,8 @@ Z diagramów rozkładu czasów odpowiedzi (\ref{fig:tomcat_clean_key_validation_
 Tabele \ref{tab:app-clean-key} oraz \ref{tab:mongo-clean-key} prezentują średnie wykorzystanie procesora i pamięci \textsl{RAM} podczas testów. W przypadku testu symulującego 100 klientów równolegle serwery \textsl{Tomcat} i \textsl{Jetty} wykorzystywały podobnie zasoby (50.60\% oraz 1940 MB pamięci). Aplikacja w \textsl{Go} wykorzystywała procesor średnio na poziomie \textsl{39.28\%}, a zapotrzebowanie na pamięć \textsl{RAM} było prawie 10 razy mniejsze niż w przypadku aplikacji w języku \textsl{Java}. W przypadku testu z 250 klientami wykorzystanie pamięci \textsl{RAM} wzrosło w przypadku serwera \textsl{Tomcat 8} do 2009.80 MB, 234.03 MB w aplikacji w \textsl{Go}, a w przypadku serwera \textsl{Jetty 9} zmalało do 1851.88 MB.\\*
 Podczas testowania serwera \textsl{Jetty} przy obciążeniu 100 klientów wykorzystanie procesora serwera z bazą danych było znacznie wyższe (58.65\%) niż w w przypadków testowych (około 44\%).  W pozostałych testach serwer był obciążony w zbliżony sposób: od 40\% do 45\%.
  
-\input{chapters/5_testy_wydajnosciowe_diagram_2_clean_key_validation.tex}
-\input{chapters/5_testy_wydajnosciowe_tabela_2_clean_key_validation.tex}
+% \input{chapters/5_testy_wydajnosciowe_diagram_2_clean_key_validation.tex}
+% \input{chapters/5_testy_wydajnosciowe_tabela_2_clean_key_validation.tex}
 \clearpage
 
 \subsection{Test wydajności operacji CRUD}
