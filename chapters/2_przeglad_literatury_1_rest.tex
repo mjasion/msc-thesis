@@ -2,20 +2,19 @@
 
 Roy Fielding badając  szybki rozwój sieci \textsl{Internet} przedstawił różne style architektoniczne, które przyczyniły się do szybkiego rozwoju m.in. sieci \textsl{WWW} (ang. \textsl{World Wide Web}). Za źródło sukcesu  uważał rozproszenie systemu oraz to, jak poszczególne zasoby sieci ze sobą się łączyły. Był on również współautorem protokołu \textsl{HTTP/1.0}. Na podstawie zdobytych doświadczeń zaproponował nowy styl  architektury nadając mu nazwę \textsl{REpresentational State Transfer} (\textsl{REST}).  
 
-Styl \textsl{REST} jest  zgodny z architekturą sieci \textsl{WWW}. Opisuje on sieć \textsl{WWW} jako rozproszony zbiór aplikacji wykorzystujących \textsl{hypermedia}, czyli dane będące powiązaniem grafiki, dźwięku, wideo, tekstu oraz \textsl{hyperlinków}. 
+Styl \textsl{REST} jest  zgodny z architekturą sieci WWWW.\textslSieć WWW\textslopisuje jako rozproszony zbiór aplikacji wykorzystujących \textsl{hypermedia}, czyli dane będące powiązaniem grafiki, dźwięku, wideo, tekstu oraz \textsl{hyperlinków}. 
 
 \subsection{Architektura REST}
-\textsl{REST} jest hybrydą kilku stylów architektonicznych. Przestrzeganie zasad, które \textsl{REST} wprowadza gwarantuje lepszą wydajność, skalowalność oraz niezawodność tworzonych usług internetowych w tej architekturze. 
+\textsl{REST} jest hybrydą kilku stylów architektonicznych. Przestrzeganie zasad, które \textsl{REST} wprowadza gwarantuje lepszą wydajność, skalowalność oraz niezawodność usług internetowych tworoznych w tej architekturze. 
 
-\textsl{REST} swoją architekturą łączy kilka wzorców tworzenia aplikacji sieciowych.
-
-Pierwszą z nich jest wzorzec \textsl{klient-serwer}. Rozdziela on rolę serwera i klienta - rolą serwera jest zapewnienie danych, natomiast rolą klienta jest zgłaszanie się po dane. Klient ma możliwość tworzenia aplikacji wykorzystujących ten sam interfejs, które można uruchomić na różnych systemach. Serwerom daje to możliwość rozwijać swoje interfejsy, niezależnie od klientów. 
+\textsl{REST} swoją architekturą łączy kilka wzorców tworzenia aplikacji sieciowych
+Pierwszą z nich jest wzorzec \textsl{klient-serwer. Rozdziela on rolę serwera i klienta. Rolą serwera jest zapewnienie danych, natomiast rolą klienta jest zgłaszanie się po dane. Klient ma możliwość tworzenia aplikacji wykorzystujących ten sam interfejs, które można uruchomić na różnych systemach. Serwerom daje to możliwość rozwijać swoje interfejsy, niezależnie od klientów. 
 
 Kolejnym wzorcem jest bezstanowość (ang. \textsl{stateless}). Opiera się on na zasadzie, że każde żądanie klienta do serwera musi zawierać informacje potrzebne do zrozumienia tego żądania oraz wygenerowania odpowiedzi. W praktyce oznacza to, że serwer nie przechowuje danych szczególnych klienta w swoim kontekście. Wymusza to na kliencie trzymanie stanu sesji. Dzięki temu pamięć serwera nie jest ograniczana, a jednocześnie pozwala na zwiększenie liczby klientów z którymi może się równocześnie komunikować. Dodatkowo zwiększa to możliwość skalowalność usługi. Zachowanie zasady bezstanowości może powodować, że czasem część danych jest przesyłana nadmiarowo.
 
 Dla poprawy wydajności wykorzystywanym wzorcem jest pamięć podręczna (ang. \textsl{cache}). Klient może przechowywać otrzymane zasoby w pamięci, by nie generować niepotrzebnie dwóch takich samych żądań. Wymaga to klasyfikacji zasobów na takie, które nie wymagają częstych odświeżeń. Serwer może poinformować, że zasób może być przechowywany w pamięci, czy też nie oraz na jak długo.  
 
-Kolejną zasadą, którą \textsl{REST} wykosztuje jest architektura warstwowa. Dzięki temu podejściu możliwe jest zhierarchizowanie komponentów systemu, tak by nie nie musiały wiedzieć o systemie więcej, niż to do czego zostały stworzone. W ten sposób system staje się prostszy do zrozumienia, a poszczególne komponenty mogą być wykorzystywane wielokrotnie.
+Kolejną zasadą, którą \textsl{REST} wykorzystuje jest architektura warstwowa. Dzięki temu podejściu możliwe jest zhierarchizowanie komponentów systemu, tak by nie nie musiały wiedzieć o systemie więcej, niż to do czego zostały stworzone. W ten sposób system staje się prostszy do zrozumienia, a poszczególne komponenty mogą być wykorzystywane wielokrotnie.
 
 \textsl{REST} wymaga zachowania jednolitego interfejsu w komunikacji między komponentami systemu. Każdy zasób powinien być jednoznacznie identyfikowany przy pomocy \textsl{URI} (ang. \textsl{Uniform Resource Identifier}). Możliwe jest modyfikowanie zasobów przez ich reprezentacje - taki sam zasób może zostać zwrócony w różnych formach np. \textsl{XML}, \textsl{JSON} czy zwykły tekst. Zwrócona forma determinuje sposób przetwarzania danych przez klienta. Wykorzystanie  \textsl{hypermediów} jako silnika stanów aplikacji (\textsl{HATEOAS}) pozwala klientowi na przechodzenie między stanami zasobu. Informacje o  zasobach i operacjach na zasobie przesyłane są bezpośrednio do klienta. Dzięki temu klient nie musi mieć wiedzy o wszystkich operacjach na zasobach, żeby z nich korzystać. Jednolity interfejs sprawia, że architektura systemu jest uproszona, a współpraca między komponentami bardziej przejrzysta.
  
