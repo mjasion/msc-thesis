@@ -12,7 +12,7 @@ Z diagramów prezentujących liczbę żądań obsłużonych w ciągu sekundy prz
 
 Z diagramów rozkładu czasów odpowiedzi aplikacji (rys. \ref{fig:tomcat_clean_api_validation_td}, \ref{fig:jetty_clean_api_validation_td}, \ref{fig:go_clean_api_validation_td}) wynika, że przy 100 klientach średnie czasy odpowiedzi wynosiły: dla serwera \textsl{Tomcat} 13.70 milisekund, dla serwera \textsl{Jetty} 11.42 milisekund, a dla aplikacji w \textsl{Go} 9,44 milisekundy. Najdłużej trwające żądania trwały około 35 milisekund w przypadku serwerów \textsl{Tomcat} i \textsl{Jetty} oraz 18 milisekund przy aplikacji w \textsl{Go}. Przy 250 klientach średnie czasy odpowiedzi aplikacji uruchamianych na serwerach \textsl{Tomcat} i \textsl{Jetty} były prawie takie same i wynosiły odpowiednio 36.32 i 35.52 milisekund, a w aplikacji w \textsl{Go} 22t.47 milisekundy. Najdłużej trwające żądania trwały ponad 90 milisekund w przypadku serwera Tomcat, poniżej 88 milisekund w przypadku serwera \textsl{Jetty} i około 55 milisekundy przy aplikacji w \textsl{Go}. Dodatkowo, przy 250 klientach, dla serwerów \textsl{Tomcat} i \textsl{Jetty} rozkłady czasów odpowiedzi były spłaszczone. 
 
-% \input{chapters/5_testy_wydajnosciowe_diagram_1_clean_api_validation.tex}
+\input{chapters/6_wyniki_testow_diagram_1_clean_api_validation.tex}
 \clearpage
 
 \subsection{Test wydajności walidacji istnienia obiektów Cache}
@@ -22,7 +22,7 @@ Z diagramów przedstawiających rozkład ilości żądań obsłużonych przez po
 
 Z diagramów rozkładu czasów odpowiedzi (rys. \ref{fig:tomcat_clean_key_validation_td}, \ref{fig:jetty_clean_key_validation_td}, \ref{fig:go_clean_key_validation_td}) wynika, że przy 100 klientach średnie czasy odpowiedzi wynosiły: dla serwera \textsl{Tomcat} 30.32 milisekund, dla serwera \textsl{Jetty} 23.32 milisekund, a dla aplikacji w \textsl{Go} 13.79 milisekund. Najdłużej trwające żądania trwały około 120 milisekund w przypadku serwera Tomcat, 45 milisekund przy \textsl{Jetty} i tylko 25 milisekund w aplikacji w \textsl{Go}. Przy 250 klientach średnie czasy odpowiedzi aplikacji uruchamianych na serwerach \textsl{Tomcat} i \textsl{Jetty} wynosiły odpowiednio 69.97 i 76.92 milisekundy, a w aplikacji w \textsl{Go} tylko 30.75 milisekundy. Najdłużej trwające żądania trwały 250 milisekund w przypadku serwera Tomcat, okło 120 milisekund w przypadku serwera \textsl{Jetty} i tylko 65 milisekundy przy aplikacji w \textsl{Go}. Czasy odpowiedzi serwera \textsl{Tomcat} w sporej części o były dużo dłuższe niż pokazuje to średnia.
 
-% \input{chapters/5_testy_wydajnosciowe_diagram_2_clean_key_validation.tex}
+\input{chapters/6_wyniki_testow_diagram_2_clean_key_validation.tex}
 \clearpage
 
 \subsection{Test wydajności operacji CRUD}
@@ -32,7 +32,7 @@ Z diagramów przedstawiających rozkład ilości żądań obsłużonych przez po
 
 Z diagramów rozkładu czasów odpowiedzi (rys. \ref{fig:tomcat_clean_crud_td}, \ref{fig:jetty_clean_crud_td}, \ref{fig:go_clean_crud_td}) wynika, że przy 100 klientach średnie czasy odpowiedzi wynosiły: dla serwera \textsl{Tomcat} 42.15  milisekund, dla serwera \textsl{Jetty} 42.41  milisekund i 20.90 milisekund dla aplikacji w \textsl{Go}.  Najdłużej trwające żądania trwały poniżej 80 milisekund w przypadku serwerów \textsl{Tomcat} i \textsl{Jetty} - jednak \textsl{Jetty} miał większą liczbę obsłużonych żądań. Dla aplikacji w \textsl{Go} najdłużej trwające żądania trwały tylko 35 milisekund. Przy 250 klientach średnie czas odpowiedzi aplikacji uruchamianych na serwerach \textsl{Tomcat} i \textsl{Jetty}  wynosiły  odpowiednio 107.56 i 92.32 milisekund, a w aplikacji w \textsl{Go} tylko 35.68 milisekundy. Najdłużej trwające żądania trwały 200 milisekund w przypadku serwera Tomcat, 180 milisekund w przypadku serwera \textsl{Jetty} i 90 milisekund przy aplikacji w \textsl{Go}. 
 
-% \input{chapters/5_testy_wydajnosciowe_diagram_3_clean_crud.tex}
+\input{chapters/6_wyniki_testow_diagram_3_clean_crud.tex}
 \clearpage
 
 \subsection{Test wydajności walidacji API, obiektów Cache oraz operacji CRUD równolegle}
@@ -42,7 +42,7 @@ Z rozkładów ilości żądań obsłużonych przez poszczególne aplikacje w ci�
  
 Z diagramów rozkładu czasów odpowiedzi (rys. \ref{fig:tomcat_clean_all_td}, \ref{fig:jetty_clean_all_td}, \ref{fig:go_clean_all_td}) wynika, że przy 100 klientach średnie czasy odpowiedzi wynosiły: dla serwera \textsl{Tomcat} 27.30  milisekund, dla serwera \textsl{Jetty} 25.63 milisekund i 13.94 milisekund dla aplikacji w \textsl{Go}.  Najdłużej trwające żądania trwały poniżej 110 milisekund w przypadku serwera Tomcat, powyżej 60 milisekund przy \textsl{Jetty} i około 35 milisekund  w aplikacji w \textsl{Go}. Przy 250 klientach średnie czas odpowiedzi aplikacji uruchamianych na serwerach \textsl{Tomcat} i \textsl{Jetty} wynosiły 86.85 i 74.48 milisekund, a w aplikacji w \textsl{Go} tylko 28.06 milisekundy. Najdłużej trwające żądania trwały poniżej 180 milisekund w przypadku serwera Tomcat, 150 milisekund w przypadku serwera \textsl{Jetty} i 85 milisekund przy aplikacji w \textsl{Go}. 
 
-% \input{chapters/5_testy_wydajnosciowe_diagram_4_clean_all.tex}
+\input{chapters/6_wyniki_testow_diagram_4_clean_all.tex}
 \clearpage
 
 \newpage
@@ -54,7 +54,7 @@ Z rozkładów ilości żądań obsłużonych przez poszczególne aplikacje w ci�
  
 Z diagramów rozkładu czasów odpowiedzi (rys. \ref{fig:tomcat_full_api_validation_td}, \ref{fig:jetty_full_api_validation_td}, \ref{fig:go_full_api_validation_td}) wynika, że przy 100 klientach średnie czasy odpowiedzi wynosiły: dla serwera \textsl{Tomcat} 16.72 milisekund, dla serwera \textsl{Jetty} 10.25 milisekund i 10.24 milisekund dla aplikacji w \textsl{Go}. Najdłużej trwające żądania trwały poniżej 45 milisekund przy serwerze Tomcat, 30 milisekund przy \textsl{Jetty} i 18 milisekund w aplikacji w \textsl{Go}. Przy 250 klientach średnie czasy odpowiedzi aplikacji uruchamianych na serwerach \textsl{Tomcat} i \textsl{Jetty} wynosiły odpowiednio 67.28 i 47.00 milisekundy, a w aplikacji w \textsl{Go} 25.33 milisekundy. Najdłużej trwające żądania trwały poniżej 110 milisekund w przypadku serwera Tomcat, 83 milisekundy w przypadku serwera \textsl{Jetty} i 55 milisekund przy aplikacji w \textsl{Go}.
 
-% \input{chapters/5_testy_wydajnosciowe_diagram_5_full_api_validation.tex}
+\input{chapters/6_wyniki_testow_diagram_5_full_api_validation.tex}
 \clearpage
 
 \subsection{Test wydajności walidacji istnienia obiektów Cache}
@@ -64,7 +64,7 @@ Z diagramów przedstawiających rozkład ilości żądań obsłużonych przez po
 
 Z diagramów rozkładu czasów odpowiedzi (rys. \ref{fig:tomcat_full_key_validation_td}, \ref{fig:jetty_full_key_validation_td}, \ref{fig:go_full_key_validation_td}) wynika, że przy 100 klientach średnie czasy odpowiedzi wynosiły: dla serwera \textsl{Tomcat} 38.00 milisekund, dla serwera \textsl{Jetty} 22.15 milisekund i 19.75 milisekund dla aplikacji w \textsl{Go}. Najdłużej trwające żądania trwały 150 milisekund przy serwerze  \textsl{Tomcat}, około 40 milisekund na serwerze \textsl{Jetty} i tyle samo w aplikacji w \textsl{Go}. Przy 250 klientach średnie czasy odpowiedzi aplikacji uruchamianych na serwerach \textsl{Tomcat} i \textsl{Jetty} wynosiły 86.73 i 82.37 milisekundy, a w aplikacji w \textsl{Go} 40.66 milisekundy. Najdłużej trwające żądania trwały 250 milisekund w przypadku serwera  \textsl{Tomcat}, 120 milisekund w przypadku serwera \textsl{Jetty} i poniżej 100  milisekund przy aplikacji w \textsl{Go}.
 
-% \input{chapters/5_testy_wydajnosciowe_diagram_6_full_key_validation.tex}
+\input{chapters/6_wyniki_testow_diagram_6_full_key_validation.tex}
 \clearpage
 
 \subsection{Test wydajności operacji CRUD}
@@ -75,7 +75,7 @@ Z diagramów przedstawiających rozkład ilości żądań obsłużonych przez po
 
 Z diagramów rozkładu czasów odpowiedzi (rys. \ref{fig:tomcat_full_crud_td}, \ref{fig:jetty_full_crud_td}, \ref{fig:go_full_crud_td}) wynika, że przy 100 klientach średnie czasy odpowiedzi wynosiły: dla serwera \textsl{Tomcat} 61.57 milisekund, dla serwera \textsl{Jetty} 50.04 milisekundy i 32.26 milisekund dla aplikacji w \textsl{Go}. Najdłużej trwające żądania trwały poniżej 130 milisekund przy serwerze  \textsl{Tomcat}, 0koło 100 milisekund przy serwerze \textsl{Jetty} i poniżej 70 milisekund w aplikacji w \textsl{Go}. Przy 250 klientach średnie czasy odpowiedzi aplikacji uruchamianych na serwerach \textsl{Tomcat} i \textsl{Jetty}  wynosiły odpowiednio 128.07 i 101.60 milisekund, a w aplikacji w \textsl{Go} tylko 48.96 milisekundy. Najdłużej trwające żądania trwały około 300 milisekund w przypadku serwera  \textsl{Tomcat}, 240 milisekund w przypadku serwera \textsl{Jetty} i poniżej 170 milisekund przy aplikacji w \textsl{Go}.
 
-\input{chapters/5_testy_wydajnosciowe_diagram_7_full_crud.tex}
+\input{chapters/6_wyniki_testow_diagram_7_full_crud.tex}
 \clearpage
 
 \subsection{Test wydajności walidacji API, obiektów Cache oraz operacji CRUD równolegle }
@@ -86,7 +86,7 @@ Z diagramów przedstawiających rozkład ilości żądań obsłużonych przez po
 
 Z diagramów rozkładu czasów odpowiedzi (rys. \ref{fig:tomcat_full_all_td}, \ref{fig:jetty_full_all_td}, \ref{fig:go_full_all_td}) wynika, że przy 100 klientach średnie czasy odpowiedzi wynosiły: dla serwera \textsl{Tomcat} 35.82 milisekundy, dla serwera \textsl{Jetty} 30.10 milisekund i 19.40 milisekund dla aplikacji w \textsl{Go}. Najdłużej trwające żądania trwały poniżej 100 milisekund przy serwerze \textsl{Tomcat}, 80 milisekund przy serwerze \textsl{Jetty} i  poniżej 50 milisekund  w aplikacji w \textsl{Go}. Przy 250 klientach średnie czasy odpowiedzi aplikacji uruchamianych na serwerach \textsl{Tomcat}  i \textsl{Jetty}   wynosiły odpowiednio 96.96 i 82.34 milisekundy, a w aplikacji w \textsl{Go} tylko 38.33 milisekundy. Najdłużej trwające żądania trwały poniżej 200 milisekund w przypadku serwerów \textsl{Tomcat} i \textsl{Jetty} oraz 130 milisekund w teście aplikacji w \textsl{Go}.
 
-\input{chapters/5_testy_wydajnosciowe_diagram_8_full_all.tex}
+\input{chapters/6_wyniki_testow_diagram_8_full_all.tex}
 \clearpage
 
 \section{Obciążenie maszyn wirtualnych}
