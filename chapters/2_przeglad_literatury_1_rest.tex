@@ -7,32 +7,33 @@ Styl \textsl{REST} jest  zgodny z architekturą sieci \textsl{WWWW}. Opisuje on 
 \subsection{Architektura REST}
 \textsl{REST} jest hybrydą kilku stylów architektonicznych. Przestrzeganie zasad, które \textsl{REST} wprowadza gwarantuje lepszą wydajność, skalowalność oraz niezawodność usług internetowych tworzonych w tej architekturze. 
 
-\textsl{REST} swoją architekturą łączy kilka wzorców tworzenia aplikacji sieciowych
-Pierwszą z nich jest wzorzec \textsl{klient-serwer}. Rozdziela on rolę serwera i klienta. Rolą serwera jest zapewnienie danych, natomiast rolą klienta jest zgłaszanie się po dane. Klient ma możliwość tworzenia aplikacji wykorzystujących ten sam interfejs, które można uruchomić na różnych systemach. Serwerom daje to możliwość rozwijać swoje interfejsy, niezależnie od klientów. 
+\textsl{REST} swoją architekturą łączy kilka wzorców tworzenia aplikacji sieciowych.
+Pierwszym  jest wzorzec \textsl{klient-serwer}. Rozdziela on rolę serwera i klienta. Rolą serwera jest zapewnienie danych, natomiast rolą klienta jest zgłaszanie się po dane. Klient ma możliwość tworzenia aplikacji wykorzystujących ten sam interfejs, które można uruchomić na różnych systemach. Serwerom daje to możliwość rozwijać swoje interfejsy niezależnie od klientów. 
 
-Kolejnym wzorcem jest bezstanowość (ang. \textsl{stateless}). Opiera się on na zasadzie, że każde żądanie klienta do serwera musi zawierać informacje potrzebne do zrozumienia tego żądania oraz wygenerowania odpowiedzi. W praktyce oznacza to, że serwer nie przechowuje danych szczególnych klienta w swoim kontekście. Wymusza to na kliencie trzymanie stanu sesji. Dzięki temu pamięć serwera nie jest ograniczana, a jednocześnie pozwala na zwiększenie liczby klientów z którymi może się równocześnie komunikować. Dodatkowo zwiększa to możliwość skalowalność usługi. Zachowanie zasady bezstanowości może powodować, że czasem część danych jest przesyłana nadmiarowo.
+Kolejnym wzorcem jest bezstanowość (ang. \textsl{stateless}). Opiera się on na zasadzie, że każde żądanie klienta do serwera musi zawierać informacje potrzebne do zrozumienia tego żądania oraz wygenerowania odpowiedzi. W praktyce oznacza to, że serwer nie przechowuje danych szczególnych klienta w swoim kontekście. Wymusza to na kliencie trzymanie stanu sesji. Dzięki temu pamięć serwera nie jest ograniczana, a jednocześnie pozwala na zwiększenie liczby klientów, z którymi może się równocześnie komunikować. Dodatkowo zwiększa to możliwość skalowalności usługi. Zachowanie zasady bezstanowości może powodować, że czasem część danych jest przesyłana nadmiarowo.
 
-Dla poprawy wydajności wykorzystywanym wzorcem jest pamięć podręczna (ang. \textsl{cache}). Klient może przechowywać otrzymane zasoby w pamięci, by nie generować niepotrzebnie dwóch takich samych żądań. Wymaga to klasyfikacji zasobów na takie, które nie wymagają częstych odświeżeń. Serwer może poinformować, że zasób może być przechowywany w pamięci, czy też nie oraz na jak długo.  
+Dla poprawy wydajności wykorzystywana  jest pamięć podręczna (ang. \textsl{cache}). Klient może przechowywać otrzymane zasoby w pamięci, by nie generować niepotrzebnie dwóch takich samych żądań. Wymaga to klasyfikacji zasobów na takie, które nie wymagają częstych odświeżeń. Serwer może poinformować, że zasób może być przechowywany w pamięci, czy też nie oraz na jak długo.  
 
-Kolejną zasadą, którą \textsl{REST} wykorzystuje jest architektura warstwowa. Dzięki temu podejściu możliwe jest zhierarchizowanie komponentów systemu, tak by nie nie musiały wiedzieć o systemie więcej, niż to do czego zostały stworzone. W ten sposób system staje się prostszy do zrozumienia, a poszczególne komponenty mogą być wykorzystywane wielokrotnie.
+Kolejną zasadą, którą \textsl{REST} wykorzystuje jest architektura warstwowa. Dzięki temu podejściu możliwe jest zhierarchizowanie komponentów systemu, tak by nie  musiały wiedzieć o systemie więcej, niż to do czego zostały stworzone. W ten sposób system staje się prostszy do zrozumienia, a poszczególne komponenty mogą być wykorzystywane wielokrotnie.
 
-\textsl{REST} wymaga zachowania jednolitego interfejsu w komunikacji między komponentami systemu. Każdy zasób powinien być jednoznacznie identyfikowany przy pomocy \textsl{URI} (ang. \textsl{Uniform Resource Identifier}). Możliwe jest modyfikowanie zasobów przez ich reprezentacje - taki sam zasób może zostać zwrócony w różnych formach np. \textsl{XML}, \textsl{JSON} czy zwykły tekst. Zwrócona forma determinuje sposób przetwarzania danych przez klienta. Wykorzystanie  \textsl{hypermediów} jako silnika stanów aplikacji (\textsl{HATEOAS}) pozwala klientowi na przechodzenie między stanami zasobu. Informacje o  zasobach i operacjach na zasobie przesyłane są bezpośrednio do klienta. Dzięki temu klient nie musi mieć wiedzy o wszystkich operacjach na zasobach, żeby z nich korzystać. Jednolity interfejs sprawia, że architektura systemu jest uproszona, a współpraca między komponentami bardziej przejrzysta.
+
+\textsl{REST} wymaga zachowania jednolitego interfejsu w komunikacji między komponentami systemu. Każdy zasób powinien być jednoznacznie identyfikowany przy pomocy \textsl{URI} (ang. \textsl{Uniform Resource Identifier}). Możliwe jest modyfikowanie zasobów przez ich reprezentacje - taki sam zasób może zostać zwrócony w różnych formach np. \textsl{XML}, \textsl{JSON} czy zwykłego tekstu. Zwrócona forma determinuje sposób przetwarzania danych przez klienta. Wykorzystanie  \textsl{hypermediów} jako silnika stanów aplikacji (\textsl{HATEOAS}) pozwala klientowi na przechodzenie między stanami zasobu. Informacje o  zasobach i operacjach na nich przesyłane są bezpośrednio do klienta. Dzięki temu klient nie musi mieć wiedzy o wszystkich operacjach na zasobach, żeby z nich korzystać. Jednolity interfejs sprawia, że architektura systemu jest uproszona, a współpraca między komponentami bardziej przejrzysta.
  
 \subsection{Usługi REST i RESTful}
-Usługi \textsl{REST} nie są ściśle powiązane z jakimkolwiek protokołem transportowym jednak, najczęściej funkcjonują w oparciu o protokół \textsl{HTTP} (ang. \textsl{Hypertext Transfer Protocol}).
+Usługi \textsl{REST} nie są ściśle powiązane z jakimkolwiek protokołem transportowym, jednak najczęściej funkcjonują w oparciu o protokół \textsl{HTTP} (ang. \textsl{Hypertext Transfer Protocol}).
 
-Usługi \textsl{REST}, jak i jej zasoby są dostępne przy użyciu unikalnego adresu \textsl{URL} (ang. \textsl{Uniform Resource Locator}), który jest szczególnym przypadkiem adresu \textsl{URI}. Poza identyfikacją zasobu, \textsl{URL} pozwala na zidentyfikowanie sposobu dostępu do zasobu. Ogólny adres \textsl{URL} ma następujący format: \\ \textsl{schemat://nazwa\_użytkownika:hasło@host:port/ścieżka?zapytanie}. 
+Usługi \textsl{REST}, jak i ich zasoby są dostępne przy użyciu unikalnego adresu \textsl{URL} (ang. \textsl{Uniform Resource Locator}), który jest szczególnym przypadkiem adresu \textsl{URI}. Poza identyfikacją zasobu, \textsl{URL} pozwala na zidentyfikowanie sposobu dostępu do zasobu. Ogólny adres \textsl{URL} ma następujący format: \\ \textsl{schemat://nazwa\_użytkownika:hasło@host:port/ścieżka?zapytanie}. 
 
-W usługach \textsl{REST} część zasobów w zależności od potrzeb może przyjmować różną postać tzn. jeden zasób dostępny pod tym samym adresem \textsl{URL} może zostać zaprezentowany w formacie np. \textsl{XML}, \textsl{JSON} lub innym w zależności od potrzeb i jego zastosowania.
+W usługach \textsl{REST} część zasobów, w zależności od potrzeb może przyjmować różną postać tzn. jeden zasób dostępny pod tym samym adresem \textsl{URL} może zostać zaprezentowany w formacie np. \textsl{XML}, \textsl{JSON} lub innym, w zależności od potrzeb i jego zastosowania.
 
 Usługi nie przechowują stanu pomiędzy kolejnymi wywołaniami. Oznacza to, że wszystkie żądania są od siebie niezależne.
 
 Szczególnym przypadkiem usług \textsl{REST} są usługi \textsl{RESTful}. Pozwalają one wykonywać operacje \textsl{CRUD} (ang. \textsl{Create, Read, Update, Delete}) na zasobach. Zastosowanie metod \textsl{HTTP} umożliwia odwoływanie się do tych samych zasobów (mających ten sam identyfikator) w różnym celu. \textsl{RESTful} bazuje na metodach protokołu \textsl{HTTP}:
 \begin{itemize}
-    \item \textsl{GET} - do pobierania zasobów
-    \item \textsl{PUT} - do tworzenia zasobów
-    \item \textsl{POST} - do aktualizowania zasobów
-    \item \textsl{DELETE} - do usuwania zasobów
+    \item \textsl{GET} - do pobierania zasobów,
+    \item \textsl{PUT} - do tworzenia zasobów,
+    \item \textsl{POST} - do aktualizowania zasobów,
+    \item \textsl{DELETE} - do usuwania zasobów.
 \end{itemize} 
 
 \textsl{CRUD} w programiwaniu opisuje szczególną funkcję aplikacji, która pozwala tworzyć, odczytywać, modyfikować oraz usuwać dane. Najczęściej aplikacje takie integrują się z bazą danych. 
