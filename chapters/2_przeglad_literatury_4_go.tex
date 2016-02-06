@@ -1,4 +1,4 @@
-Język \textsl{Go}, potocznie nazywany również \textsl{golang}, powstał w 2007 roku w firmie Google. Autorami jego byli Ken Thompson, Robert Griesemer oraz Rob Pike\cite{programmingingo}. Każdy z nich miał swój wkład w rozwój języka \textsl{C}. Chcieli oni stworzyć język programowania, który będzie w momencie tworzenia tym, czym \textsl{C} był w latach 80. Autorzy języka chcieli, by tworzony język pozwalał na tworzenie dużych systemów, które będą łatwo się skalować, kompilacja ich będzie bardzo krótka, będzie statycznie typowany a zarządzanie pamięcią nie będzie zmorą programistów. Na przykładzie \ref{lst:gohelloworld} zaprezentowany jest program, który wypisuje tekst \textsl{Hello World}.
+Język \textsl{Go}, potocznie nazywany również \textsl{golang}, powstał w 2007 roku w firmie Google. Autorami jego byli Ken Thompson, Robert Griesemer oraz Rob Pike \cite{programmingingo}. Ponieważ każdy z nich miał swój wkład w rozwój języka \textsl{C}, chcieli  stworzyć język programowania, który będzie w momencie tworzenia tym, czym \textsl{C} był w latach 80. Autorzy języka chcieli, by nowy język pozwalał na tworzenie dużych systemów, które  łatwo będą się skalować, kompilacja ich będzie bardzo krótka, będzie statycznie typowany, a zarządzanie pamięcią nie będzie zmorą programistów. Przykład \ref{lst:gohelloworld} przedstawia program, który wypisuje tekst \textsl{Hello World}.
 \begin{lstlisting}[language=Go, caption={Przykład programu w języku Go}, label={lst:gohelloworld}]
 package main
 
@@ -9,11 +9,12 @@ func main() {
 }
 \end{lstlisting}
 
-\textsl{Go} był tworzony z myślą o programowaniu równoległym. Autorzy projektując swój język wzorowali się językami \textsl{Erlang} oraz \textsl{C}. W \textsl{Erlang} tworzenie programów wielowątkowych było proste i pozwalało na wykorzystanie wszystkich rdzeni systemu równomiernie. Wadą jaką \textsl{Erlang} miał była wydajność programów na systemach jednowątkowych. Język \textsl{C} był w tym względzie znacznie wydajniejszy, natomiast tworzenie programów operujących na kilku wątkach wymaga zastosowania bibliotek takich jak \textsl{POSIX} oraz \textsl{OpenMP}. W języku \textsl{C} pisanie skalowalnych aplikacji wymagało dodatkowej pracy.
+\textsl{Go} był tworzony z myślą o programowaniu równoległym. Projektując, autorzy wzorowali się językami \textsl{Erlang} oraz \textsl{C}. W \textsl{Erlang} tworzenie programów wielowątkowych było proste i pozwalało na wykorzystanie wszystkich rdzeni systemu równomiernie. Wadą  \textsl{Erlang} była wydajność programów na systemach jednowątkowych. Język \textsl{C} był w tym względzie znacznie wydajniejszy, natomiast tworzenie programów operujących na kilku wątkach wymaga zastosowania bibliotek takich jak \textsl{POSIX} oraz \textsl{OpenMP}. W języku \textsl{C} pisanie skalowalnych aplikacji wymagało dodatkowej pracy.
 
-\textsl{Go} łączy najlepsze cechy z obu języków, a do tworzenia systemów wielowątkowych wykorzystuje \textsl{go rutyny}(ang. \textsl{gorutine})\cite{gophrasebook}. Są to funkcje, o równoległym wykonywaniu. Wywoływana funkcja musi być poprzedzona słowem kluczowym \textsl{go}. Z wykorzystaniem kanałów programista jest w stanie w prosty sposób zaimplementować komunikację, między uruchomionymi funkcjami. Jednak należy zauważyć, że wywołanie funkcji w \textsl{goroutine} nie oznacza stworzenia tworzy nowego wątku. 
+\textsl{Go} łączy najlepsze cechy z obu języków, a do tworzenia systemów wielowątkowych wykorzystuje \textsl{go rutyny} (ang. \textsl{gorutine}) \cite{gophrasebook}. Są to funkcje o równoległym wykonywaniu. Wywoływana funkcja musi być poprzedzona słowem kluczowym \textsl{go}. Z wykorzystaniem kanałów programista jest w stanie, w prosty sposób zaimplementować komunikację między uruchomionymi funkcjami. Jednak należy zauważyć, że wywołanie funkcji w \textsl{goroutine} nie oznacza stworzenia nowego wątku. 
 
-Na przykładzie \ref{lst:gogorutine} przedstawiony jest program uruchamiający funkcję wewnątrz \textsl{go rutyny}
+W przykładzie \ref{lst:gogorutine} przedstawiony jest program uruchamiający funkcję wewnątrz \textsl{go rutyny}
+
 \begin{lstlisting}[language=Go, caption={Przykładowy program w Go wykorzystujący goroutine}, label={lst:gogorutine}]
 package main
 
@@ -27,17 +28,17 @@ func say(s string) {
 
 func main() {
 	go say("Hello World")
-}
+
 \end{lstlisting}
 
 
 
-Kolejną rzeczą, jaką autorzy \textsl{Go} mieli na celu była szybka kompilacja. Programy w językach \textsl{C}/\textsl{C++} kompilowały się długo. Szybkość kompilacji \textsl{Go} pozwala na tworzenie skryptów, pozwalając zastąpić języki skryptowe takie jak \textsl{Bash}, \textsl{Perl}, \textsl{Python}
+Kolejną rzeczą jaką autorzy \textsl{Go} mieli na celu była szybka kompilacja. Programy w językach \textsl{C}/\textsl{C++} kompilowały się długo. Szybkość kompilacji \textsl{Go} pozwala na tworzenie skryptów, pozwalając zastąpić języki skryptowe takie jak \textsl{Bash}, \textsl{Perl}, \textsl{Python}
 
-Język \textsl{Go}, podobnie jak \textsl{Java} jest językiem statycznie typowanym. To znaczy, że typy zmiennym są znane w momencie kompilacji. Dzięki temu można uniknąć wielu błędów już w momencie kompilacji. Jednak język ma też wbudowane mechanizmy programowania dynamicznego. 
+Język \textsl{Go}, podobnie jak \textsl{Java}, jest językiem statycznie typowanym. To znaczy, że typy zmiennych są znane w momencie kompilacji. Dzięki temu można uniknąć wielu błędów już w momencie kompilacji. Jednak język ma też wbudowane mechanizmy programowania dynamicznego. 
 
-Dostępnie typy zmiennych są w większości podobne do tych, które występują w języku \textsl{C}. Występują tu również struktury i interfejsy. Język pozwala na tworzenie metod(prywatnych i publicznych), które będą przypisane do struktury, jednak nie można powiedzieć że język ten należy do grupy języków obiektowych ponieważ niemożliwe jest np. zaprogramowanie dziedziczenia. Kolejną różnicą w stosunku do języka \textsl{Java} jest brak typów generycznych, które tak bardzo pomogły w tworzonych systemach
+Dostępnie typy zmiennych są w większości podobne do tych, które występują w języku \textsl{C}. Występują tu również struktury i interfejsy. Język pozwala na tworzenie metod (prywatnych i publicznych), które będą przypisane do struktury, Nie można jednak powiedzieć, że język ten należy do grupy języków obiektowych ponieważ niemożliwe jest np. zaprogramowanie dziedziczenia. Kolejną różnicą w stosunku do języka \textsl{Java} jest brak typów generycznych, które tak bardzo pomogły w tworzonych systemach.
  
-Składnia języka \textsl{Go} jest bardzo czytelna i łatwa do zrozumienia. Autorzy języka stworzyli zbiór standardów dotyczący m.in. wcięć czy wywoływania metod, które mają na celu uspójnienie pisanych programów. Kompilator języka ma wbudowany analizator, który w momencie odstępstw przerywa dalszą kompilację. Takie podejście pozwala, by programista mógł wdrożyć się w istniejący system skupiają się na jego działaniu, a nie dodatkowo na stylu składni, jaki panuje w zespole
+Składnia języka \textsl{Go} jest bardzo czytelna i łatwa do zrozumienia. Autorzy języka stworzyli zbiór standardów dotyczący m.in. wcięć czy wywoływania metod, które mają na celu uspójnienie pisanych programów. Kompilator języka ma wbudowany analizator, który w momencie odstępstw przerywa dalszą kompilację. Takie podejście pozwala, by programista mógł wdrożyć się w istniejący system skupiają się na jego działaniu, a nie dodatkowo na stylu składni jaki panuje w zespole
 
-Język \textsl{Go} co raz częściej jest wykorzystywany. Przykładowymi systemami, wykorzystującymi język są \textsl{Docker}, \textsl{Kubernetes}. Język znalazł zastosowanie również w usługach sieciowych takich jak serwery DNS czy bazy danych.
+Język \textsl{Go} jest coraz częściej wykorzystywany np. w systemach  \textsl{Docker}, \textsl{Kubernetes}. Znalazł również zastosowanie w usługach sieciowych takich jak serwery DNS czy bazy danych.

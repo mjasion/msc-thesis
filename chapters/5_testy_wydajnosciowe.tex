@@ -1,77 +1,83 @@
 \chapter{Testy wydajnościowe}
 \section{Testy wydajnościowe oprogramowania}
-Ważnym procesem podczas tworzenia oprogramowanie jest jego testowanie. Celem testów jest zapewnienie jakości wytwarzanego oprogramowania zgodnego ze specyfikacją. Jednym z typów takich testów są testy wydajnościowe. Testy wydajnościowe pozwalają sprawdzić, jak oprogramowanie zachowa się w zależności od obciążenia. Między innymi można zbadać czy nie nastąpi przerwa w działaniu systemu, ile czasu będą zajmować poszczególne funkcje systemu, jak wykorzystane będą zasoby systemu oraz czy pozwala na skalowanie. 
+ Testowanie oprogramowanie jest ważnym procesem związanym z jego wytwarzaniem.  Celem testowania jest sprawdzenie czy oprogramowanie jest zgodne ze specyfikacją oraz czy system spełnia oczekiwania klienta. Wykorzystuje się do tego różne  testy. Jednym z typów takich testów są testy wydajnościowe. 
 
-Testy wydajnościowe mogą przyjmować różną formę. Pierwszą z nich są testy obciążeniowe. W takim tescie ustawia wybiera się ilu użytkowników jednocześnie ma korzystać z aplikacji. Na podstawie dancyh otrzymanych z takiego testu można zbadać, jak aplikacja zachowa się podczas określonego obciążenia Dzięki takim testom można otrzymać informacje o czasach odpowiedzi aplikacji.
+Testy wydajnościowe pozwalają sprawdzić jak oprogramowanie zachowa się w zależności od obciążenia. Można zbadać, czy nie nastąpi przerwa w działaniu systemu, ile czasu będą zajmować poszczególne funkcje systemu, jak wykorzystane będą zasoby systemu oraz, czy pozwala na skalowanie. Mogą one przyjmować różną formę. 
 
-Drugą formą są testy przeciążeniowe pozwalają na określenie, jak zachowa się system w warunkach skrajnego obciążenia. Przykładem takiego testu jest zbyt duża liczba użytkowników aplikacji, korzystających w tym samym czasie. Dzięki takim testom można między zaobserwować czy i w jakim momencie aplikacja się wyłączy.
+Pierwszą formą są testy obciążeniowe. W takim tescie ustala się ilu użytkowników jednocześnie ma korzystać z aplikacji. Na podstawie dancyh z takiego testu można zbadać jak aplikacja zachowa się podczas określonego obciążenia oraz otrzymać informacje o czasach odpowiedzi aplikacji.
 
-Testy wydajnościowe mogą być prowadzone w różnym celu. W aplikacjach internetowych testy przeprowadza się by zbadać, jak dużo użytkowników jest w stanie z systemu korzystać jednocześnie. Takie testy można przeprowadzić zarówno z jednego komputera jak i z kilku. 
+Drugą formą są testy przeciążeniowe. Pozwalają one określić jak zachowa się system w warunkach skrajnego obciążenia. Przykładem takiego testu jest zbyt duża liczba użytkowników aplikacji korzystających w tym samym czasie. Dzięki takim testom można zaobserwować między innymi, czy i w jakim momencie aplikacja się wyłączy.
 
-W aplikacjach badane również mogą być czasy odpowiedzi aplikacji w zależności od liczby równoległych żądań. Zazwyczaj testy takie są stosowane, gdy aplikacja w swojej specyfikacji ma określony maksymalny czas odpowiedzi przy danej liczbie żądań.
+Testy wydajnościowe mogą być prowadzone w różnycm celu.
 
-Testy wydajnościowe powinny być prowadzone na środowisku testowym, identycznym do produkcyjnego.
+W aplikacjach internetowych  przeprowadza się je, by zbadać jak dużo użytkowników może korzystać z systemu jednocześnie. Takie testy można przeprowadzić zarówno z jednego komputera jak i z kilku. 
 
-\section{Opis opracowanych testów wydajnościowych}
+W aplikacjach mogą być również badane czasy odpowiedzi aplikacji w zależności od liczby równoległych żądań. Zazwyczaj testy takie są stosowane, gdy aplikacja w swojej specyfikacji ma określony maksymalny czas odpowiedzi przy danej liczbie żądań.
 
-Do testów przygotowano dwie aplikację. Pierwszą z nich była aplikacja w języku \textsl{Java} uruchomiona na dwóch różnych serwerach: \textsl{Tomcat 8} i \textsl{Jetty 9}. Serwery te są obecnie jednymi z najpopularniejszych rozwiązań służących do uruchamiania aplikacji \textsl{Java}.  Drugą aplikacją była aplikacja w języku \textsl{GO}, która przy użyciu biblioteki \textsl{HttpRouter} (https://github.com/julienschmidt/httprouter) pozwala na tworzenie aplikacji działającej jako serwer \textsl{HTTP}.
+Testy wydajnościowe powinny być prowadzone na środowisku testowym identycznym do produkcyjnego.
+
+\section{Testy wydajnościowe wykorzystane do badań}
+
+Do testów przygotowano dwie aplikacje. Pierwszą z nich była aplikacja w języku \textsl{Java} uruchomiona na dwóch różnych serwerach: \textsl{Tomcat 8} i \textsl{Jetty 9}, które obecnie są jednymi z najpopularniejszych rozwiązań służących do uruchamiania aplikacji \textsl{Java}. Drugą była aplikacja w języku \textsl{GO}, która przy użyciu biblioteki \textsl{HttpRouter} (https://github.com/julienschmidt/httprouter) pozwala na tworzenie aplikacji działającej jako serwer \textsl{HTTP}.
 
 Każda aplikacja była testowana przez przygotowany zbiór testów w aplikacji \textsl{Apache JMeter}. \textsl{Apache JMeter} pozwala na tworzenie i wykonywanie testów wydajnościowych, symulujących wielu klientów korzystających z aplikacji. Przygotowane testy zostały podzielone na 4 grupy:
 \begin{itemize}
-    \item testy sprawdzające wydajność walidacji istnienia klucza \textsl{API}
-    \item testy sprawdzające wydajność walidacji obiektu \textsl{Cache}
-    \item testy sprawdzające wydajność operacji typu \textsl{CRUD}
-    \item testy sprawdzające wydajność powyższych scenariuszy równolegle
+    \item testy sprawdzające wydajność walidacji istnienia klucza \textsl{API},
+    \item testy sprawdzające wydajność walidacji obiektu \textsl{Cache},
+    \item testy sprawdzające wydajność operacji typu \textsl{CRUD},
+    \item testy sprawdzające wydajność powyższych scenariuszy równolegle.
 \end{itemize}
 
-Pierwsza grupa sprawdzała wydajność aplikacji, gdy klient chciał wykonać operacje posiadając nieistniejący klucz \textsl{API}. Na tą grupę składało się pięć testów, wykonywanej w następującej kolejności:
+Pierwsza grupa sprawdzała wydajność aplikacji, gdy klient chciał wykonać operacje posiadając nieistniejący klucz \textsl{API}. Na tą grupę składało się pięć testów, wykonywanych w następującej kolejności:
 \begin{enumerate}
-    \item pobieranie listy wszyskitch obiektów \textsl{Cache}
-    \item pobieranie pojedynczego obiektu \textsl{Cache}
-    \item tworzenie obiektu \textsl{Cache}
-    \item aktualizacji obiektu \textsl{Cache} 
-    \item usunięcie obiektu \textsl{Cache}
+    \item pobieranie listy wszyskitch obiektów \textsl{Cache},
+    \item pobieranie pojedynczego obiektu \textsl{Cache},
+    \item tworzenie obiektu \textsl{Cache},
+    \item aktualizacja obiektu \textsl{Cache}, 
+    \item usunięcie obiektu \textsl{Cache}.
 \end{enumerate}
 Każdy z tych testów oznaczany był jako poprawny, gdy aplikacja zwracała błąd autoryzacji dla każdego żądania.
 
-Drugą grupą testów było sprawdzenie wydajności, gdy klucz \textsl{API} istniał jednak klient chciał przeprowadzić operacje pobierania, usuwania i aktualizacji nie istniejącego obiektu \textsl{Cache}. Scenariusz grupy wyglądał następująco:
+Druga grupa testów sprawdzła wydajność, gdy klucz \textsl{API} istniał, jednak klient chciał przeprowadzić operacje pobierania, usuwania i aktualizacji nie istniejącego obiektu \textsl{Cache}. Scenariusz grupy wyglądał następująco:
 \begin{enumerate}
-    \item pobierz nowy klucz \textsl{API}
-    \item pobierz obiekt \textsl{Cache} autoryzując się otrzymanym kluczem \textsl{API}
-    \item zaktualizuj obiekt \textsl{Cache} autoryzując się otrzymanym kluczem \textsl{API}
-    \item usuń obiekt \textsl{Cache} autoryzując się otrzymanym kluczem \textsl{API}
+    \item pobierz nowy klucz \textsl{API},
+    \item pobierz obiekt \textsl{Cache} autoryzując się otrzymanym kluczem \textsl{API},
+    \item zaktualizuj obiekt \textsl{Cache} autoryzując się otrzymanym kluczem \textsl{API},
+    \item usuń obiekt \textsl{Cache} autoryzując się otrzymanym kluczem \textsl{API}.
 \end{enumerate}
 Każdy z tych testów oznaczany był jako poprawny, gdy aplikacja zwracała błąd autoryzacji dla każdego żądania.
 
-Kolejną grupą były testy wydajności operacji \textsl{CRUD}. Do przeprowadzenia tej grupy testów został przygotowany zbiór 100 tysięcy losowych wartości w formie pliku \textsl{CSV}. Każda wartość składała się 3 części. Pierwszą był klucz obiektu \textsl{Cache}, natomiast dwie kolejne to wartości, które zostaną zapisane w aplikacji w polu \textsl{value} obiektu. \textsl{Apache JMeter} pozwala na przekazanie pliku \textsl{CSV}, którego wartości można użyć do przeprowadzenia testów. Scenariusz tej grupy wyglądał następująco:
+Kolejną grupą były testy wydajności operacji \textsl{CRUD}. Do przeprowadzenia tej grupy testów został przygotowany zbiór 100 tysięcy losowych wartości w formie pliku \textsl{CSV}. Każda wartość składała się 3 części. Pierwszą był klucz obiektu \textsl{Cache}, natomiast dwie kolejne to wartości, które zostaną zapisane w aplikacji w polu \textsl{value} obiektu. \textsl{Apache JMeter} pozwala na przekazanie pliku \textsl{CSV}, którego wartości można użyć do przeprowadzenia testów. 
+Scenariusz tej grupy wyglądał następująco:
+
 \begin{enumerate}
-    \item pobierz nowy klucz \textsl{API}
-    \item utwórz obiekt \textsl{Cache} o kluczu i wartości otrzymanym z parametru
-    \item pobierz utworzony obiekt \textsl{Cache} 
-    \item zaktualizuj obiekt \textsl{Cache} ustawiając nową wartość pola \textsl{value}
-    \item usuń obiekt \textsl{Cache}
+    \item pobierz nowy klucz \textsl{API},
+    \item utwórz obiekt \textsl{Cache} o kluczu i wartości otrzymanym z parametru,
+    \item pobierz utworzony obiekt \textsl{Cache}, 
+    \item zaktualizuj obiekt \textsl{Cache} ustawiając nową wartość pola \textsl{value},
+    \item usuń obiekt \textsl{Cache}.
 \end{enumerate}
 Każdy z tych testów oznaczany był jako poprawny, gdy aplikacja dla każdego z nich nie zwracała błędu.
 
 Ostatnią grupę stanowiły wszystkie testy, które zostały opisane w powyższych grupach. 
 
-Wszystkie grupy były wykonywane w 15 minutowych cyklach, oddzielonych 60 sekundową przerwą.
+Wszystkie grupy były wykonywane w 15 minutowych cyklach oddzielonych 60 sekundową przerwą.
 
-Każda aplikacja testowana była w czterech przypadkach testowych. Przypadki te różniły się od siebie liczbą klientów, którzy równolegle wykonywali żądania oraz stanu początkowego bazy danych:
+Każda aplikacja testowana była w czterech przypadkach testowych, które różniły się od siebie liczbą klientów równolegle wykonujących żądania oraz stanem początkowym bazą danych. Były to:
 \begin{itemize}
-    \item 100 klientów oraz pusta baza danych
-    \item 250 klientów oraz pusta baza danych
-    \item 100 klientów oraz baza danych wypełniona danymi
-    \item 250 klientów oraz baza danych wypełniona danymi
+    \item 100 klientów oraz pusta baza danych,
+    \item 250 klientów oraz pusta baza danych,
+    \item 100 klientów oraz baza danych wypełniona danymi,
+    \item 250 klientów oraz baza danych wypełniona danymi.
 \end{itemize}
 W dwóch ostatnich przypadkach baza danych była wypełniona losowymi danymi: 4000000 obiektów w kolekcji \textsl{api}, 40000000 obiektów w kolekcji \textsl{cache}. Łącznie baza danych zajmowała 12 gigabajtów pamięci masowej.
 
 \section{Środowisko testowe}
-Do przeprowadzenia testów wydajnościowych wykorzystywane były 3 serwery wirtualne. Specyfikacje techniczne serwerów wirtualnych, wykorzystanych w testach to: 
+Do przeprowadzenia testów wydajnościowych wykorzystywane były 3 serwery wirtualne. Specyfikacje techniczne serwerów wirtualnych wykorzystanych w testach to: 
 \begin{itemize}
-    \item 8 rdzeni, 16 gigabajtów pamięci RAM, 160 gigabajtów dysku SSD dla serwera aplikacyjnego
-    \item 4 rdzenie, 8 gigabajtów pamięci RAM, 80 gigabajtów dysku SSD dla serwera bazy danych 
-    \item 4 rdzenie, 8 gigabajtów pamięci RAM, 80 gigabajtów dysku SSD dla serwera, na którym uruchomiony był program \textsl{Apache JMeter}
+    \item 8 rdzeni, 16 gigabajtów pamięci RAM, 160 gigabajtów dysku SSD dla serwera aplikacyjnego,
+    \item 4 rdzenie, 8 gigabajtów pamięci RAM, 80 gigabajtów dysku SSD dla serwera bazy danych, 
+    \item 4 rdzenie, 8 gigabajtów pamięci RAM, 80 gigabajtów dysku SSD dla serwera, na którym uruchomiony był program \textsl{Apache JMeter}.
 \end{itemize}
 Serwery komunikowały się po sieci lokalnej (ang. \textsl{LAN}) bezpośrednio między sobą.
 
