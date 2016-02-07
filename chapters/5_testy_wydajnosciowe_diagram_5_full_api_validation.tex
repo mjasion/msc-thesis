@@ -1,0 +1,99 @@
+\pgfplotsset{grid style={dashed}}
+\begin{figure}[!ht]
+\pgfplotstableread[col sep = comma]{csv_queries/requests_per_sec/tomcat_full_api_validation.csv}\csvdata
+\begin{tikzpicture}
+  \begin{axis}[xmin = 0, xmax=900, ymin = 0, scaled y ticks = base 10:-3, xlabel = {Czas [s]}, ylabel = Liczba żądań, legend pos=south east, ymajorgrids,width=13cm, height=6cm] %TODO miary?
+    \addplot[color=blue,mark=none] table[x index=0, y index=1]{\csvdata};
+    \addplot[color=green,mark=none] table[x index=0, y index=2]{\csvdata};
+    \legend{100 klientów,250 klientów}
+  \end{axis}
+\end{tikzpicture}
+\caption{Tomcat 8 - liczba żądań obsłużonych przez aplikację w ciągu sekundy podczas testu walidacji istnienia klucza API}
+\label{fig:tomcat_full_api_validation_rps}
+\end{figure}
+
+\begin{figure}[!ht]
+\pgfplotstableread[col sep = comma]{csv_queries/response_time_distribution/tomcat_full_api_validation_100.csv}\csva
+\pgfplotstableread[col sep = comma]{csv_queries/response_time_distribution/tomcat_full_api_validation_250.csv}\csvb
+\pgfplotsset{
+    /pgfplots/ybar legend/.style={
+    /pgfplots/legend image code/.code={\draw[##1,/tikz/.cd,yshift=-0.25em](0cm,0cm) rectangle(1pt,0.7em);},
+   }
+}
+\begin{tikzpicture}
+  \begin{axis}[ybar, bar width=0.5, xmin = 0, ymin = 0, scaled y ticks = base 10:-5, xlabel = {Czas odpowiedzi [ms]}, ylabel = {Liczba żądań}, ymajorgrids,width=13cm, height=6cm] %TODO miary?
+    \addplot[color=blue, mark=none, fill=blue] table[x index=0, y index=1]{\csva};
+    \addplot[color=green, mark=none, fill=green] table[x index=0, y index=1]{\csvb};
+    \legend{100 klientów,250 klientów}
+  \end{axis}
+\end{tikzpicture}
+\caption{Tomcat 8 - rozkład czasów odpowiedzi aplikacji (95\% odpowiedzi) podczas testu walidacji istnienia klucza API}
+\label{fig:tomcat_full_api_validation_td}
+\end{figure}
+
+\pgfplotsset{grid style={dashed}}
+\begin{figure}[!ht]
+\pgfplotstableread[col sep = comma]{csv_queries/requests_per_sec/jetty_full_api_validation.csv}\csvdata
+\begin{tikzpicture}
+  \begin{axis}[xmin = 0, xmax=900, ymin = 0, scaled y ticks = base 10:-3, xlabel = {Czas [s]}, ylabel = Liczba żądań, legend pos=south east, ymajorgrids,width=13cm, height=6cm] %TODO miary?
+    \addplot[color=blue,mark=none] table[x index=0, y index=1]{\csvdata};
+    \addplot[color=green,mark=none] table[x index=0, y index=2]{\csvdata};
+    \legend{100 klientów,250 klientów}
+  \end{axis}
+\end{tikzpicture}
+\caption{Jetty 9 - liczba żądań obsłużonych przez aplikację w ciągu sekundy podczas testu walidacji istnienia klucza API}
+\label{fig:jetty_full_api_validation_rps}
+\end{figure}
+
+\begin{figure}[!ht]
+\pgfplotstableread[col sep = comma]{csv_queries/response_time_distribution/jetty_full_api_validation_100.csv}\csva
+\pgfplotstableread[col sep = comma]{csv_queries/response_time_distribution/jetty_full_api_validation_250.csv}\csvb
+\pgfplotsset{
+    /pgfplots/ybar legend/.style={
+    /pgfplots/legend image code/.code={\draw[##1,/tikz/.cd,yshift=-0.25em](0cm,0cm) rectangle(1pt,0.7em);},
+   }
+}
+\begin{tikzpicture}
+  \begin{axis}[ybar, bar width=0.5, xmin = 0, ymin = 0, scaled y ticks = base 10:-5, xlabel = {Czas odpowiedzi [ms]}, ylabel = {Liczba żądań}, ymajorgrids,width=13cm, height=6cm] %TODO miary?
+    \addplot[color=blue, mark=none, fill=blue] table[x index=0, y index=1]{\csva};
+    \addplot[color=green, mark=none, fill=green] table[x index=0, y index=1]{\csvb};
+    \legend{100 klientów,250 klientów}
+  \end{axis}
+\end{tikzpicture}
+\caption{Jetty 9 - rozkład czasów odpowiedzi aplikacji (95\% odpowiedzi) podczas testu walidacji istnienia klucza API}
+\label{fig:jetty_full_api_validation_td}
+\end{figure}
+
+\pgfplotsset{grid style={dashed}}
+\begin{figure}[!ht]
+\pgfplotstableread[col sep = comma]{csv_queries/requests_per_sec/go_full_api_validation.csv}\csvdata
+\begin{tikzpicture}
+  \begin{axis}[xmin = 0, xmax=900, ymin = 0, scaled y ticks = base 10:-3, xlabel = {Czas [s]}, ylabel = Liczba żądań, legend pos=south east, ymajorgrids,width=13cm, height=6cm] %TODO miary?
+    \addplot[color=blue,mark=none] table[x index=0, y index=1]{\csvdata};
+    \addplot[color=green,mark=none] table[x index=0, y index=2]{\csvdata};
+    \legend{100 klientów,250 klientów}
+  \end{axis}
+\end{tikzpicture}
+\caption{Go - liczba żądań obsłużonych przez aplikację w ciągu sekundy podczas testu walidacji istnienia klucza API}
+\label{fig:go_full_api_validation_rps}
+\end{figure}
+
+\begin{figure}[!ht]
+\pgfplotstableread[col sep = comma]{csv_queries/response_time_distribution/go_full_api_validation_100.csv}\csva
+\pgfplotstableread[col sep = comma]{csv_queries/response_time_distribution/go_full_api_validation_250.csv}\csvb
+\pgfplotsset{
+    /pgfplots/ybar legend/.style={
+    /pgfplots/legend image code/.code={\draw[##1,/tikz/.cd,yshift=-0.25em](0cm,0cm) rectangle(1pt,0.7em);},
+   }
+}
+\begin{tikzpicture}
+  \begin{axis}[ybar, bar width=0.5, xmin = 0, ymin = 0, scaled y ticks = base 10:-5, xlabel = {Czas odpowiedzi [ms]}, ylabel = {Liczba żądań}, ymajorgrids,width=13cm, height=6cm] %TODO miary?
+    \addplot[color=blue, mark=none, fill=blue] table[x index=0, y index=1]{\csva};
+    \addplot[color=green, mark=none, fill=green] table[x index=0, y index=1]{\csvb};
+    \legend{100 klientów,250 klientów}
+  \end{axis}
+\end{tikzpicture}
+\caption{Go - rozkład czasów odpowiedzi aplikacji (95\% odpowiedzi) podczas testu walidacji istnienia klucza API}
+\label{fig:go_full_api_validation_td}
+\end{figure}
+
