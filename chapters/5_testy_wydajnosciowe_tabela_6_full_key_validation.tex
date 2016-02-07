@@ -1,0 +1,36 @@
+
+\begin{table}[!htb]
+\centering
+\caption{Wykorzystanie procesora i pamięci RAM na serwerze, gdzie uruchomiona była aplikacja}
+\label{tab:app-full-key}
+\begin{tabular}{@{}ccccl@{}}
+\toprule
+\textbf{Język} & \textbf{Liczba wątków} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie CPU (\%)}} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie RAM (MB)}} &  \\ \midrule
+Tomcat 8       & 100                    & 44.94                             & 1996.10                          &  \\
+Tomcat 8       & 250                    & 39.30                            & 2040.71                          &  \\
+Jetty 9       & 100                    & 51.93                             & 2051.50                          &  \\
+Jetty 9       & 250                    & 42.63                             & 2049.01                          &  \\
+Go       & 100                    & 29.86                             & 244.53                          &  \\
+Go       & 250                    & 34.68                             & 251.53                          &  \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\begin{table}[!htb]
+\centering
+\caption{Wykorzystanie procesora i pamięci RAM na serwerze, gdzie uruchomiona była baza danych MongoDB}
+\label{tab:mongo-full-key}
+\begin{tabular}{@{}ccccl@{}}
+\toprule
+\textbf{Język} & \textbf{Liczba wątków} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie CPU (\%)}} & \multicolumn{1}{p{3cm}}{\textbf{Średnie wykorzystanie RAM (MB)}} &  \\ \midrule
+Tomcat 8       & 100                    & 42.32                             & 435.73                          &  \\
+Tomcat 8       & 250                    & 43.57                             & 458.27                          &  \\
+Jetty 9       & 100                    & 60.13                             & 437.91                          &  \\
+Jetty 9       & 250                    & 40.57                             & 436.32                          &  \\
+Go       & 100                    & 38.89                             & 181.49                          &  \\
+Go       & 250                    & 41.61                             & 189.06                          &  \\
+\bottomrule
+\end{tabular}
+\end{table}
+
