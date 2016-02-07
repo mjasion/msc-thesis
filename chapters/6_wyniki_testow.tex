@@ -89,8 +89,24 @@ Z diagramów rozkładu czasów odpowiedzi (rys. \ref{fig:tomcat_full_all_td}, \r
 \input{chapters/6_wyniki_testow_diagram_8_full_all.tex}
 \clearpage
 
-\section{Wykorzystanie zasobów serwerów}
-\input{chapters/6_wyniki_testow_obciazenie.tex}
+\section{Obciążenie serwerów podczas testów - pusta baza danych}
+Diagramy \ref{fig:cpu_utilization_100_clean} i \ref{fig:cpu_utilization_250_clean} prezentują średnie wykorzystanie procesora maszyny, gdzie była uruchomiona testowana aplikacja podczas testu z pustą baz danych. Dane zbierane były przy pomocy programu \textsl{dstat}.
+
+Najniższe wyniki wykorzystania procesora zaobserwowano podczas testów aplikacji \textsl{Go}. Średnio podczas testu aplikacja wykorzystywała od 29\% do 47\% procesor. Średnia wykorzystania procesora podczas testów serwerów \textsl{Tomcat} i \textsl{Jetty} było znacznie wyższe. Dla serwera \textsl{Tomcat} wartość średnia wyniosła od 40\% do 78\%, a \textsl{Jetty} od 36\% do 71\% - zależnie od grupy testów. Średnie wykorzystanie procesora podczas testów z 250 klientami było w większości przypadków niższe. Największa różnica była w grupie testów walidujących istnienie kluczy \textsl{API}
+
+Wykorzystanie pamięci \textsl{RAM} na maszynie podczas testów nie różniło się tak bardzo. Średnio maszyna testowa podczas testu serwera \textsl{Tomcat} miała zajęte 1950 MB podczas testów 100 klientów i 2000 MB dla 250 klientów. Podczas testu serwera \textsl{Jetty} dla 100 i 250 klientów maszyna testowa miała zajęte średnio: 1900 MB i 1760 MB. W trakcie testu aplikacji w \textsl{Go} wykorzystanie pamięci na serwerze było porównywalne i wynosiło mniej niż 250 MB. 
+
+\input{chapters/6_wyniki_testow_diagram_obciazenia_clean.tex}
+
+\section{Obciążenie serwerów podczas testów - baza danych wypełniona danymi początkowymi}
+
+Diagramy \ref{fig:cpu_utilization_100_full} i \ref{fig:cpu_utilization_250_full} prezentują średnie wykorzystanie procesora maszyny, gdzie była uruchomiona testowana aplikacja podczas testu z bazą danych wypełniona danymi początkowymi. 
+
+Najniższe wyniki wykorzystania procesora zaobserwowano podczas testów aplikacji \textsl{Go}. Średnio podczas testów aplikacja wykorzystywała od 23\% do 34\%.  procesor. Serwer \textsl{Jetty} wykorzystywał procesor między 28\% do 81\%, a \textsl{Tomcat} od 27\% do 74\%
+
+Wykorzystanie pamięci \textsl{RAM} na maszynie podczas testów nie różniło się tak bardzo. Średnio maszyna testowa podczas testu aplikacji w języku \textsl{Go} miała zajęte 250 MB. Podczas testu serwera \textsl{Tomcat} dla 100 i 250 klientów maszyna testowa miała zajęte średnio: 1830 MB i 2030 MB. Natomiast podczas testu serwera \textsl{Jetty} pamięć zajęta była w okolicy 2010 MB. 
+
+\input{chapters/6_wyniki_testow_diagram_obciazenia_full.tex}
 \clearpage
 
 \newpage
