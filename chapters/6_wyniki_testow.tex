@@ -12,7 +12,7 @@ Z diagramów prezentujących liczbę żądań obsłużonych w ciągu sekundy prz
 
 Z diagramów rozkładu czasów odpowiedzi aplikacji (rys. \ref{fig:tomcat_clean_api_validation_td}, \ref{fig:jetty_clean_api_validation_td}, \ref{fig:go_clean_api_validation_td}) wynika, że przy 100 klientach średnie czasy odpowiedzi wynosiły: dla serwera \textsl{Tomcat} 13.70 milisekund, dla serwera \textsl{Jetty} 11.42 milisekund, a dla aplikacji w \textsl{Go} 9,44 milisekundy. Najdłużej trwające żądania trwały około 35 milisekund w przypadku serwerów \textsl{Tomcat} i \textsl{Jetty} oraz 18 milisekund przy aplikacji w \textsl{Go}. Przy 250 klientach średnie czasy odpowiedzi aplikacji uruchamianych na serwerach \textsl{Tomcat} i \textsl{Jetty} były prawie takie same i wynosiły odpowiednio 36.32 i 35.52 milisekund, a w aplikacji w \textsl{Go} 22t.47 milisekundy. Najdłużej trwające żądania trwały ponad 90 milisekund w przypadku serwera Tomcat, poniżej 88 milisekund w przypadku serwera \textsl{Jetty} i około 55 milisekundy przy aplikacji w \textsl{Go}. Dodatkowo, przy 250 klientach, dla serwerów \textsl{Tomcat} i \textsl{Jetty} rozkłady czasów odpowiedzi były spłaszczone. 
 
-% \input{chapters/6_wyniki_testow_diagram_1_clean_api_validation.tex}
+\input{chapters/6_wyniki_testow_diagram_1_clean_api_validation.tex}
 \clearpage
 
 \subsection{Test wydajności walidacji istnienia obiektów Cache}
@@ -22,7 +22,7 @@ Z diagramów przedstawiających rozkład ilości żądań obsłużonych przez po
 
 Z diagramów rozkładu czasów odpowiedzi (rys. \ref{fig:tomcat_clean_key_validation_td}, \ref{fig:jetty_clean_key_validation_td}, \ref{fig:go_clean_key_validation_td}) wynika, że przy 100 klientach średnie czasy odpowiedzi wynosiły: dla serwera \textsl{Tomcat} 30.32 milisekund, dla serwera \textsl{Jetty} 23.32 milisekund, a dla aplikacji w \textsl{Go} 13.79 milisekund. Najdłużej trwające żądania trwały około 120 milisekund w przypadku serwera Tomcat, 45 milisekund przy \textsl{Jetty} i tylko 25 milisekund w aplikacji w \textsl{Go}. Przy 250 klientach średnie czasy odpowiedzi aplikacji uruchamianych na serwerach \textsl{Tomcat} i \textsl{Jetty} wynosiły odpowiednio 69.97 i 76.92 milisekundy, a w aplikacji w \textsl{Go} tylko 30.75 milisekundy. Najdłużej trwające żądania trwały 250 milisekund w przypadku serwera Tomcat, okło 120 milisekund w przypadku serwera \textsl{Jetty} i tylko 65 milisekundy przy aplikacji w \textsl{Go}. Czasy odpowiedzi serwera \textsl{Tomcat} w sporej części o były dużo dłuższe niż pokazuje to średnia.
 
-% \input{chapters/6_wyniki_testow_diagram_2_clean_key_validation.tex}
+\input{chapters/6_wyniki_testow_diagram_2_clean_key_validation.tex}
 \clearpage
 
 \subsection{Test wydajności operacji CRUD}
@@ -42,7 +42,7 @@ Z rozkładów ilości żądań obsłużonych przez poszczególne aplikacje w ci�
  
 Z diagramów rozkładu czasów odpowiedzi (rys. \ref{fig:tomcat_clean_all_td}, \ref{fig:jetty_clean_all_td}, \ref{fig:go_clean_all_td}) wynika, że przy 100 klientach średnie czasy odpowiedzi wynosiły: dla serwera \textsl{Tomcat} 27.30  milisekund, dla serwera \textsl{Jetty} 25.63 milisekund i 13.94 milisekund dla aplikacji w \textsl{Go}.  Najdłużej trwające żądania trwały poniżej 110 milisekund w przypadku serwera \textsl{Tomcat}, powyżej 60 milisekund przy \textsl{Jetty} i około 35 milisekund  w aplikacji w \textsl{Go}. Przy 250 klientach średnie czas odpowiedzi aplikacji uruchamianych na serwerach \textsl{Tomcat} i \textsl{Jetty} wynosiły 86.85 i 74.48 milisekund, a w aplikacji w \textsl{Go} tylko 28.06 milisekundy. Najdłużej trwające żądania trwały poniżej 180 milisekund w przypadku serwera \textsl{Tomcat}, 150 milisekund w przypadku serwera \textsl{Jetty} i 85 milisekund przy aplikacji w \textsl{Go}.
 
-% \input{chapters/6_wyniki_testow_diagram_4_clean_all.tex}
+\input{chapters/6_wyniki_testow_diagram_4_clean_all.tex}
 \clearpage
 
 \newpage
@@ -54,7 +54,7 @@ Z rozkładów ilości żądań obsłużonych przez poszczególne aplikacje w ci�
  
 Z diagramów rozkładu czasów odpowiedzi (rys. \ref{fig:tomcat_full_api_validation_td}, \ref{fig:jetty_full_api_validation_td}, \ref{fig:go_full_api_validation_td}) wynika, że przy 100 klientach średnie czasy odpowiedzi wynosiły: dla serwera \textsl{Tomcat} 16.72 milisekund, dla serwera \textsl{Jetty} 10.25 milisekund i 10.24 milisekund dla aplikacji w \textsl{Go}. Najdłużej trwające żądania trwały poniżej 45 milisekund przy serwerze \textsl{Tomcat}, 30 milisekund przy \textsl{Jetty} i 18 milisekund w aplikacji w \textsl{Go}. Przy 250 klientach średnie czasy odpowiedzi aplikacji uruchamianych na serwerach \textsl{Tomcat} i \textsl{Jetty} wynosiły odpowiednio 67.28 i 47.00 milisekundy, a w aplikacji w \textsl{Go} 25.33 milisekundy. Najdłużej trwające żądania trwały poniżej 110 milisekund w przypadku serwera \textsl{Tomcat}, 83 milisekundy w przypadku serwera \textsl{Jetty} i 55 milisekund przy aplikacji w \textsl{Go}.
 
-% \input{chapters/6_wyniki_testow_diagram_5_full_api_validation.tex}
+\input{chapters/6_wyniki_testow_diagram_5_full_api_validation.tex}
 \clearpage
 
 \subsection{Test wydajności walidacji istnienia obiektów Cache}
@@ -86,7 +86,7 @@ Z diagramów przedstawiających rozkład ilości żądań obsłużonych przez po
 
 Z diagramów rozkładu czasów odpowiedzi (rys. \ref{fig:tomcat_full_all_td}, \ref{fig:jetty_full_all_td}, \ref{fig:go_full_all_td}) wynika, że przy 100 klientach średnie czasy odpowiedzi wynosiły: dla serwera \textsl{Tomcat} 35.82 milisekundy, dla serwera \textsl{Jetty} 30.10 milisekund i 19.40 milisekund dla aplikacji w \textsl{Go}. Najdłużej trwające żądania trwały poniżej 100 milisekund przy serwerze \textsl{Tomcat}, 80 milisekund przy serwerze \textsl{Jetty} i  poniżej 50 milisekund  w aplikacji w \textsl{Go}. Przy 250 klientach średnie czasy odpowiedzi aplikacji uruchamianych na serwerach \textsl{Tomcat}  i \textsl{Jetty}   wynosiły odpowiednio 96.96 i 82.34 milisekundy, a w aplikacji w \textsl{Go} tylko 38.33 milisekundy. Najdłużej trwające żądania trwały poniżej 200 milisekund w przypadku serwerów \textsl{Tomcat} i \textsl{Jetty} oraz 130 milisekund w teście aplikacji w \textsl{Go}.
 
-% \input{chapters/6_wyniki_testow_diagram_8_full_all.tex}
+\input{chapters/6_wyniki_testow_diagram_8_full_all.tex}
 \clearpage
 
 \section{Obciążenie serwerów podczas testów - pusta baza danych}
@@ -96,7 +96,7 @@ Najniższe wyniki wykorzystania procesora zaobserwowano podczas testów aplikacj
 
 Wykorzystanie pamięci \textsl{RAM} na maszynie podczas testów nie różniło się tak bardzo. Średnio maszyna testowa podczas testu serwera \textsl{Tomcat} miała zajęte 1950 MB podczas testów 100 klientów i 2000 MB dla 250 klientów. Podczas testu serwera \textsl{Jetty} dla 100 i 250 klientów maszyna testowa miała zajęte średnio: 1900 MB i 1760 MB. W trakcie testu aplikacji w \textsl{Go} wykorzystanie pamięci na serwerze było porównywalne i wynosiło mniej niż 250 MB. 
 
-% \input{chapters/6_wyniki_testow_diagram_obciazenia_clean.tex}
+\input{chapters/6_wyniki_testow_diagram_obciazenia_clean.tex}
 
 \section{Obciążenie serwerów podczas testów - baza danych wypełniona danymi początkowymi}
 
@@ -112,12 +112,10 @@ Wykorzystanie pamięci \textsl{RAM} na maszynie podczas testów nie różniło s
 \newpage
 \section{Interpretacja wyników}
 
-Z przeprowadzonych testów wynika, że aplikacja w języku \textsl{Go} osiągała najlepsze rezultaty przepustowości jak i czasów odpowiedzi. Wyniki przepustowości, niezależnie od liczby klientów, nie różniły się. Na uwagę zasługuje fakt, że gdy liczba klientów była większa, liczba obsługiwanych żądań w ciągu sekundy nie spadała, mimo iż czasy odpowiedzi żądań były wyraźnie dłuższe, dzięki wykorzystywaniu przez język opisywanych \textsl{go routine}.
+Z przeprowadzonych testów wynika, że aplikacja w języku \textsl{Go} osiągała najlepsze rezultaty przepustowości jak i czasów odpowiedzi. Niezależnie od liczby klientów, osiągane wyniki nie różniły się między sobą. Na uwagę zasługuje również fakt, że gdy liczba klientów była większa to liczba obsługiwanych żądań w ciągu sekundy nie spadała tak bardzo, mimo iż czasy odpowiedzi żądań były wyraźnie dłuższe.
 
-Aplikacja w języku \textsl{Java} osiągała wyraźnie niższe rezultaty przepustowości, szczególnie podczas testów z 250 klientami. Porównując wyniki testów 100 i 250 klientów można zaobserwować mniejszą liczbę przetworzonych żądań, wyraźne były też chwilowe spadki przepustowości.  Czasy odpowiedzi również były dłuższe od aplikacji w \textsl{Go}. W niektórych przypadkach testowych były nawet 3 razy dłuższe. 
+Aplikacja w języku \textsl{Java} osiągała wyraźnie niższe rezultaty przepustowości, szczególnie podczas testów z 250 klientami. Porównując wyniki testów 100 i 250 klientów można zaobserwować mniejszą liczbę przetworzonych żądań gy z aplikacji korzystało 250 klientów równolegle. Wyraźne były też chwilowe spadki przepustowości. Czasy odpowiedzi również były dłuższe od aplikacji w \textsl{Go}. Analizując wyniki testowanych serwerów, na których była uruchomiona aplikacja \textsl{Java} lepsze rezultaty zaobserwowano na serwerze \textsl{Jetty}. Zarówno wyniki przepustowości oraz czasów odpowiedzi w większości przypadków testowych wykazywały przewagę nad serwerem \textsl{Tomcat}. 
 
-Analizując wyniki testowanych serwerów, na których była uruchomiona aplikacja \textsl{Java} lepsze rezultaty zaobserwowano na serwerze \textsl{Jetty}. Zarówno wyniki przepustowości oraz czasów odpowiedzi w większości przypadków testowych wykazywały przewagę nad serwerem \textsl{Tomcat}. 
+Analiza wykorzystania zasobów maszyny przez poszczególne aplikacje pokazuje, że aplikacja w \textsl{Go} wymagała znacznie mniejsze zasoby od aplikacji w języku \textsl{Java}. Dzięki temu odpowiednio konfigurując środowisko można uruchomić kilka instancji aplikacji \textsl{Go} równolegle na jednej maszynie, by lepiej wykorzystać jej zasoby. Serwer \textsl{Jetty} w większości przypadków testowych, wymagał nieznacznie większych zasobów (procesora i pamięci \textsl{RAM}) od serwera \textsl{Tomcat}
 
-Analiza wykorzystania zasobów maszyny przez poszczególne aplikacje pokazuje, że aplikacja w \textsl{Go} wymagała znacznie mniejsze zasoby od aplikacji w języku \textsl{Java}. Oznacza to, że odpowiednio konfigurując środowisko można uruchomić kilka instancji aplikacji \textsl{Go} równolegle, by lepiej wykorzystać zasoby maszyny, na której jest uruchomiona.  
-
-Grupą testów podczas której wyniki najbardziej się wahały były testy operacji \textsl{CRUD}, które najbardziej wykorzystywały komunikację z bazą danych \textsl{MongoDB}. Podczas testów widoczne było mniejsze zużycie procesora na maszynie testowej. Najlepsze rezultaty notowano podczas testu walidacji \textsl{API}, gdzie komunikacja z bazą sprowadzała się do sprawdzenia, czy poszukiwany klucz istnieje. Ta grupa testów okazała się najbardziej wykorzystywać zasoby procesora, szczególnie podczas testów aplkiacji w języku \textsl{Java}.
+Grupą testów podczas której wyniki najbardziej się wahały były testy operacji \textsl{CRUD}, które najbardziej wykorzystywały komunikację z bazą danych \textsl{MongoDB}. Podczas testów widoczne było mniejsze zużycie procesora na maszynie testowej. Najlepsze rezultaty notowano podczas testów walidacji \textsl{API} oraz obiektów \textsl{Cache}, gdzie komunikacja z bazą sprowadzała się do sprawdzenia, czy poszukiwany dokument istnieje. Walidacja \textsl{API} okazała się najbardziej wykorzystywać zasoby procesora, podczas testów aplikacji w języku \textsl{Java}. 
