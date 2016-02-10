@@ -1,6 +1,6 @@
 \chapter{Testy wydajnościowe}
 \section{Testy wydajnościowe oprogramowania}
- Testowanie oprogramowanie jest ważnym procesem związanym z jego wytwarzaniem.  Celem testowania jest sprawdzenie czy oprogramowanie jest zgodne ze specyfikacją oraz czy system spełnia oczekiwania klienta. Wykorzystuje się do tego różne  testy. Jednym z typów takich testów są testy wydajnościowe. 
+ Testowanie oprogramowanie jest ważnym procesem związanym z jego wytwarzaniem.  Celem testowania jest sprawdzenie czy oprogramowanie jest zgodne ze specyfikacją oraz czy system spełnia oczekiwania klienta. Wykorzystuje się do tego różnego rodzaju testy. Jednymi z nich są testy  sprawdzające wydajnośc oprogramowania. 
 
 Testy wydajnościowe pozwalają sprawdzić jak oprogramowanie zachowa się w zależności od obciążenia. Można zbadać, czy nie nastąpi przerwa w działaniu systemu, ile czasu będą zajmować poszczególne funkcje systemu, jak wykorzystane będą zasoby systemu oraz, czy pozwala na skalowanie. Mogą one przyjmować różną formę. 
 
@@ -18,7 +18,7 @@ Testy wydajnościowe powinny być prowadzone na środowisku testowym identycznym
 
 \section{Testy wydajnościowe wykorzystane do badań}
 
-Do testów przygotowano dwie aplikacje. Pierwszą z nich była aplikacja w języku \textsl{Java} uruchomiona na dwóch różnych serwerach: \textsl{Tomcat 8} i \textsl{Jetty 9}, które obecnie są jednymi z najpopularniejszych rozwiązań służących do uruchamiania aplikacji \textsl{Java}. Drugą była aplikacja w języku \textsl{GO}, która przy użyciu biblioteki \textsl{HttpRouter} (https://github.com/julienschmidt/httprouter) pozwala na tworzenie aplikacji działającej jako serwer \textsl{HTTP}.
+Do przeprowadenia testów wydajności przygotowano dwie aplikacje. Pierwszą z nich była aplikacja w języku \textsl{Java} uruchomiona na dwóch różnych serwerach: \textsl{Tomcat 8} i \textsl{Jetty 9}, które obecnie są jednymi z najpopularniejszych rozwiązań służących do uruchamiania aplikacji \textsl{Java}. Drugą była aplikacja w języku \textsl{GO}, która przy użyciu biblioteki \textsl{HttpRouter} (https://github.com/julienschmidt/httprouter) pozwala na tworzenie aplikacji działającej jako serwer \textsl{HTTP}.
 
 Każda aplikacja była testowana przez przygotowany zbiór testów w aplikacji \textsl{Apache JMeter}. \textsl{Apache JMeter} pozwala na tworzenie i wykonywanie testów wydajnościowych, symulujących wielu klientów korzystających z aplikacji. Przygotowane testy zostały podzielone na 4 grupy:
 \begin{itemize}
