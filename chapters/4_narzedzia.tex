@@ -1,18 +1,18 @@
 \chapter{Narzędzia wykorzystane do przeprowadzenia testów}
 
 \section{Docker}
-Docker jest platformą dla programistów i administratorów systemów do tworzenia, dostarczania i uruchamiania aplikacji. Pozwala on zbudować aplikację z zależnościami, która  będzie się zachowywać tak samo na środowisku produkcyjnym jak i programistycznym. Dzieje się tak, ponieważ budując aplikację tworzymy obrazy, które po zbudowaniu przenosimy na docelowe środowisko.\\*
-Docker opiera się na kontenerach linuxowych (LXC - Linux Containers). Kontenery w Linuxie są wirtualizacją na poziome systemu operacyjnego, która pozwala na separacje aplikacji od systemu operacyjnego i fizycznej infrastruktury wykorzystywanej m.in. do połączeń sieciowych czy plików. Każdy z kontenerów może uruchomić swój proces, może mieć własnych użytkowników. W jednym systemie może być uruchomiona nieograniczona ilość kontenerów. Konteneryzacja, w przeciwieństwie do wirtualizacji, oferuje niewielki narzut na zasoby. Uruchomienie pojedynczego kontenera ogranicza się do wykonania kilku standardowych poleceń systemowych. 
+Docker \cite{docker} jest platformą dla programistów i administratorów systemów do tworzenia, dostarczania i uruchamiania aplikacji. Pozwala on zbudować aplikację z zależnościami, która  będzie się zachowywać tak samo na środowisku produkcyjnym jak i programistycznym. Dzieje się tak, ponieważ budując aplikację tworzymy obrazy, które po zbudowaniu przenosimy na docelowe środowisko.
 
+Docker opiera się na kontenerach linuxowych (LXC - Linux Containers). Kontenery w Linuxie są wirtualizacją na poziome systemu operacyjnego, która pozwala na separacje aplikacji od systemu i fizycznej infrastruktury wykorzystywanej m.in. do połączeń sieciowych czy plików. Każdy z kontenerów może uruchomić swój proces, który może mieć własnych użytkowników. W jednym systemie może być uruchomiona nieograniczona ilość kontenerów. Konteneryzacja, w przeciwieństwie do wirtualizacji, oferuje niewielki narzut na zasoby systemu. Uruchomienie pojedynczego kontenera ogranicza się do wykonania kilku standardowych poleceń systemowych. 
 
-Dla testów w pracy użyto Docker w wersji 1.9.0.
+Do testów w pracy użyto Docker w wersji 1.9.0.
 
 \section{MongoDB}
-MongoDB (https://www.mongodb.org/) jest nierelacyjną bazą danych (ang. \textsl{NoSQL database}). Główną cechą tej bazy jest brak ściśle zdefiniowanej struktury. Dane w bazie przechowywane są w postaci dokumentów. Dokument jest niczym innym jak obiektem typu \textsl{JSON}. Sama baza  przechowuje jednak dokumenty w formie binarnej, w skrócie nazywaneej \textsl{BSON} (\textsl{Binary JSON}). Dokument sam w sobie jest strukturą złożoną z par klucz-wartość. Wartości w dokumencie mogą być cyframi, napisami, wartościami logicznymi (\textsl{boolean}), tablicami, jak również mogą zagnieżdżać inne dokumenty czy tablice dokumentów. Pojedyncze dokumenty przechowywane są w kolekcji. Kolekcja natomiast musi należeć do określonej bazy.
+MongoDB \cite{mongodb} jest nierelacyjną bazą danych (ang. \textsl{NoSQL database}). Główną cechą tej bazy jest brak ściśle zdefiniowanej struktury. Dane w bazie przechowywane są w postaci dokumentów. Dokument jest niczym innym jak obiektem typu \textsl{JSON}. Sama baza  przechowuje jednak dokumenty w formie binarnej, w skrócie nazywaneej \textsl{BSON} (\textsl{Binary JSON}). Dokument sam w sobie jest strukturą złożoną z par klucz-wartość. Wartości w dokumencie mogą być cyframi, napisami, wartościami logicznymi (\textsl{boolean}), tablicami, jak również mogą zagnieżdżać inne dokumenty czy tablice dokumentów. Pojedyncze dokumenty przechowywane są w kolekcji. Kolekcja natomiast musi należeć do określonej bazy.
 
-Każdy dokument w kolekcji musi mieć swój identyfikator, który  musi być unikalny. Kluczem w dokumencie oznaczającym identyfikator jest \textsl{\_id}. To po identyfikatorze można zmienić pojedynczy dokument. Jeśli zapisywany dokument nie będzie zawierał identyfikatora baza danych sama wypełni to swoim własnym. Identyfikatory są indeksowane, co pozwala przyspieszyć operacje na dokumentach. Projektanci bazy ograniczyli rozmiar pojedynczego dokumentu do \textsl{16MB}. Oznacza to, że do przechowywania większych plików trzeba zastosować inne rozwiązanie.
+Każdy dokument w kolekcji musi mieć swój unikalny identyfikator. Kluczem w dokumencie oznaczającym identyfikator jest \textsl{\_id}. To po identyfikatorze można zmienić pojedynczy dokument. Jeśli zapisywany dokument nie będzie zawierał identyfikatora baza danych sama wypełni go swoim własnym. Identyfikatory są indeksowane, co pozwala przyspieszyć operacje na dokumentach. Projektanci bazy ograniczyli rozmiar pojedynczego dokumentu do \textsl{16MB}. Do przechowywania większych plików trzeba zastosować inne rozwiązanie.
 
- Przykład \ref{lst:mongodocument} prezentuje przykładowy dokument, który zapisany jest w bazie \textsl{MongoDB}
+Przykład \ref{lst:mongodocument} prezentuje przykładowy dokument, który zapisany jest w bazie \textsl{MongoDB}
 
 \begin{lstlisting}[language=JavaScript,caption=Przykład dokumentu zapisanego w bazie MongoDB,label={lst:mongodocument}]
 {
@@ -26,9 +26,9 @@ Każdy dokument w kolekcji musi mieć swój identyfikator, który  musi być uni
 }
 \end{lstlisting}
 
-To, że \textsl{MongoDB} kolekcje nie posiadają zdefiniowanej struktury oznacza,że w kolekcji można zapisać dwa dokumenty, gdzie jedynym wspólnym kluczem będzie \textsl{\_id}. Również w kolekcji mogą się znaleźć dokumenty, które temu samemu polu przypiszą wartości dwóch różnch typów np. boolean i string. Indeksy na kolekcji są bardzo zbliżone do tych znanych z baz relacyjnych. Administrator może założyć indeks unikalny i nieunikalny na jedną lub więcej kolumn. Dzięki założonemu indeksowi czas wyszukiwania dokumentów znacząco skróci się.
+To, że kolekcje w \textsl{MongoDB} nie posiadają zdefiniowanej struktury oznacza, że w kolekcji można zapisać dwa dokumenty, gdzie jedynym wspólnym kluczem będzie \textsl{\_id}. Również w kolekcji mogą się znaleźć dokumenty, które temu samemu polu przypiszą wartości dwóch różnych typów np. boolean i string. Indeksy na kolekcji są bardzo zbliżone do tych znanych z baz relacyjnych. Administrator może założyć indeks unikalny i nieunikalny na jedną lub więcej kolumn. Dzięki założonemu indeksowi czas wyszukiwania dokumentów znacząco skróci się.
 
-W \textsl{MongoDB} dokumenty, w porównaniu do baz relacyjnych, nie mogą posiadać relacji innych niż zagnieżdżenia. Kolejną różnicą jest brak transakcji. W \textsl{MongoDB} nie można wykonać zbioru poleceń. Również zasada atomowości różni się od tej z baz relacyjnych. Jeśli przeprowadzana jest pojedyncza zmiana wielu dokumentów, to zmiana może się udać w całości lub wcale na pojedynczym dokumencie, a nie całym zbiorze, których dotyczy. Brak tych elementów pozwolił na zachowanie wysokiej wydajności, gdy baza składa się z wielu węzłów.
+Dokumenty w \textsl{MongoDB}, w porównaniu do baz relacyjnych, nie mogą posiadać relacji innych niż zagnieżdżenia. Kolejną różnicą jest brak transakcji. W \textsl{MongoDB} nie można wykonać zbioru poleceń. Również zasada atomowości różni się od tej z baz relacyjnych. Jeśli przeprowadzana jest pojedyncza zmiana wielu dokumentów, to zmiana może się udać w całości lub wcale na pojedynczym dokumencie, a nie całym zbiorze, których dotyczy. Brak tych elementów pozwolił na zachowanie wysokiej wydajności, gdy baza składa się z wielu węzłów.
 
 \textsl{MongoDB} znalazł zastosowanie wśród projektów operujących na dużej ilości danych (\textsl{Big Data}). Dzięki prostej konfiguracji można uruchomić instancje bazy na wielu węzłach, by zabezpieczyć dane przed utratą. Baza posiada wiele funkcji agregujących pozwalających na analizę zapisanych danych na wielu węzłach równocześnie. 
 
@@ -36,38 +36,35 @@ Do testów w pracy użyto bazę \textsl{MongoDB} w wersji \textsl{3.0}.
 
 
 \section{Apache JMeter}
-\textsl{Apache JMeter} (http://jmeter.apache.org/) jest programem służącym do wykonywania testów aplikacji w celu zmierzenia jej wydajności. Początkowo został stworzony do tworzenia testów serwisów internetowych. Z czasem został jednak rozszerzony o dodatkowe funkcje. \textsl{Apache JMeter} można użyć do symulowania wysokiego obciążenia aplikacji na serwerze, sieci lub innych testowanych obiektach.
+\textsl{Apache JMeter} \cite{jmeter} jest programem służącym do wykonywania testów aplikacji w celu zmierzenia ich wydajności. Początkowo wykorzystywany był do tworzenia testów serwisów internetowych. Z czasem został rozszerzony o dodatkowe funkcje. \textsl{Apache JMeter} można użyć do symulowania wysokiego obciążenia aplikacji na serwerze, sieci lub innych testowanych obiektach.
 Obecnie \textsl{Apache JMeter} można zastosować do testowania serwerów i protokołów:
 \begin{itemize}
 \item HTTP,
 \item HTTPS,
 \item FTP,
 \item SOAP oraz REST,
-\item relacyjne bazy danych - przy użyciu sternika JDBC,
-\item nierelacyjne bazy danych np MongoDB,
-\item usług pocztowych wykorzstujących protokoły: SMTP, POP3 oraz IMAP,
+\item relacyjne bazy danych - przy użyciu sterownika JDBC,
+\item nierelacyjne bazy danych np. MongoDB,
+\item usług pocztowych wykorzystujących protokoły: SMTP, POP3 oraz IMAP,
 \item TCP.
 \end{itemize}
-
-
 \textsl{Apache JMeter} można rozszerzać o własne pluginy, więc lista usług dostępnych do testowania jest nieograniczona. 
 
 \textsl{Apache JMeter} jest wielowątkowym narzędziem, przez co można  wykonywać ten sam test rówlnolegle symulując w ten sposób wielu urzytkowników. 
 
-% TODO Jak tworzyć testy
-Pierwsza stabilna wersja Apache JMeter została wydana 15 grudnia 1998r.           Dla testów w pracy użyto wersji 2.13, która została wydana 14 marca 2015r.
+Pierwsza stabilna wersja Apache JMeter została wydana 15 grudnia 1998r. Do testów w pracy użyto wersji 2.13.
 
 \section{Digitalocean}
-Digitalocean (https://www.digitalocean.com/) jest usługą pozwalającą na zakup wirtualnych serwerów w tzw. chmurze. Zastosowany model chmury to \textsl{Infrastructure as a Service} (skrót: \textsl{IAAS}, z ang. infrastruktura jako usługa), dzięki której klient może kupić zasoby sprzętowe (dysk, procesor, łącze, pamięć RAM) w zależności od potrzeb i budżetu. Dla klientów zaletą takiego modelu jest możliwość zakupu tylko wtedy, gdy dana usługa jest potrzeba. Kolejną zaletą jest możliwość dostosowania potrzebnych zasobów w zależności od obciążenia aplikacji.
+Digitalocean \cite{digitalocean} jest usługą pozwalającą na zakup wirtualnych serwerów w tzw. chmurze. Zastosowany model chmury to \textsl{Infrastructure as a Service} (skrót: \textsl{IAAS}, z ang. infrastruktura jako usługa), dzięki której klient może kupić zasoby sprzętowe (dysk, procesor, łącze, pamięć RAM) w zależności od potrzeb i budżetu. Dla klientów zaletą takiego modelu jest możliwość zakupu tylko wtedy, gdy dana usługa jest potrzeba. Kolejną zaletą jest możliwość dostosowania potrzebnych zasobów w zależności od obciążenia aplikacji.
 
 Digitalocean pozwala na wybór lokalizacji, w której kupowany serwer wirtualny będzie uruchomiony. Wśród obecnie dostępnych lokalizacji są Amsterdam, Frankfurt, Londyn, Nowy Jork, Singapur, San Francisco oraz Toronto. Taka możliwość pozwala tworzyć i uruchamiać aplikację w serwerowniach jak najbliżej docelowych użytkowników. 
 
 \section{Groovy i Spock} 
 \label{groovy_and_spock}
 
-\textsl{Groovy} jest językiem obiektowym podobnym do języka \textsl{Java}. Język ten kompilowany jest do kodu bajtowego \textsl{Java} dzięki czemu może być uruchomiony na maszynie wirtualnej \textsl{Java}. 
+\textsl{Groovy} jest językiem obiektowym podobnym do języka \textsl{Java}. Język ten kompilowany jest do kodu bajtowego \textsl{Java} dzięki czemu może być uruchomiony na jego maszynie wirtualnej. 
 
-\textsl{Groovy} wprowadza kilka funkcji, które nie są dostępne w języku \textsl{Java}. Pierwszą z nich jest możliwość stosowania domknięć (ang. \textsl{closure}), które pojawiły się dopiero w 8 wersji języka \textsl{Java}, w postaci wyrażeń \textsl{lambda}. \textsl{Groovy} pozwala również na tworzenie klas na dwa sposoby: dynamicznie interpretowanych oraz statycznie kompilowanych. Ostatnią funkcją dostępną w \textsl{Groovy} jest możliwość tworzenia języków dziedzinowych (ang. \textsl{domain-specific language}). Funkcja ta jest wykorzystywana w bibliotece \textsl{Spock} służącej do testowania tworzonego oprogramowania.
+\textsl{Groovy} wprowadza kilka funkcji, które nie były dostępne we wcześniejszych wersjach języka \textsl{Java}. Pierwszą z nich jest możliwość stosowania domknięć (ang. \textsl{closure}), które pojawiły się dopiero w 8 wersji języka \textsl{Java}, w postaci wyrażeń \textsl{lambda}. \textsl{Groovy} pozwala również na tworzenie klas na dwa sposoby: dynamicznie interpretowanych oraz statycznie kompilowanych. Ostatnią funkcją dostępną w \textsl{Groovy} jest możliwość tworzenia języków dziedzinowych (ang. \textsl{domain-specific language}). Funkcja ta jest wykorzystywana w bibliotece \textsl{Spock} służącej do testowania tworzonego oprogramowania.
 
 Biblioteka \textsl{Spock} służy do tworzenia testów jednostkowych i integracyjnych w zachowaniu praktyki \textsl{BDD} (ang. \textsl{behavior-driven development}). Biblioteka wymaga języka \textsl{Groovy}, a do swojego działania wykorzystuje m.in. bibliotekę \textsl{JUnit} do uruchamiania testów oraz \textsl{Mockito} do tworzenia atrap obiektów (ang. \textsl{mock}). 
 
