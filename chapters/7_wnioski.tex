@@ -1,7 +1,27 @@
-\chapter{Wnioski}
+\chapter{Podsumowanie}
 
-Przedmiotem pracy było opracowanie i zaimplementowanie aplikacji, w dwóch różnych językach programowania (\textsl{Java} i \textsl{Go}), które posłużą do przeprowadzenia testów wydajnościowych. Stworzone aplikacje były aplikacjami \textsl{RESTful}, pozwalającymi na komunikacje z nimi przy pomocy protokołu \textsl{HTTP}. Aplikacje do działania wykorzystywały dodatkowo bazę danych \textsl{MongoDB}. Testy wydajnościowe zostały przeprowadzone na specjalnie przygotowanym środowisku.
+Przedmiotem pracy było porównanie wydajności serwisów \textsl{RESTful} w wybranych platformach programowania. Na potrzeby badań opracowano i zaimplementowano dwie identyczne aplikacje w różnych językach programowania: \textsl{Java} i \textsl{Go}. Na aplikacjach przeprowadzono testy wydajnościowe, na podstawie których oceniono ich wydajność.
 
-Coś tu.....
+Stworzone aplikacje były usługami typu \textsl{RESTful}, z którymi komunikacja odbywała się protokołem \textsl{HTTP}. Funkcje aplikacji pozwalały na zapisywanie, modyfikowanie i odczytywanie danych  zapisanych przez użytkowników. Użytkownicy autoryzowali się specjalnie dla nich wygenerowanym, unikalnym kluczem. Aplikacje do działania wykorzystywały wydajną bazę danych \textsl{MongoDB}.
 
-Składnie obu języków od siebie się różnią. Język \textsl{Java} jest językiem obiektowym. \textsl{Go} natomiast pozwalają na stosowanie niewielu elementów obiektowości. Również obsługa błędów jest inna w obu językach. \textsl{Java} posiada wyjątki, natomiast w \textsl{Go} obsługa błędnych sytuacji sprowadza się to zwracania obiektu typu \textsl{Error}.
+W celu przeprowadzenia testów przygotowane zostało specjalne środowisko, składające się z trzech maszyn wirtualnych. Najwydajniejsza z maszyn wykorzystywana była do uruchamiania przygotowanych aplikacji, druga jako baza danych, a  trzecia  służyła do uruchamiania testów wydajnościowych.
+
+Składnie języków użytych w aplikacjach zasadniczo różnią się od siebie. Język \textsl{Java} jest językiem obiektowym, podczas gdy \textsl{Go} pozwala na zastosowanie niewielu technik programowania obiektowego. Również obsługa błędów w obu językach jest inna. \textsl{Java} wykorzystuje do tego mechanizm rzucania i łapania wyjątków, a w \textsl{Go} obsługa błędnych sytuacji opiera się na zwracaniu z funkcji i metod obiektów typu \textsl{Error}.
+
+Aplikacja w języku \textsl{Java} ze względu na zastosowaną technologię (\textsl{Java EE}), wymagała zastosowania kontenerów aplikacji do jej uruchomienia. W celu porównania testy przeprowadzane były z wykorzystaniem dwóch najpopularniejszych kontenerów: \textsl{Tomcat} i \textsl{Jetty}. 
+
+Na podstawie  przeprowadzonych testów można jednoznacznie stwierdzić, że aplikacja w języku \textsl{Go} osiągała najlepsze rezultaty. Wyniki przepustowość tej aplikacji  była wyższe od aplikacji w języku \textsl{Java} dla każdego przypadku testowego i nie zależały od obciążenia  Przepustowość nieznacznie się różniła podczas Dla testów ze 100  i 250 klientami korzystającymi równolegle z aplikacji .Również czasy odpowiedzi były zdecydowanie krótsze od aplikacji w języku \textsl{Java}, a ich rozłożenie było bardziej równomierne. Aplikacjav w języku \textsl{Go} również wymagała znacznie mniejszych zasobów systemowych .
+
+W przypadku serwerów \textsl{Tomcat} i \textsl{Jetty} przepustowość charakteryzowała się dużym zróżnicowaniem, a rozkład czasów odpowiedzi był bardzo wydłużony. \textsl{Jetty} w większości przypadków osiągał lepsze wyniki od serwera \textsl{Tomcat}, jednak wymagał nieznacznie większych zasobów procesora jak i pamięci. Oba serwery do działania wymagały około 6 razy więcej pamięci od aplikacji w \textsl{Go}. 
+
+
+\begin{itemize}
+    \item najwydajniejszą  okazała się aplikacja napisana w języku \textsl{Go},
+    \item aplikacja w języku \textsl{Go} osiągała zbliżone rezultaty przepustowości w teście ze 100 i 250 klientami,
+    \item czasy odpowiedzi aplikacji w języku \textsl{Go} były zdecydowanie krótsze równomiernie rozłożone, niezależnie od przypadku testowego,
+    \item aplikacja w języku \textsl{Java} osiągała niemal dwa razy gorsze wyniki przy większym obciążeniu (w teście z 250 klientami) niż aplikacja w \textsl{Go},
+    \item serwer \textsl{Jetty} w większości testów osiągał lepsze wyniki od serwera \textsl{Tomcat}, 
+    \item najbardziej oszczędną aplikacją pod względem zasobów systemowych była aplikacja w języku \textsl{Go},
+    \item serwer \textsl{Tomcat} niewiele mniejszych zasobów systemowych od serwera \textsl{Jetty}
+    \item aplikacja w języku \textsl{Go} wymagała około 9 razy mniej pamięci niż \textsl{Tomcat} i \textsl{Jetty}
+\end{itemize}
