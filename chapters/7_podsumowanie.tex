@@ -6,22 +6,15 @@ Stworzone aplikacje były usługami typu \textsl{RESTful}, z którymi komunikacj
 
 W celu przeprowadzenia testów przygotowane zostało specjalne środowisko, składające się z trzech maszyn wirtualnych. Najwydajniejsza z maszyn wykorzystywana była do uruchamiania przygotowanych aplikacji, druga jako baza danych, a  trzecia  służyła do uruchamiania testów wydajnościowych.
 
-Składnie języków użytych w aplikacjach zasadniczo różnią się od siebie. Język \textsl{Java} jest językiem obiektowym, podczas gdy \textsl{Go} pozwala na zastosowanie niewielu technik programowania obiektowego. Również obsługa błędów w obu językach jest inna. \textsl{Java} wykorzystuje do tego mechanizm rzucania i łapania wyjątków, a w \textsl{Go} obsługa błędnych sytuacji opiera się na zwracaniu z funkcji i metod obiektów typu \textsl{Error}.
+Składnie języków użytych w aplikacjach zasadniczo różnią się od siebie. Jedną z nich jest fakt, że język \textsl{Java} jest językiem obiektowym, podczas gdy \textsl{Go} pozwala na zastosowanie niewielu technik programowania obiektowego. Również obsługa błędów w obu językach jest inna. \textsl{Java} wykorzystuje do tego mechanizm rzucania i łapania wyjątków, a w \textsl{Go} obsługa błędnych sytuacji opiera się na zwracaniu z funkcji i metod obiektów typu \textsl{Error}.
 
-Aplikacja w języku \textsl{Java} ze względu na zastosowaną technologię (\textsl{Java EE}), wymagała zastosowania kontenerów aplikacji do jej uruchomienia. W celu porównania testy przeprowadzane były z wykorzystaniem dwóch najpopularniejszych kontenerów: \textsl{Tomcat} i \textsl{Jetty}. 
-
+Ze względu na zastosowaną technologię (\textsl{Java EE}) aplikacja w języku \textsl{Java} wymagała zastosowania kontenerów aplikacji. Dla porównania testy przeprowadzane były z wykorzystaniem dwóch najpopularniejszych kontenerów: \textsl{Tomcat} i \textsl{Jetty}. 
+ 
 Na podstawie  przeprowadzonych testów można jednoznacznie stwierdzić, że aplikacja w języku \textsl{Go} osiągała najlepsze rezultaty. Wyniki przepustowości tej aplikacji były wyższe od aplikacji w języku \textsl{Java} dla każdego  testowego przypadku i nie zależały od obciążenia.  Czasy odpowiedzi były również zdecydowanie krótsze, a ich rozłożenie było bardziej równomierne. Aplikacja w języku \textsl{Go} do działania wykorzystywała znacznie mniej zasobów systemowych.    
 
 Aplikacja w języku \textsl{Java} uruchomiona na serwerach \textsl{Tomcat} i \textsl{Jetty} charakteryzowała się dużym zróżnicowaniem przepustowości, czasy odpowiedzi były zdecydowanie dłuższe, a ich rozkład był nierównomierny. Wyniki uzyskane na serwerze \textsl{Jetty} w większości przypadków były lepsze od serwera \textsl{Tomcat}, jednak serwer ten wymagał nieznacznie większych zasobów procesora  i pamięci. W porównaniu z aplikacją w języku \textsl{Go} oba serwery wymagały około 6 razy więcej pamięci i nieznacznie bardziej wykorzystywały procesor.
 
+Niskie wykorzystanie zasobów systemowych pozwala jest sporą zaletą, jeśli architektura systemu składa się z małych usług, które można uruchamiać w rozproszonym środowisku. Dzięki temu można uruchomić wiele aplikacji, na dużo mniejszej ilości serwerów co przełoży się na oszczędności w utrzymaniu całego systemu. 
 
-% \begin{itemize}
-%     \item najwydajniejszą  okazała się aplikacja napisana w języku \textsl{Go},
-%     \item aplikacja w języku \textsl{Go} osiągała zbliżone rezultaty przepustowości w teście ze 100 i 250 klientami,
-%     \item czasy odpowiedzi aplikacji w języku \textsl{Go} były zdecydowanie krótsze równomiernie rozłożone, niezależnie od przypadku testowego,
-%     \item aplikacja w języku \textsl{Java} osiągała niemal dwa razy gorsze wyniki przy większym obciążeniu (w teście z 250 klientami) niż aplikacja w \textsl{Go},
-%     \item serwer \textsl{Jetty} w większości testów osiągał lepsze wyniki od serwera \textsl{Tomcat}, 
-%     \item najbardziej oszczędną aplikacją pod względem zasobów systemowych była aplikacja w języku \textsl{Go},
-%     \item serwer \textsl{Tomcat} niewiele mniejszych zasobów systemowych od serwera \textsl{Jetty}
-%     \item aplikacja w języku \textsl{Go} wymagała około 9 razy mniej pamięci niż \textsl{Tomcat} i \textsl{Jetty}
-% \end{itemize}
+Podsumowując testowanie aplikacji i całych systemów pod kątem ich wydajności oraz jest ważnym elementem podczas ich wytwarzania. Dzięki testom można określić jak dużo użytkowników jest w stanie w danym momencie korzystać, jak szybko aplikacja działa czy też jaki jest punkt krytyczny, po którym aplikacja spowolni lub się wyłączy. Można również wykryć i wyeliminować zawczasu najsłabsze punkty systemu i je poprawić. Nieprzygotowanie i nieprzeprowadzenie takich testów może się okazać brzemienne w skutkach gdy system będzie dostępny publicznie a jego popularność przerośnie najśmielsze założenia projektantów.
+
