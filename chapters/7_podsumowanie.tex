@@ -8,7 +8,7 @@ W celu przeprowadzenia testów przygotowane zostało specjalne środowisko skła
 
 Składnie języków użytych w aplikacjach zasadniczo różnią się od siebie. Jedną z nich jest fakt, że język \textsl{Java} jest językiem obiektowym, podczas gdy \textsl{Go} pozwala na zastosowanie niewielu technik programowania obiektowego. Również obsługa błędów w obu językach jest inna. \textsl{Java} wykorzystuje do tego mechanizm rzucania i łapania wyjątków, a w \textsl{Go} obsługa błędnych sytuacji opiera się na zwracaniu z funkcji i metod obiektów typu \textsl{Error}.
 
-Ze względu na zastosowaną technologię (\textsl{Java EE}) aplikacja w języku \textsl{Java} wymagała zastosowania kontenerów aplikacji. w  celu porównania, testy przeprowadzane były z wykorzystaniem dwóch najpopularniejszych kontenerów: \textsl{Tomcat} i \textsl{Jetty}. 
+Ze względu na zastosowaną technologię (\textsl{Java EE}) aplikacja w języku \textsl{Java} wymagała zastosowania kontenerów aplikacji. W celu porównania, testy przeprowadzane były z wykorzystaniem dwóch najpopularniejszych kontenerów: \textsl{Tomcat} i \textsl{Jetty}. 
  
 Na podstawie  przeprowadzonych testów można jednoznacznie stwierdzić, że aplikacja w języku \textsl{Go} osiągała najlepsze rezultaty. Wyniki przepustowości tej aplikacji były wyższe od aplikacji w języku \textsl{Java} dla każdego  testowego przypadku i nie zależały od obciążenia.  Czasy odpowiedzi były również zdecydowanie krótsze, a ich rozłożenie było bardziej równomierne.    
 
