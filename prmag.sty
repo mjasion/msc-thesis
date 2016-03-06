@@ -58,9 +58,14 @@
  \global\@topnum\z@ \@maketitle \fi\thispagestyle{empty}\@thanks
  \endgroup
  \newpage
+  % Dodanie podziekowania
+ \@ifundefined{@podziekowania}{\relax}{%
+ \@podziekowania
+ \newpage}
  \@streszczenie
  \newpage
  \@oswiadczenie
+ 
 \cleardoublepage
    \setcounter{page}{1}
    \pagenumbering{roman}
@@ -77,10 +82,6 @@
 %   \vfill
 %   \thispagestyle{empty}
  \fi
- % Dodanie podziekowania
- \@ifundefined{@podziekowania}{\relax}{%
- \@podziekowania
- \newpage}
   % strona tutulowa
  \cleardoublepage
   \setcounter{page}{1}
