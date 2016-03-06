@@ -2,7 +2,7 @@
 \section{Opis aplikacji}
 Aplikacja stworzona na potrzeby przeprowadzenia badań jest serwisem typu \textsl{RESTful}. Jej celem jest przechowywanie danych w bazie w postaci \textsl{klucz-wartość}. Aby móc skorzystać z aplikacji klient musi się autoryzować unikalnym kluczem (\textsl{API key}). Klient posiadający klucz może zapisywać i odczytywać dane. 
 
-Wykorzystywany w aplikacji model składa się z dwóch klas jednakowo odwzorowane na kolekcjach bazy \textsl{MongoDB}. Pierwsza klasa, \textsl{Api}, służy do przechowywania w bazie danych informacji o zarejestrowanych kluczach \textsl{API} (\textsl{API key}). Indeksem głównym w kolekcji jest pole \textsl{key}.
+Wykorzystywany w aplikacji model składa się z dwóch klas jednakowo odwzorowanych na kolekcjach bazy \textsl{MongoDB}. Pierwsza klasa, \textsl{Api}, służy do przechowywania w bazie danych informacji o zarejestrowanych kluczach \textsl{API} (\textsl{API key}). Indeksem głównym w kolekcji jest pole \textsl{key}.
 
 Druga klasa, \textsl{Cache}, jest obiektem służącym do przechowywania danych \textsl{klucz-wartość}, które klient chce przechować w bazie.
 Kolekcja \textsl{Cache} posiada trzy indeksy:\begin{itemize}
