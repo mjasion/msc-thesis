@@ -8,7 +8,7 @@ Docker opiera się na kontenerach linuxowych (LXC - Linux Containers). Kontenery
 Do testów w pracy użyto Docker w wersji 1.9.0.
 
 \section{MongoDB}
-MongoDB \cite{mongodb} jest nierelacyjną bazą danych (ang. \textsl{NoSQL database}). Główną cechą tej bazy jest brak ściśle zdefiniowanej struktury. Dane w bazie przechowywane są w postaci dokumentów. Dokument jest niczym innym jak obiektem typu \textsl{JSON}. Sama baza  przechowuje jednak dokumenty w formie binarnej, w skrócie nazywaneej \textsl{BSON} (\textsl{Binary JSON}). Dokument sam w sobie jest strukturą złożoną z par klucz-wartość. Wartości w dokumencie mogą być cyframi, napisami, wartościami logicznymi (\textsl{boolean}), tablicami, jak również mogą zagnieżdżać inne dokumenty czy tablice dokumentów. Pojedyncze dokumenty przechowywane są w kolekcji. Kolekcja natomiast musi należeć do określonej bazy.
+MongoDB \cite{mongodb} jest nierelacyjną bazą danych (ang. \textsl{NoSQL database}). Główną cechą tej bazy jest brak ściśle zdefiniowanej struktury. Dane w bazie przechowywane są w postaci dokumentów. Dokument jest niczym innym jak obiektem typu \textsl{JSON}. Sama baza  przechowuje jednak dokumenty w formie binarnej, w skrócie nazywanej \textsl{BSON} (\textsl{Binary JSON}). Dokument sam w sobie jest strukturą złożoną z par klucz-wartość. Wartości w dokumencie mogą być cyframi, napisami, wartościami logicznymi (\textsl{boolean}), tablicami, jak również mogą zagnieżdżać inne dokumenty czy tablice dokumentów. Pojedyncze dokumenty przechowywane są w kolekcji. Kolekcja natomiast musi należeć do określonej bazy.
 
 Każdy dokument w kolekcji musi mieć swój unikalny identyfikator. Kluczem w dokumencie oznaczającym identyfikator jest \textsl{\_id}. To po identyfikatorze można zmienić pojedynczy dokument. Jeśli zapisywany dokument nie będzie zawierał identyfikatora baza danych sama wypełni go swoim własnym. Identyfikatory są indeksowane, co pozwala przyspieszyć operacje na dokumentach. Projektanci bazy ograniczyli rozmiar pojedynczego dokumentu do \textsl{16MB}. Do przechowywania większych plików trzeba zastosować inne rozwiązanie.
 
@@ -50,7 +50,7 @@ Obecnie \textsl{Apache JMeter} można zastosować do testowania serwerów i prot
 \end{itemize}
 \textsl{Apache JMeter} można rozszerzać o własne pluginy, więc lista usług dostępnych do testowania jest nieograniczona. 
 
-\textsl{Apache JMeter} jest wielowątkowym narzędziem, przez co można  wykonywać ten sam test rówlnolegle symulując w ten sposób wielu urzytkowników. 
+\textsl{Apache JMeter} jest wielowątkowym narzędziem, przez co można  wykonywać ten sam test równolegle symulując w ten sposób wielu użytkowników. 
 
 Pierwsza stabilna wersja Apache JMeter została wydana 15 grudnia 1998r. Do testów w pracy użyto wersji 2.13.
 
@@ -74,4 +74,4 @@ W przeciwieństwie do innych bibliotek służących do testowania, w \textsl{Spo
     \item \textsl{when} - gdzie określana jest funkcja, którą się testuje,
     \item \textsl{then} - gdzie sprawdzane jest, czy testowana funkcja zachowała się poprawnie.
 \end{itemize}
-\textsl{Given-When-Then} jest stylem twotrzenia specyfikacji zachowań aplikacji, który został zapoczątkowany wraz z metodyką \textsl{BDD} (ang. \textsl{behavior-driven development}). \textsl{BDD} polega polega na tworzeniu oprogramowania poprzez opisywanie zachowania. Wspólnie z metodyką \textsl{TDD} (ang. \textsl{test-driven development}), która polega na tworzeniu oprogramowania sterowanego testami, należą do zbioru metodyk zwinnego wytwarzania oprogramowania \textsl{Agile}.
+\textsl{Given-When-Then} jest stylem tworzenia specyfikacji zachowań aplikacji, który został zapoczątkowany wraz z metodyką \textsl{BDD} (ang. \textsl{behavior-driven development}). \textsl{BDD} polega polega na tworzeniu oprogramowania poprzez opisywanie zachowania. Wspólnie z metodyką \textsl{TDD} (ang. \textsl{test-driven development}), która polega na tworzeniu oprogramowania sterowanego testami, należą do zbioru metodyk zwinnego wytwarzania oprogramowania \textsl{Agile}.
