@@ -3,7 +3,7 @@
 \section{Docker}
 Docker \cite{docker} jest platformą dla programistów i administratorów systemów do tworzenia, dostarczania i uruchamiania aplikacji. Pozwala on zbudować aplikację z zależnościami, która  będzie się zachowywać tak samo na środowisku produkcyjnym jak i programistycznym. Dzieje się tak, ponieważ budując aplikację tworzymy obrazy, które po zbudowaniu przenosimy na docelowe środowisko.
 
-Docker opiera się na kontenerach linuxowych (LXC - Linux Containers). Kontenery w Linuxie są wirtualizacją na poziome systemu operacyjnego, która pozwala na separacje aplikacji od systemu i fizycznej infrastruktury wykorzystywanej m.in. do połączeń sieciowych czy plików. Każdy z kontenerów może uruchomić swój proces, który może mieć własnych użytkowników. W jednym systemie może być uruchomiona nieograniczona ilość kontenerów. Konteneryzacja, w przeciwieństwie do wirtualizacji, oferuje niewielki narzut na zasoby systemu. Uruchomienie pojedynczego kontenera ogranicza się do wykonania kilku standardowych poleceń systemowych. 
+Docker opiera się na kontenerach linuxowych (\textsl{LXC - Linux Containers}). Kontenery w Linuxie są wirtualizacją na poziome systemu operacyjnego, która pozwala na separacje aplikacji od systemu i fizycznej infrastruktury wykorzystywanej m.in. do połączeń sieciowych czy plików. Każdy z kontenerów może uruchomić swój proces, który może mieć własnych użytkowników. W jednym systemie może być uruchomiona nieograniczona ilość kontenerów. Konteneryzacja, w przeciwieństwie do wirtualizacji, oferuje niewielki narzut na zasoby systemu. Uruchomienie pojedynczego kontenera ogranicza się do wykonania kilku standardowych poleceń systemowych.
 
 Do testów w pracy użyto Docker w wersji 1.9.0.
 
@@ -26,7 +26,7 @@ Przykład \ref{lst:mongodocument} prezentuje przykładowy dokument, który zapis
 }
 \end{lstlisting}
 
-To, że kolekcje w \textsl{MongoDB} nie posiadają zdefiniowanej struktury oznacza, że w kolekcji można zapisać dwa dokumenty, gdzie jedynym wspólnym kluczem będzie \textsl{\_id}. Również w kolekcji mogą się znaleźć dokumenty, które temu samemu polu przypiszą wartości dwóch różnych typów np. boolean i string. Indeksy na kolekcji są bardzo zbliżone do tych znanych z baz relacyjnych. Administrator może założyć indeks unikalny i nieunikalny na jedną lub więcej kolumn. Dzięki założonemu indeksowi czas wyszukiwania dokumentów znacząco skróci się.
+To, że kolekcje w \textsl{MongoDB} nie posiadają zdefiniowanej struktury oznacza, że w kolekcji można zapisać dwa dokumenty, gdzie jedynym wspólnym kluczem będzie \textsl{\_id}. Również w kolekcji mogą się znaleźć dokumenty, które temu samemu polu przypiszą wartości dwóch różnych typów np. boolean i string. Indeksy na kolekcji są bardzo zbliżone do tych znanych z baz relacyjnych. Administrator może założyć indeks unikalny i nieunikalny, na jedną lub więcej kolumn. Dzięki założonemu indeksowi czas wyszukiwania dokumentów znacząco skróci się.
 
 Dokumenty w \textsl{MongoDB}, w porównaniu do baz relacyjnych, nie mogą posiadać relacji innych niż zagnieżdżenia. Kolejną różnicą jest brak transakcji. W \textsl{MongoDB} nie można wykonać zbioru poleceń. Również zasada atomowości różni się od tej z baz relacyjnych. Jeśli przeprowadzana jest pojedyncza zmiana wielu dokumentów, to zmiana może się udać w całości lub wcale na pojedynczym dokumencie, a nie całym zbiorze, których dotyczy. Brak tych elementów pozwolił na zachowanie wysokiej wydajności, gdy baza składa się z wielu węzłów.
 
